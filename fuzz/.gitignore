@@ -1,4 +1,9 @@
-target
-corpus
-artifacts
-coverage
+target/
+corpus/
+artifacts/
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db  
