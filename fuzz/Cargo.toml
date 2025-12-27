@@ -34,29 +34,28 @@ version = "0.9.3"
 default-features = false
 features = ["atty", "humantime", "termcolor"]
 
+[lib]
+path = "src/lib.rs"
+
 # Prevent this from interfering with workspaces
 [workspace]
 members = ["."]
 
-[[bin]]
-name = "regex_automata_deserialize_dense_dfa"
-path = "fuzz_targets/regex_automata_deserialize_dense_dfa.rs"
+#[[bin]]
+#name = "regex_automata_deserialize_dense_dfa"
+#path = "fuzz_targets/regex_automata_deserialize_dense_dfa.rs"
+
+#[[bin]]
+#name = "regex_automata_deserialize_sparse_dfa"
+#path = "fuzz_targets/regex_automata_deserialize_sparse_dfa.rs"
+
+#[[bin]]
+#name = "ast_roundtrip"
+#path = "fuzz_targets/ast_roundtrip.rs"
 
 [[bin]]
-name = "regex_automata_deserialize_sparse_dfa"
-path = "fuzz_targets/regex_automata_deserialize_sparse_dfa.rs"
-
-[[bin]]
-name = "ast_roundtrip"
-path = "fuzz_targets/ast_roundtrip.rs"
-
-[[bin]]
-name = "generate_eqs"
-path = "fuzz_targets/generate_eqs.rs"
-
-[[bin]]
-name = "test"
-path = "fuzz_targets/test.rs"
+name = "fuzz_diff_eqs"
+path = "fuzz_targets/fuzz_diff_eqs.rs"
 
 [profile.release]
 opt-level = 3

@@ -1,4 +1,3 @@
-// moved to src/eqs.rs
 #![allow(deprecated)]
 #![allow(unused_variables)]
 use egg::{define_language, EGraph, Id, RecExpr, Rewrite, Runner, rewrite, Language};

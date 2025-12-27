@@ -1,3 +1,4 @@
+// moved to src/diff.rs
 #![no_main]
 #![allow(deprecated)]
 #![allow(unused_variables)]
