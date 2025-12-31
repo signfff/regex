@@ -1,0 +1,1 @@
+cargo fuzz run fuzz_diff_eqs -- -max_len=512 -runs=10000

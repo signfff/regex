@@ -1,9 +1,41 @@
 #![no_main]
-use libfuzzer_sys::{fuzz_mutator,fuzz_target};
+use libfuzzer_sys::{fuzz_mutator, fuzz_target};
 use regex_fuzz::diff::*;
 use regex_fuzz::eqs::generate_equivalent_patterns;
-use regex_syntax::ast::parse::Parser;\
+use regex_syntax::ast::parse::Parser;
 
+/// 将错误信息追加写入到 fuzz_failures.log 文件中
+/// 如果文件写入失败，则回退到标准错误输出
+fn log_failure(args: impl std::fmt::Display,errorType:String) {
+    use std::fs::OpenOptions;
+    use std::io::Write;
+    let file_result=match errorType.as_str(){
+        "DifferentialMismatch" => {
+            OpenOptions::new()
+            .create(true)
+            .append(true)
+            .open("D:/regex/fuzz/results/fuzz_differential_failures.log")
+        },
+        "MetamorphicMismatch" => {
+            OpenOptions::new()
+            .create(true)
+            .append(true)
+            .open("D:/regex/fuzz/results/fuzz_metamorphic_failures.log")
+        }
+        _ => panic!("Unknown log type: {}",errorType),
+    };
+    
+    match file_result {
+        Ok(mut file) => {
+            if let Err(io_err) = writeln!(file, "{}", args) {
+                eprintln!("Failed to write to log file: {}; Original error: {}", io_err, args);
+            }
+        }
+        Err(io_err) => {
+            eprintln!("Failed to open log file: {}; Original error: {}", io_err, args);
+        }
+    }
+}
 fuzz_mutator!(|data: &mut [u8], size: usize, max_size: usize, _seed: u32| {
     if size == 0 || max_size == 0 {
         return 0;
@@ -195,37 +227,48 @@ fuzz_mutator!(|data: &mut [u8], size: usize, max_size: usize, _seed: u32| {
 
 fuzz_target!(|data: &[u8]| {
     // Convert input data to pattern
-    let pattern = String::from_utf8_lossy(data);
+    let pattern = match String::from_utf8(data.to_vec()) {
+        Ok(pat) => pat,
+        Err(_) => return, // Invalid UTF-8, skip this input
+    };
 
     // Convert pattern to ast
-    let ast = match Parser::new().parse(pattern).unwrap();
+    let ast = match Parser::new().parse(&pattern) {
+        Ok(ast) => ast,
+        Err(_) => return, // Invalid pattern, skip this input
+    };
 
     // 1. Differential Testing
     // Check if the pattern behaves consistently across different regex libraries
     // return Err if any inconsistency is found
     let manager = RegexLibManager::new();
-    if let Err(e) = validate_pattern(&manager, pattern, &ast) {
-        panic!("Differential testing failed: {}", e);
+    if let Err(e) = validate_pattern(&manager, &pattern, &ast) {
+        match e {
+            ComparisonError::PreCheckFailed { .. }
+            | ComparisonError::TestStringsGenerationFailed { .. } => {
+                return; // Skip patterns that fail pre-checks or test string generation
+            }
+            ComparisonError::DifferentialMismatch { .. } => {
+                log_failure(format_args!("Differential testing failed, {}", e),"DifferentialMismatch".to_string());
+            }
+            _ => {
+                panic!("Unexpected error during differential testing: {}", e);
+            }
+        }
     }
 
     // 2. Metamorphic Testing
     // Generate equivalent patterns and verify they behave the same as the original
     // Limit: 3 iterations, min 1 pattern, max 3 patterns to keep fuzzing fast
-    let eq_patterns = match generate_equivalent_patterns(pattern, 3, 1, 3) {
+    let eq_patterns = match generate_equivalent_patterns(&pattern, 3, 1, 3) {
         Ok(pats) => pats,
         Err(_) => return, // No equivalent patterns found or error, skip metamorphic test
     };
 
-    // Use the standard regex library as the oracle
-    let original_re = match regex::Regex::new(pattern) {
-        Ok(re) => re,
-        Err(_) => return,
-    };
-
     // Test each equivalent pattern on different regex libs
     for eq_pat in eq_patterns {
-        if let Err(e) = validate_regexLib(&manager, &eq_pat){
-            panic!("Metamorphic testing failed for pattern '{}': {}", eq_pat, e);
+        if let Err(e) = validate_regexLib(&manager, &eq_pat) {
+            log_failure(format_args!("Metamorphic testing failed, {}", e),"MetamorphicMismatch".to_string());
         }
     }
 });

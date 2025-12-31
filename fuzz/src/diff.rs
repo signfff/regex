@@ -3,10 +3,7 @@
 
 extern crate rand; //旧版，可以改
 use rand::Rng;
-use regex_syntax::ast::{parse::Parser, Ast}; //导入多个，解析器和语法树
-
-// use libfuzzer_sys::{fuzz_mutator, fuzz_target, Corpus};
-use libfuzzer_sys::Corpus;
+use regex_syntax::ast::Ast; //导入多个，解析器和语法树
 
 use once_cell::sync::Lazy;
 use std::sync::Arc; //多线程共享数据 //全局变量的惰性初始化
@@ -56,43 +53,72 @@ impl std::error::Error for LibCompilationError {}
 
 #[derive(Debug)]
 pub enum ComparisonError {
-    CompilationFailed(LibCompilationError),
-    NoBaselineFound,
-    MismatchFound {
+    // 转写和编译不通过
+    PreCheckFailed {
+        pattern: String,
+        errors: Vec<(&'static str, String)>,
+    },
+    // 无法生成差分测试需要的input
+    TestStringsGenerationFailed {
+        pattern: String,
+    },
+    // 差分结果不一致
+    DifferentialMismatch {
         pattern: String,
         test_string: String,
-        all_results: Vec<(&'static str, bool)>,
+        errors: Vec<(&'static str, bool)>,
     },
-    MismatchCompilation{
-        lib_name: String,
+    // 蜕变结果不一致
+    MetamorphicMismatch {
         pattern: String,
-        lib_errors: Vec<(&'static str, String)>,
-    }
+        errors: Vec<(&'static str, String)>,
+    },
 }
 
 impl std::fmt::Display for ComparisonError {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            ComparisonError::CompilationFailed(e) => {
-                write!(f, "库编译失败: {}", e)
-            }
-            ComparisonError::NoBaselineFound => {
-                write!(f, "未找到基准库")
-            }
-            ComparisonError::MismatchFound {
-                pattern,
-                test_string,
-                all_results,
-            } => {
-                writeln!(f, "[LIB-DIFF] 正则表达式库行为不一致")?;
+            ComparisonError::PreCheckFailed { pattern, errors } => {
+                writeln!(f, "[PRE-CHECK] 模式预检查失败")?;
                 writeln!(f, "  模式: {:?}", pattern)?;
-                writeln!(f, "  测试字符串: {:?}", test_string)?;
-                write!(f, "  所有库结果: ")?;
-                for (i, (name, result)) in all_results.iter().enumerate() {
+                write!(f, "  错误: ")?;
+                for (i, (name, err)) in errors.iter().enumerate() {
                     if i > 0 {
                         write!(f, ", ")?;
                     }
-                    write!(f, "{}={}", name, result)?;
+                    write!(f, "{}={}", name, err)?;
+                }
+                Ok(())
+            }
+            ComparisonError::TestStringsGenerationFailed { pattern } => {
+                writeln!(f, "[TEST STRING GENERATION] 测试字符串生成失败")?;
+                writeln!(f, "  模式: {:?}", pattern)?;
+                Ok(())
+            }
+            ComparisonError::DifferentialMismatch {
+                pattern,
+                test_string,
+                errors,
+            } => {
+                writeln!(f, "[DIFFERENTIAL] 差分测试失败")?;
+                writeln!(f, "  模式: {:?}", pattern)?;
+                writeln!(f, "  测试字符串: {:?}", test_string)?;
+                for (i, (name, err)) in errors.iter().enumerate() {
+                    if i > 0 {
+                        write!(f, ", ")?;
+                    }
+                    write!(f, "{}={}", name, err)?;
+                }
+                Ok(())
+            }
+            ComparisonError::MetamorphicMismatch { pattern, errors } => {
+                writeln!(f, "[METAMORPHIC] 蜕变测试失败")?;
+                writeln!(f, "  模式: {:?}", pattern)?;
+                for (i, (name, err)) in errors.iter().enumerate() {
+                    if i > 0 {
+                        write!(f, ", ")?;
+                    }
+                    write!(f, "{}={}", name, err)?;
                 }
                 Ok(())
             }
@@ -703,8 +729,50 @@ fn translate_perl_class(
     options: &TranslatorOptions,
 ) -> Result<String, String> {
     match &class.kind {
-        regex_syntax::ast::ClassPerlKind::Digit => Ok(r"\d".to_string()),
-        regex_syntax::ast::ClassPerlKind::Space => Ok(r"\s".to_string()),
+        regex_syntax::ast::ClassPerlKind::Digit => {
+            match options.library {
+                "regex-lite" => {
+                    // 仅补充全角数字
+                    // 0-9: ASCII 数字
+                    // \u{FF10}-\u{FF19}: 全角数字 (０-１-２...９)
+                    let digits = "0-9\u{FF10}-\u{FF19}";
+
+                    if class.negated {
+                        // \D -> [^0-9０-９]
+                        Ok(format!("[^{}]", digits))
+                    } else {
+                        // \d -> [0-9０-９]
+                        Ok(format!("[{}]", digits))
+                    }
+                }
+                _ => {
+                    // 标准库直接用 \d 或 \D
+                    if class.negated {
+                        Ok(r"\D".to_string())
+                    } else {
+                        Ok(r"\d".to_string())
+                    }
+                }
+            }
+        }
+        regex_syntax::ast::ClassPerlKind::Space => match options.library {
+            "regex-lite" => {
+                // 仅补充常见的 Unicode 空白字符
+                let spaces = r" \t\n\r\f\v\u0085\u00A0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000";
+                if class.negated {
+                    Ok(format!("[^{}]", spaces))
+                } else {
+                    Ok(format!("[{}]", spaces))
+                }
+            }
+            _ => {
+                if class.negated {
+                    Ok(r"\S".to_string())
+                } else {
+                    Ok(r"\s".to_string())
+                }
+            }
+        },
         regex_syntax::ast::ClassPerlKind::Word => Ok(r"\w".to_string()),
     }
 }
@@ -984,28 +1052,23 @@ pub fn validate_pattern(
             }
             Err(e) => {
                 errors.push((lib_name, format!("compile failed: {}", e)));
+                continue;
             }
         }
     }
-
-    // 至少需要两个库才能比较
-    if compiled.len() < 2 {
-        return Err(ComparisonError::CompilationFailed(LibCompilationError {
+    if !errors.is_empty() {
+        return Err(ComparisonError::PreCheckFailed {
             pattern: pattern.to_string(),
-            errors,
-        }));
+            errors: errors,
+        });
     }
 
     // 仍然用原始 pattern（regex 语法）生成若干匹配样本串
     let test_strings = gen_multiple_accepted_strings(pattern, 100);
     if test_strings.is_empty() {
-        return Err(ComparisonError::CompilationFailed(LibCompilationError {
+        return Err(ComparisonError::TestStringsGenerationFailed {
             pattern: pattern.to_string(),
-            errors: vec![(
-                "test",
-                "failed to generate test strings".to_string(),
-            )],
-        }));
+        });
     }
 
     // 多库行为对比
@@ -1018,17 +1081,15 @@ pub fn validate_pattern(
             .collect();
 
         // 3.2 检查一致性
-        // 取第一个库的结果作为临时参照（注意：这里不代表它是正确的，只是为了比对）
         if let Some((first_lib, first_result)) = current_results.first() {
             let is_consistent =
                 current_results.iter().all(|(_, res)| res == first_result);
             if !is_consistent {
                 // 3.3 发现不一致，构造详细报告
-                // 实际上 all_results 才是最重要的，因为它记录了所有库的结果.在分析日志时，应查看 all_results 来判断谁对谁错
-                return Err(ComparisonError::MismatchFound {
+                return Err(ComparisonError::DifferentialMismatch {
                     pattern: pattern.to_string(),
                     test_string: test_str.clone(),
-                    all_results: current_results, // 记录所有库的结果
+                    errors: current_results, // 记录所有库的结果
                 });
             }
         }
@@ -1050,213 +1111,19 @@ pub fn validate_regexLib(
         match compiler.compile(pattern) {
             Ok(matcher) => {}
             Err(e) => {
-                errors.push((
-                    lib_name,
-                    format!("compile failed: {}", e),
-                ));
+                errors.push((lib_name, format!("compile failed: {}", e)));
             }
         }
     }
     if !errors.is_empty() {
-        return Err(ComparisonError::CompilationFailed(MismatchCompilation {
-            lib_name: compiler.name().to_string(),
+        return Err(ComparisonError::MetamorphicMismatch {
             pattern: pattern.to_string(),
-            errors,
-        }));
+            errors: errors,
+        });
     }
     Ok(())
 }
-//  第七部分：自定义Mutator
-/*
-fuzz_mutator!(|data: &mut [u8], size: usize, max_size: usize, _seed: u32| {
-    if size == 0 || max_size == 0 {
-        return 0;
-    }
 
-    let mut pattern = String::from_utf8_lossy(&data[..size]).into_owned();
-    let mutation_type = _seed % 17;
-
-    match mutation_type {
-        0 => {
-            if !pattern.is_empty() {
-                let pos = (_seed as usize) % pattern.len();
-                let quantifiers =
-                    ["?", "{2,5}", "{1,3}", "{0,1}", "{1,}", "{2}", "{0,3}"];
-                let q = quantifiers[(_seed as usize) % quantifiers.len()];
-                pattern.insert_str(pos, q);
-            }
-        }
-        1 => {
-            let classes = ["\\d", "\\w", "\\s", "[a-z]", "[0-9]", ".", "[^a]"];
-            let class = classes[(_seed as usize) % classes.len()];
-            if pattern.len() < max_size - class.len() {
-                let pos = if pattern.is_empty() {
-                    0
-                } else {
-                    (_seed as usize) % pattern.len()
-                };
-                pattern.insert_str(pos, class);
-            }
-        }
-        2 => {
-            if !pattern.is_empty() && pattern.len() < max_size - 3 {
-                let pos = (_seed as usize) % pattern.len();
-                pattern.insert_str(pos, "|");
-                pattern.insert(pos + 1, 'a');
-            }
-        }
-        3 => {
-            if !pattern.is_empty() && pattern.len() < max_size - 2 {
-                let pos = (_seed as usize) % pattern.len();
-                pattern.insert(pos, '(');
-                if pos + 2 < pattern.len() {
-                    pattern.insert(pos + 2, ')');
-                } else {
-                    pattern.push(')');
-                }
-            }
-        }
-        4 => {
-            let anchors = ["^", "$", "\\b", "\\B"];
-            let anchor = anchors[(_seed as usize) % anchors.len()];
-            if pattern.len() < max_size - anchor.len() {
-                if _seed % 2 == 0 {
-                    pattern.insert_str(0, anchor);
-                } else {
-                    pattern.push_str(anchor);
-                }
-            }
-        }
-        5 => {
-            let flags = ["(?i)", "(?m)", "(?s)", "(?x)"];
-            let flag = flags[(_seed as usize) % flags.len()];
-            if pattern.len() < max_size - flag.len() {
-                pattern.insert_str(0, flag);
-            }
-        }
-        6 => {
-            if !pattern.is_empty() {
-                let pos = (_seed as usize) % pattern.len();
-                if let Some(ch) = pattern.chars().nth(pos) {
-                    if ".+*?^${}[]|()\\".contains(ch)
-                        && pattern.len() < max_size
-                    {
-                        pattern.insert(pos, '\\');
-                    }
-                }
-            }
-        }
-        7 => {
-            let unicode_classes = ["\\p{L}", "\\p{N}", "\\p{P}", "\\p{Greek}"];
-            let class =
-                unicode_classes[(_seed as usize) % unicode_classes.len()];
-            if pattern.len() < max_size - class.len() {
-                let pos = if pattern.is_empty() {
-                    0
-                } else {
-                    (_seed as usize) % pattern.len()
-                };
-                pattern.insert_str(pos, class);
-            }
-        }
-        8 => {
-            if !pattern.is_empty() && pattern.contains('(') {
-                let backrefs = ["\\1", "\\2", "\\3"];
-                let backref = backrefs[(_seed as usize) % backrefs.len()];
-                let pos = (_seed as usize) % pattern.len();
-                pattern.insert_str(pos, backref);
-            }
-        }
-        9 => {
-            let assertions = ["(?=\\w)", "(?!\\d)", "(?<=\\s)", "(?<!\\W)"];
-            let assertion = assertions[(_seed as usize) % assertions.len()];
-            if pattern.len() < max_size - assertion.len() {
-                let pos = if pattern.is_empty() {
-                    0
-                } else {
-                    (_seed as usize) % pattern.len()
-                };
-                pattern.insert_str(pos, assertion);
-            }
-        }
-        10 => {
-            if !pattern.is_empty() && pattern.len() < max_size - 4 {
-                let pos = (_seed as usize) % pattern.len();
-                pattern.insert_str(pos, "(?:");
-                if pos + 3 < pattern.len() {
-                    pattern.insert(pos + 3, ')');
-                } else {
-                    pattern.push(')');
-                }
-            }
-        }
-        11 => {
-            let classes =
-                ["[a-z&&[^aeiou]]", "[\\w&&[^\\d]]", "[a-z&&[^xyz]]"];
-            let class = classes[(_seed as usize) % classes.len()];
-            if pattern.len() < max_size - class.len() {
-                let pos = if pattern.is_empty() {
-                    0
-                } else {
-                    (_seed as usize) % pattern.len()
-                };
-                pattern.insert_str(pos, class);
-            }
-        }
-        12 => {
-            if !pattern.is_empty() {
-                let pos = (_seed as usize) % pattern.len();
-                pattern.remove(pos);
-            }
-        }
-        13 => {
-            if !pattern.is_empty() {
-                let start = (_seed as usize) % pattern.len();
-                let max_len = (pattern.len() - start).max(1);
-                let len = ((_seed >> 8) as usize) % max_len + 1;
-                let end = (start + len).min(pattern.len());
-                pattern.drain(start..end);
-            }
-        }
-        14 => {
-            if !pattern.is_empty() && pattern.len() < max_size {
-                let start = (_seed as usize) % pattern.len();
-                let max_len = (pattern.len() - start).max(1);
-                let len = ((_seed >> 8) as usize) % max_len + 1;
-                let end = (start + len).min(pattern.len());
-
-                let substring = pattern[start..end].to_string();
-                let repeat_count = ((_seed >> 16) % 3) + 1;
-
-                for _ in 0..repeat_count {
-                    if pattern.len() + substring.len() < max_size {
-                        pattern.insert_str(end, &substring);
-                    } else {
-                        break;
-                    }
-                }
-            }
-        }
-        _ => {
-            if !pattern.is_empty() {
-                let pos = (_seed as usize) % pattern.len();
-                let replacements = [
-                    'a', '1', '.', '*', '|', '(', ')', '[', ']', '\\', '{',
-                    '}', '-', '^', '$',
-                ];
-                let replacement =
-                    replacements[(_seed as usize) % replacements.len()];
-                pattern.replace_range(pos..pos + 1, &replacement.to_string());
-            }
-        }
-    }
-
-    let bytes = pattern.as_bytes();
-    let copy_len = std::cmp::min(bytes.len(), max_size);
-    data[..copy_len].copy_from_slice(&bytes[..copy_len]);
-    copy_len
-});
-*/
 // 第八部分：全局管理器初始化
 
 static REGEX_LIB_MANAGER: Lazy<RegexLibManager> = Lazy::new(|| {
@@ -1283,86 +1150,3 @@ static REGEX_LIB_MANAGER: Lazy<RegexLibManager> = Lazy::new(|| {
 
     manager
 });
-
-// 第九部分：Fuzz目标函数
-/*
-fuzz_target!(|case: &[u8]| -> Corpus {
-    let _ = env_logger::try_init();
-    let pattern_cow = String::from_utf8_lossy(case);
-    let pattern_str = pattern_cow.as_ref();
-
-    if pattern_cow.len() < 3 || pattern_cow.len() > 100 {
-        return Corpus::Reject;
-    }
-
-    // 检查是否包含连续的重复量词
-    let has_consecutive_quantifiers =
-        pattern_str.chars().collect::<Vec<_>>().windows(3).any(|window| {
-            window.iter().all(|&c| c == '*')
-                || window.iter().all(|&c| c == '+')
-                || window.iter().all(|&c| c == '*' || c == '+')
-        });
-
-    if has_consecutive_quantifiers {
-        return Corpus::Reject;
-    }
-
-    let mut parser = Parser::new();
-
-    // 先解析 AST
-    let ast = match parser.parse(pattern_str) {
-        Ok(ast) => ast,
-        Err(_) => return Corpus::Reject,
-    };
-
-    //特征过滤
-    // 跨库差异较大特性
-    if contains_unsupported_features(&ast) {
-        return Corpus::Reject;
-    }
-    // 重复次数过大
-    if contains_large_repetition(&ast, 16) {
-        return Corpus::Reject;
-    }
-
-    // 包含字符 '&'
-    if pattern_str.contains('&') {
-        return Corpus::Reject;
-    }
-
-    // Perl 类
-    if pattern_str.contains("\\d")
-        || pattern_str.contains("\\D")
-        || pattern_str.contains("\\w")
-        || pattern_str.contains("\\W")
-        || pattern_str.contains("\\s")
-        || pattern_str.contains("\\S")
-    {
-        return Corpus::Reject;
-    }
-
-    // Unicode 属性 \p{...}
-    if pattern_str.contains("\\p{") {
-        return Corpus::Reject;
-    }
-    // 复杂嵌套字符类
-    if pattern_str.contains("[[") {
-        return Corpus::Reject;
-    }
-    match compare_libraries_safely(&REGEX_LIB_MANAGER, pattern_str, &ast) {
-        Ok(()) => Corpus::Keep,
-        Err(e @ ComparisonError::MismatchFound { .. }) => {
-            panic!("{}", e);
-        }
-        Err(ComparisonError::CompilationFailed(_)) => Corpus::Reject,
-        // 没找到基准库
-        Err(ComparisonError::NoBaselineFound) => {
-            eprintln!(
-                "[WARN] No baseline found for pattern: {:?}",
-                pattern_str
-            );
-            Corpus::Keep
-        }
-    }
-});
-*/
