@@ -1,484 +1,548 @@
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(?i)\\da"
-  测试字符串: "꯴a"
+  模式: "\\d\\}"
+  测试字符串: "꤄}"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "\\d(\n)a11}"
-  测试字符串: "၁\na11}"
+  模式: "\\d\\]}"
+  测试字符串: "🯰]}"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(?i)[a-z]}"
-  测试字符串: "K}"
+  模式: "\\\\\\wb|}"
+  测试字符串: "\\䳡b"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "\n\\w\\(|a111"
-  测试字符串: "\n𫵿("
+  模式: "a(:)d\\d"
+  测试字符串: "a:d𝟦"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "\\d([a-z]\n)a11}"
-  测试字符串: "꯳a\na11}"
+  模式: "(.)\\d]]}"
+  测试字符串: "\u{4e1a1}𝟻]]}"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "a(?:)[\\w&(?!\\d)&]a?\n"
-  测试字符串: "a𥳄a\n"
+  模式: "\\d|a-z]]}"
+  测试字符串: "၀"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "\\d(\n)a1}"
-  测试字符串: "𖩨\na1}"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "a(?:)[\\(?:)w&(?!\\d)&]a?\n"
-  测试字符串: "a١\n"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(?m)\\^(?m)|\\waaa\n\\.B"
-  测试字符串: "添aaa\n.B"
-regex=true, regex-lite=false, fancy-regex=true, onig=false, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "[-z](?i)[a-z]a"
-  测试字符串: "zſa"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(\n(()?=\\w))"
-  测试字符串: "\n=𑯆"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "1,3}[0-9(?=\\w)](\n)"
-  测试字符串: "1,3}𲀗\n"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "1,3}[0-9(?={0,1}\\w)](\n)"
-  测试字符串: "1,3}瑈\n"
+  模式: "(\\w|(a)\n)"
+  测试字符串: "𘅕"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
   模式: "\\w(|(a)\n)"
-  测试字符串: "𫅌"
+  测试字符串: "𣋡"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(w&&[^\\d]]&&[^\\d]](=)\\(?=\\w\\)(w))"
-  测试字符串: "w&&\u{e1df7}]&&\u{33b4f}]==𱪧)w"
+  模式: "(()?=\\w)]"
+  测试字符串: "=𓝺]"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(\n{0,3}(()?=\\w))"
-  测试字符串: "\n\n=𓿗"
+  模式: "(\n](-*=\\w))"
+  测试字符串: "\n]-=桤"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(w&&[^\\d]]&&[^\\d]](=)\\(?=\\w\\)(w)())"
-  测试字符串: "w&&\u{721fc}]&&\u{ad46d}]==𞸷)w"
+  模式: "\\w(()|(a)\n)"
+  测试字符串: "𢁬"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(\n{0,3}(()?=\\w))"
-  测试字符串: "\n\n=𤖨"
+  模式: "(\n(()?=\\w))"
+  测试字符串: "\n=𨌇"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "\\w((|)(a)\n)"
+  测试字符串: "𤩰a\n"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "1,[0-9]\\d(\n)"
+  测试字符串: "1,5𞗶\n"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
   模式: "(?i)(\n[a-z])"
   测试字符串: "\nK"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(w&&[^\\d]]&&[^\\d]](=)\\(?=\\w\\)(ww))"
-  测试字符串: "w&&\u{b5d38}]&&\u{1052ff}]=(=𱑍)ww"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "\\w(()|(a)\n)"
-  测试字符串: "낆"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(w&&[^\\d]]&&[^\\d]](=)\\(?=\\w\\)(w){1,}())"
-  测试字符串: "w&&\u{6b087}]&&\u{591c6}]==钎)w"
+  模式: "\\d|a-z]]]]]}"
+  测试字符串: "𜳴"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
   模式: "1,}[0-9]\\d(\n)"
-  测试字符串: "1,}4𑥙\n"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "([^a]w&&[^\\d]]&&[^\\d]](=)\\(?=\\w\\)(ww))"
-  测试字符串: "\u{db5c6}w&&\u{557b5}]&&\u{9d298}]=(=𢬊)ww"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "\\w(()|(()a)\n)"
-  测试字符串: "闹"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(?i)(\\d\n[a-z])"
-  测试字符串: "೫\nZ"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "([^a]w&&[^\\d]]&&[^\\d]](=)\\d\\(?=\\w\\)(ww))"
-  测试字符串: "\u{1c534}w&&𗎠]&&\u{90622}]=᥉=𮩘)ww"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "a(:)d\\d"
-  测试字符串: "a:d𝟓"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(w&&[^\\d]]&&[^\\d]](|a=)\\(?=\\w\\)(ww))"
-  测试字符串: "w&&\u{7e248}]&&\u{5aa59}](=𓺥)ww"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(?i)(\n{0,3}(()?=\\w))"
-  测试字符串: "=𬈒"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "\\d|a-z]]}"
-  测试字符串: "𖄷"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "1,3}[0-9(?={0,1}(?=\\w)\\w)](\n)"
-  测试字符串: "1,3}䱷\n"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "1,3(}\\[0-?9\\d]|a\n)"
-  测试字符串: "1,3}[0-9᪖]"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "1,3}[0-9(?={0\\w,1}\\\\w)](\n)"
-  测试字符串: "1,3}𪦶\n"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(w&&[^\\d]]&&[^\\d]](=)\\(?=\\w\\)(w|a))"
-  测试字符串: "w&&\u{107255}]&&\u{f442}]=(=𭩊)a"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "\\w(()|(()a)-)"
-  测试字符串: "掸"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(w&&[^\\d]]&&[(?:)^\\d]](=)\\(?=\\w\\)(w)())"
-  测试字符串: "w&&𔉌]&&🯹]==梧)w"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(\\w|(a)\n)"
-  测试字符串: "𧻨"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "\\d\\]}"
-  测试字符串: "𖫃]}"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "\\w((|)(a)\n)"
-  测试字符串: "铈a\n"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(w&&[^\\d]]&&[^\\d]](=)\\(?=\\w(?:)\\)(ww))"
-  测试字符串: "w&&\u{5bc74}]&&\u{be2b8}]=(=𐼀)ww"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "1,3}[0-9(?=\\w\\)](\n)"
-  测试字符串: "1,3}𠐗\n"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(\n{0,3}(()?{2}=\\w))"
-  测试字符串: "\n\n=憎"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(w&&[^\\d]]&&[^\\d]](=)\\(?*\\w\\)(w){1,}())"
-  测试字符串: "w&&\u{cc16e}]&&\u{91343}]=𮠭)wwwwwwwwwwwwww"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "1\\w&&[^\\d]],}[0-9](|)"
-  测试字符串: "1𭼀&&\u{926e9}],}1"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(w&&[^\\d]]&&[^\\d]](=())\\(?=\\w\\)(ww))"
-  测试字符串: "w&&𡅄]&&\u{c66c5}]==𡾢)ww"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(w&&[^\\d]]&&[^\\|ad]](=)\\(?=\\w(?:)\\)(ww))"
-  测试字符串: "w&&\u{8fc73}]&&\u{fe157}]=(=𤝡)ww"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(\n[a^\\saeiou]])"
-  测试字符串: "\n\u{2009}]"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "\\d|a-z]]}"
-  测试字符串: "᧖"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "\\d|a-z]]}"
-  测试字符串: "𐒠"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "[a-z&(?:)&|^\\wx{1x{1x{1,3}yz]]}"
-  测试字符串: "㢸]}"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "\\w(()(?:)|(a)\n)"
-  测试字符串: "𓫧"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(\\w-a-z&&[^aeiou]]|(a)\n)"
-  测试字符串: "𫣞-a-z&&𜸨]"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "\\d\\}"
-  测试字符串: "𑱘}"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "\\w(|a()|(()a)\n)"
-  测试字符串: "쎱"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(w&&[^(?:)\\d]]&&[^\\d]](=)\\(?=\\w(?:)\\)(ww))"
-  测试字符串: "w&&\u{87130}]&&\u{81727}]=(=𬩚)ww"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "1,|a3(}\\[0-?9]|a\n\\d)"
-  测试字符串: "a3a\n۱"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(.)\\d]]}"
-  测试字符串: "\u{a516f}𑶠]]}"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(\n](-*=\\w))"
-  测试字符串: "\n]---------------=𡀱"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(w&&[^\\d]]&&[(?:)^\\d]](?:)(=)\\(?=\\w\\)(w)())"
-  测试字符串: "w&&篝]&&൧]=(=윩)w"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(w&&[^\\d]]&&[^\\d]](=)\\(\\?=\\w\\)(ww))"
-  测试字符串: "w&&\u{9f3b8}]&&\u{ab981}]=(?=𧓂)ww"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(w&&[^\\d]]&&[^\\d]](=)(?:)\\(?=\\w\\)(w){1,}())"
-  测试字符串: "w&&\u{76b95}]&&\u{75342}]==딋)wwwwwwwwwwwwww"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(w&&[^\\d]]&&[^\\d]](=)\\(=\\w\\)(w))"
-  测试字符串: "w&&\u{4d4d3}]&&\u{f647e}]=(=𦵡)w"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(w&&[^\\d{0,3}]]&&[^\\d]](=)\\(=\\w\\)(w))"
-  测试字符串: "w&&\u{6f588}]&&\u{8adb6}]=(=𘈪)w"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(?m)\\w(()|(a)\n)"
-  测试字符串: "𧗣"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "1,[0-9]\\d(\n)"
-  测试字符串: "1,4෨\n"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(w&[^a]&[^\\d]]&&[^\\d]](=)\\(?=\\w(?:)\\)(ww))"
-  测试字符串: "w&𒁢&\u{def90}]&&\u{39b74}]==𮫻)ww"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "\\w(?:)(()|(()a)\n)"
-  测试字符串: "𢿩"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(?m)\\d|a-z]]}"
-  测试字符串: "𞗴"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "[a-z&|{\\wx{1x{1x{1,3}yz]]}"
-  测试字符串: "𐨪]}"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(\n(\\\\11?=\\w))"
-  测试字符串: "\n\\1=𰠇"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "([^a]w&&[^\\d]]&&[{2,5}^\\d]](=)\\d\\(?=\\w\\)(ww))"
-  测试字符串: "\u{d11cb}w&&\u{66dc3}]&&𑜰]=၄=퉐)ww"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(\n{0,3}(()1{2}=\\w))"
-  测试字符串: "\n11=𢗑"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "1,3\\w}[.0-9(?={0,1}\\\\w)](\n)"
-  测试字符串: "1,3𱅓}?\n"
+  测试字符串: "1,}4੭\n"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
   模式: "(\n]((-)*=\\w))"
-  测试字符串: "\n]---=𝜚"
+  测试字符串: "\n]----------=\u{1a7b}"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "\\\\\\wb|}"
-  测试字符串: "\\鷼b"
+  模式: "\\w(()|(()a)\n)"
+  测试字符串: "侸"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "[a-z&|{\\wx{1x{1x{1,3x{1,3}yz]]}"
-  测试字符串: "𓵸]}"
+  模式: "(\n(\\\\11?=\\w))"
+  测试字符串: "\n\\1=풅"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "[a-z&|{\\s\\wx{1x{1x{1,3x{1,3}yz]]}"
-  测试字符串: "ᜮ]}"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(\\?x)((|\\d)(a)a)"
-  测试字符串: "?x𑋷aa"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "([^a]w&&[^\\d]]&&[^\\d]](=)\\d\\(?={0,1}\\w\\)(ww))"
-  测试字符串: "\u{709c2}w&&\u{59267}]&&\u{fce61}]=꩖(=𱡺)ww"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: ".1,|a3(}\\[0-?9]|a\n\\d)"
-  测试字符串: "a3a\n𞅄"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "\\w(|a()|(()a)\n)"
-  测试字符串: "𰲔"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "\\d|a-z]]]]]}"
-  测试字符串: "౬"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(()?=\\w)]"
-  测试字符串: "=폂]"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(w&(&)[^\\d]]&&[^\\d]](=)\\(?=\\w\\)(ww))"
-  测试字符串: "w&&\u{d74eb}]&&𳅗]=(=쁋)ww"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(w&(&)[|a^\\d]]&&[^\\d]](=)\\(?=\\w\\)(ww))"
-  测试字符串: "w&&᪇]&&\u{ceb4b}]==𬍉)ww"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: ".[a\\d(?!\\d)|^\\w|^\\wxyz].|a}"
-  测试字符串: "\u{c1111}䰒\u{39e80}"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "1,3(}|a\\[0-?9\\d]|a\n)"
-  测试字符串: "1,3a[0-9𖩧]"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "\\d\\[a-z&&[^aeiou]]]}"
-  测试字符串: "៤[a-z&&\u{7bf0c}]]}"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(w&&[^\\d]]&&[^\\d]](=)\\(\\?=\\\\3\\d]](=)\\(\\?=\\\\3w\\)(ww))"
-  测试字符串: "w&&\u{a3a75}]&&\u{a1b78}]=(?=\\3႖]]=(?=\\3w)ww"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "\\d\\]}"
-  测试字符串: "𝟕]}"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "\\w(()|)"
-  测试字符串: "𠠳"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "\\w(())"
-  测试字符串: "𥗌"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "[a|z&(?!\\d)&|^x|ayz]]}"
-  测试字符串: "៦]}"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(w&&[^\\d]]&&[^\\d]](=)\\(?=\\w\\)(|aw))"
-  测试字符串: "w&&\u{15e98}]&&\u{fe30e}]==𭵸)"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(w&&[^\\d]]&&[^\\d]](=)\\(?=\\w\\)(aw))"
-  测试字符串: "w&&\u{d9949}]&&\u{d946d}]==𬀟)aw"
+  模式: "(?m)\\d|a-z]]}"
+  测试字符串: "𖩤"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
   模式: "(,3}(()?=\\w))"
-  测试字符串: ",3}=偕"
+  测试字符串: ",3}=ⴂ"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(\\?s\\w)[a-{2,5}1&^\\*z]]}"
-  测试字符串: "?s𤿼j]}"
+  模式: "(?i)(\\d\n[a-z])"
+  测试字符串: "𑁨\nſ"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(\n[a^\\saei{1,}ou]])"
-  测试字符串: "\n\u{2001}]"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(w&&[^\\d]]&&[^\\d]](=)\\(?=\\w\\)(.w){1,}())"
-  测试字符串: "w&&\u{10357b}]&&𝟋]=(=𮎴)\u{980d5}w\u{d56b4}w\u{c20a9}w𰄯w"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "\\,}[0(9](\\d|a\n\\\\)"
-  测试字符串: ",}9௪"
-regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(?m)\\w(()|(a)\n())"
-  测试字符串: "𗧰"
+  模式: "(\n[a^\\saeiou]])"
+  测试字符串: "\n\u{200a}]"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
   模式: "(,3|a}(()?=\\w))"
-  测试字符串: "a}=𮙭"
+  测试字符串: "a}=𝗪"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "\\w(|a()|(()a)\n)"
+  测试字符串: "𢳏"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "\\w(()(?:)|(a)\n)"
+  测试字符串: "𠨋"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(?m)\\w(()|(a)\n)"
+  测试字符串: "𣴌"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "\\w(||()|(()a)\n)"
+  测试字符串: "𘀘"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(\\?x)((|\\d)(a)a)"
+  测试字符串: "?x၁aa"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(\n{0,3}(()?=\\w))"
+  测试字符串: "\n=쯺"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "\\,}[0(9](\\d|a\n\\\\)"
+  测试字符串: ",}9໑"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "\\w(?:)(()|(()a)\n)"
+  测试字符串: "𗽃"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "1,3}[0-9(?=\\w)](\n)"
+  测试字符串: "1,3}𑍞\n"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(:[{1,}\\d^a]{1,3})"
+  测试字符串: ":𑣠"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "1,3(}\\[0-?9\\d]|a\n)"
+  测试字符串: "1,3}[0-9𝟺]"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(\n{0,3}(()1{2}=\\w))"
+  测试字符串: "\n\n11=𐭧"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(\n{0,3}(()?{2}=\\w))"
+  测试字符串: "=糝"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(\\d|a[a-z&\\\\xyz]]*)"
+  测试字符串: "𝟕"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "1,3}[0-9(?=\\w\\)](\n)"
+  测试字符串: "1,3}𣺝\n"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(\n[a^\\saei{1,}ou]])"
+  测试字符串: "\n\u{2009}]"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "1,3(}|a\\[-?9\\d]|a\n)"
+  测试字符串: "1,3a[9𜳵]"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "1,|a3(}\\[0-?9]|a\n\\d)"
+  测试字符串: "a3a\n𑽑"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(?i)(\n{0,3}(()?=\\w))"
+  测试字符串: "\n\n\n=康"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "\\d\\[a-z&&[^aeiou]]]}"
+  测试字符串: "𑥗[a-z&&\u{4cd75}]]}"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "1,3(}|a\\[0-?9\\d]|a\n)"
+  测试字符串: "1,3a[0-9𑛖]"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: ".1,|a3(}\\[0-?9]|a\n\\d)"
+  测试字符串: "a3a\n𝟕"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "1\\w&&[^\\d]],}[0-9](|)"
+  测试字符串: "1𢮍&&\u{b4968}],}3"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "[a|z&(?!\\d)&|^x|ayz]]}"
+  测试字符串: "𑄼]}"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "1,3}[0-9(?={0,1}\\w)](\n)"
+  测试字符串: "1,3}𗌬\n"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(\\w-a-z&&[^aeiou]]a(a)\n)"
+  测试字符串: "暡-a-z&&\u{db824}]aa\n"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(\\w-a-z&&[^aeiou]]|(a)\n)"
+  测试字符串: "𑈡-a-z&&\u{509fc}]"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(:[{1,}\\^(?<=\\s)a]{1,3})"
+  测试字符串: ":\u{85}("
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(\\?s\\w)[a-{2,5}1&^\\*z]]}"
+  测试字符串: "?s𫚛d]}"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(\\?s\\w)[a-{2,5\\}1&^\\*z]]}"
+  测试字符串: "?s𓛅t]}"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "1,3}[0-9(?={0\\w,1}\\\\w)](\n)"
+  测试字符串: "1,3}갘\n"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "[a-z&|{\\wx{1x{1x{1,3}yz]]}"
+  测试字符串: "믂]}"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: ".[a\\d(?!\\d)|^\\w|^\\wxyz].|a}"
+  测试字符串: "幄𓲔\u{d1caa}"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "1,3}[0-9(?={0,1}(?=\\w)\\w)](\n)"
+  测试字符串: "1,3}𘎆\n"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(\n[(a)(?:)^z&(?!\\d)&\\[^|xyz]])"
+  测试字符串: "\n𑇑]"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "[a-z&|{\\wx{1x{1x{1,3x{1,3}yz]]}"
+  测试字符串: "횔]}"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "[a-z&(?:)&^^\\wx{1x{1x{1,3}yz]]}"
+  测试字符串: "뮱]}"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "[a-z&(?:)&|^\\wx{1x{1x{1,3}yz]]}"
+  测试字符串: "𓡉]}"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "[a-z&|{\\s\\wx{1x{1x{1,3x{1,3}yz]]}"
+  测试字符串: "蜧]}"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
   模式: "[a-z&|{\\(?<=\\s)wx{1x{1x{1,3}yz]]}"
   测试字符串: "\u{85}]}"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(\\?s\\w)[a-{2,5\\}1&^\\*z]]}"
-  测试字符串: "?s𓰖u]}"
+  模式: "(w&&[^\\d]]&&[^\\d]](=)\\(?=\\w\\)(w))"
+  测试字符串: "w&&\u{1b56e}]&&𠓥]=(=𗊊)w"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(\n[(xy\\dz]])"
-  测试字符串: "\n᪕]"
+  模式: "(w&&[^\\d]]&&[^\\d]](=)\\(?=\\w\\)(ww))"
+  测试字符串: "w&&\u{bd1e4}]&&\u{f6fbe}]=(=眭)ww"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(?m)(\\?s\\w)[a-{2,5}1&^\\*z]]}"
-  测试字符串: "?sギt]}"
+  模式: "(w&&[^\\d]]&&[^\\d]](=)\\(?=\\w\\)(w|a))"
+  测试字符串: "w&&\u{a5b02}]&&\u{8959e}]=(=砽)w"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(?m)(\\?\\w)[a-{2,5}1&^\\*z]]}"
-  测试字符串: "?𣋑c]}"
+  模式: "(w&&[^\\d]]&&[^\\d]](=)\\(?=\\w\\)(w)())"
+  测试字符串: "w&&𢖀]&&\u{f723a}]==寉)w"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "1,3(}|a\\[-?9\\d]|a\n)"
-  测试字符串: "1,3a[9𖵱]"
+  模式: "(w&&[^\\d]]&&[^\\d]](=)\\(\\?=\\w\\)(ww))"
+  测试字符串: "w&&\u{f20d0}]&&\u{a61a7}]=(?=𬑘)ww"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(\\d|a[a-z&\\\\xyz]]*)"
-  测试字符串: "𝟢"
+  模式: "(w&&[^\\d]]&&[^\\d]](|a=)\\(?=\\w\\)(ww))"
+  测试字符串: "w&&\u{9a54e}]&&𩁻]=𢱜)ww"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "[a-z&|{\\wx{1x{1x{1,3}yz]]}"
-  测试字符串: "𱭷]}"
+  模式: "(w&&[^\\d]]&&[^\\d]](=())\\(?=\\w\\)(ww))"
+  测试字符串: "w&&\u{62714}]&&\u{d9b56}]==ⱈ)ww"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "[a-z&|{\\wx{1x{1(?:)x{1,3}yz]]}"
-  测试字符串: "𗐑]}"
+  模式: "(w&&[^\\d{0,3}]]&&[^\\d]](=)\\(=\\w\\)(w))"
+  测试字符串: "w&&\u{40a9c}]&&\u{f2d12}]=(=𫕦)w"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(w&&[^\\d]]&&[^\\d]](=)\\(?=\\w(?:)\\)(ww))"
+  测试字符串: "w&&\u{617b1}]&&\u{100416}]=(=䤎)ww"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "([^a]w&&[^\\d]]&&[^\\d]](=)\\(?=\\w\\)(ww))"
+  测试字符串: "\u{d0df8}w&&\u{cc364}]&&\u{d2ec2}]==𬁰)ww"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(w&(&)[|a^\\d]]&&[^\\d]](=)\\(?=\\w\\)(ww))"
+  测试字符串: "w&&૦]&&\u{c25ba}]=(=𰌸)ww"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(w&&[^\\d]]&&[^\\d]](=)\\(?=\\w\\)(w){1,}())"
+  测试字符串: "w&&\u{1c503}]&&\u{7d192}]=(=𱜣)wwwwwwwwwwww"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(w&&[^\\d]]&&[^\\d]](=)\\(?*\\w\\)(w){1,}())"
+  测试字符串: "w&&\u{4123f}]&&\u{f2901}]=((((((((((((((((𠗘)wwwwwwwwwww"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(w&&[^\\d]]&&[(?:)^\\d]](=)\\(?=\\w\\)(w)())"
+  测试字符串: "w&&𣊞]&&５]=(=卻)w"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(w&&[^\\d]]&&[^\\d]](=)\\(?=\\w\\)(.w){1,}())"
+  测试字符串: "w&&𤧾]&&\u{f263f}]==𖦖)\u{e7fde}w\u{f7eb8}w\u{cb9db}w\u{f7656}w\u{701ea}w\u{f9cb0}w\u{eae1}w\u{96704}w\u{4d647}w\u{10ce58}w\u{4260b}w𱅷w"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(w&&[^\\d]]&&[^\\|ad]](=)\\(?=\\w(?:)\\)(ww))"
+  测试字符串: "w&&\u{64efc}]&&\u{8c21b}]==𑘗)ww"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "([^a]w&&[^\\d]]&&[^\\d]](=)\\d\\(?=\\w\\)(ww))"
+  测试字符串: "\u{555b5}w&&\u{d0f4a}]&&\u{7daf2}]=꯶=䄨)ww"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(w&[^a]&[^\\d]]&&[^\\d]](=)\\(?=\\w(?:)\\)(ww))"
+  测试字符串: "w&\u{90701}&\u{a4570}]&&\u{de38a}]=(=𱷣)ww"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(w&&[^(?:)\\d]]&&[^\\d]](=)\\(?=\\w(?:)\\)(ww))"
+  测试字符串: "w&&\u{ebcb4}]&&\u{7dbd3}]=(=ࣉ)ww"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(w&&[^\\d]]&&[(?:)^\\d]](?:)(=)\\(?=\\w\\)(w)())"
+  测试字符串: "w&&\u{addcf}]&&𑜱]=(=𝑡)w"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(w&&[^\\d]]&&[^\\d]](=)(?:)\\(?=\\w\\)(w){1,}())"
+  测试字符串: "w&&\u{1056e8}]&&\u{a542a}]=(=𨫗)wwwwwwwwwwwwwww"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "([^a]w&&[^\\d]]&&[{2,5}^\\d]](=)\\d\\(?=\\w\\)(ww))"
+  测试字符串: "𖵞w&&噸]&&𞋱]=߃=𰞯)ww"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "([^a]w&&[^\\d]]&&[^\\d]](=)\\d\\(?={0,1}\\w\\)(ww))"
+  测试字符串: "\u{ca3c3}w&&\u{1aa9b}]&&\u{e7820}]=𑱑𬅽)ww"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(w&&[^\\d]]&&[^\\d]](=)\\(\\?=\\\\3\\d]](=)\\(\\?=\\\\3w\\)(ww))"
+  测试字符串: "w&&\u{43a4b}]&&\u{aff5f}]=(?=\\3𝟫]]=(?=\\3w)ww"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
   模式: "[a-z&|{\\wx{1x{1(?:)x{1,3}yz]{1,3}yz]{1,3}yz]{1,3}yz]]}"
-  测试字符串: "嘣yz]yz]]]yz]]}"
+  测试字符串: "𡔨𢇂𣺥yz]]yz]]]yz]]}"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(?m)\\w(-)}"
-  测试字符串: "힗-}"
+  模式: "(()?=\\w)(?:)]"
+  测试字符串: "=𭠔]"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(\\w-a-z&&[^aeiou]]a(a)\n)"
-  测试字符串: "盷-a-z&&\u{6df8f}]aa\n"
+  模式: "[(a)-z](|a.?:)\\d1"
+  测试字符串: "c៥1"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(:[{1,}\\d^a]{1,3})"
-  测试字符串: ":߈𞅂"
+  模式: "(-m){1,}(\n\\w)"
+  测试字符串: "-m-m-m-m-m-m-m-m-m-m-m-m-m-m-m\n𠐸"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(:[{1,}\\^(?<=\\s)a]{1,3})"
-  测试字符串: ":\u{2007}\t\r"
+  模式: "\\d\\]\\\\ws}"
+  测试字符串: "𑛡]\\ws}"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "[a-z&(?:)&^^\\wx{1x{1x{1,3}yz]]}"
-  测试字符串: "㙭]}"
+  模式: "\\d(?:)\\}"
+  测试字符串: "௪}"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "(\n[(a)(?:)^z&(?!\\d)&\\[^|xyz]])"
-  测试字符串: "\n၉]"
+  模式: "a(:|a)d\\d"
+  测试字符串: "a:d꩑"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "\\[\\w&&[^\\d]]}"
-  测试字符串: "[𰀰&&\u{8b77c}]}"
+  模式: "(\\s?x)1,3}[0-9(?={2}\\w\\)](\n)"
+  测试字符串: "x1,3}𮪳\n"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
 Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "\\w(||()|(()a)\n)"
-  测试字符串: "𥣕"
+  模式: "\\d[^a]|a-z]]}"
+  测试字符串: "꣘𖧁"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(\n{0,3}(()=\\w))"
+  测试字符串: "\n=𫙑"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "([^a]w&&[^\\d]]&&[^\\a]w&&[^\\d]]&&[^\\a]w&&[^\\d]]&&[^\\a]w&&[^\\d]]&&[^\\d]](=)\\(?=\\w\\)(ww))"
+  测试字符串: "\u{67c07}w&&\u{81954}]&&\u{7c769}w&&\u{5c334}]&&𝆟w&&\u{37356}]&&𧠾w&&\u{a37c0}]&&\u{dc6a4}]==𥊄)ww"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "1,|a3(}\\[0-?9]|a\\d)"
+  测试字符串: "a3a𖄹"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "\\w(()\\s|(a)\n)"
+  测试字符串: "𧵸\u{2006}"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "\\d(|((a))\n[a^^aeiu]])"
+  测试字符串: "𞅄a\n^]"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "\\\\b1,3\\w}[.0-9(?={0,1}(\\)\\w)(?:)](\n)"
+  测试字符串: "\\b1,3㗨}𣫴\n"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "a(:|a)d(?:)\\d"
+  测试字符串: "aad᭕"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "[a-z&|{\\(s)\\wx{1x{1x{1,3x{1,3}yz]]}"
+  测试字符串: "犃]}"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "\\[a-z&&[^aeiou]]\\wb|a}a}a}"
+  测试字符串: "[a-z&&⒛]𣟂b"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(w&&[^\\d]]&&[^\\d]](=)\\(?=\\w\\)(w)|a)"
+  测试字符串: "w&&\u{ee35f}]&&\u{a41b2}]=(=㘢)w"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "\\w(|a()|(()a.)\n)"
+  测试字符串: "쭑"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "([^a]w&&[^\\d.]]&&[{2,5}^\\d]](=)\\d\\(?=\\w\\)(ww))"
+  测试字符串: "\u{8741a}w&&\u{6b96f}]&&𐒥]=𑶥(=𣊷)ww"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "\\d\\[a-z&&[^a(?=\\w)eiou]]]}"
+  测试字符串: "𝟶[a-z&&\u{af495}]]}"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "1,3(}|a\\[-?9\\d]|\n)"
+  测试字符串: "1,3a[-9𑋴]"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: ".]\\[a-z&&[(?!\\d)^ae]]]}"
+  测试字符串: "\u{6d08e}][a-z&&𞗸]]}"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "1,[0-9]\\d|a(\n)"
+  测试字符串: "1,7᱀"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(w&&[^\\d]]&&[^\\d]](=)\\(?=\\w\\)(.w{2}){1,}())"
+  测试字符串: "w&&\u{df12e}]&&\u{8f554}]==敏)\u{4ce51}ww\u{9fa07}ww\u{433a7}ww\u{b1c10}ww\u{a8b25}ww\u{cce59}ww\u{81b58}ww\u{3fe21}ww\u{53f93}ww𣑜wwﴛww"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "\\[\\w&&[^\\d]][^a]b|a}"
+  测试字符串: "[캚&&\u{f2724}]\u{51157}b"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(?m)\\d|--]}"
+  测试字符串: "𑓘"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(\\|(|\\da\\|a1)\n)"
+  测试字符串: "|०a|a1\n"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "\\\\w\\wb|a}"
+  测试字符串: "\\w𥕹b"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(?i)(\n[a^\\saei{1,}ou]])"
+  测试字符串: "\n\u{2000}]"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: ",3(}|a\\[-?9\\d]|a\n)"
+  测试字符串: ",3a[-9𞅅]"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "[a-z(&)&|(?<=\\s)^xyz\\]]}"
+  测试字符串: "\u{205f}}"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "1{2,5}\\w&&[^\\d]],}[0-9](|)"
+  测试字符串: "111𫞷&&\u{45f5f}],}8"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "1{2,5}\\w&&[^\\d]],}[0(?:)-9](|)"
+  测试字符串: "11𢌘&&\u{8f1b2}],}+"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "1{2,5}\\w&&[^\\d]],}[(?<!\\W)0(?:)-9](|)"
+  测试字符串: "11𪠺&&\u{b22e5}],}\u{be2a9}"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "1,|a3(0-?9]|a\n\\d)"
+  测试字符串: "a3a\n𖵷"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "Greek}0,1}\\w](\n)"
+  测试字符串: "Greek}0,1}圉]\n"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "[a-z&|{\\wx{^x{1x{1,3x{1,3}yz]]}"
+  测试字符串: "𠌫]}"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "\\d(|(()())|a\n)"
+  测试字符串: "𞥕"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "1\\w,3}09][^a](\n)"
+  测试字符串: "1𓺥,3}09]\u{863b9}\n"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "((?:)\\d|-[a-z&\\\\xyz]]*)"
+  测试字符串: "꘧"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(?m)\\d|a-z]]\\}"
+  测试字符串: "𑃹"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(?i)(\\d\n[a-z]|a)"
+  测试字符串: "𞅃\nJ"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "\\{0,3}\\sd\\]((?:)\\w?!\\d)\\|"
+  测试字符串: "{0,3}\u{3000}d]!᠙|"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(?m)\\d(|(()(<!\\W)())|a\n)"
+  测试字符串: "৮"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "\\w-(|(a)\n{0,1}{0,1})"
+  测试字符串: "𓩈-"
+regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "((\\w))"
+  测试字符串: "蔪"
 regex=true, regex-lite=false, fancy-regex=true, onig=true, regex-automata=true

@@ -3,36 +3,47 @@ use libfuzzer_sys::{fuzz_mutator, fuzz_target};
 use regex_fuzz::diff::*;
 use regex_fuzz::eqs::generate_equivalent_patterns;
 use regex_syntax::ast::parse::Parser;
+use std::env;
 
 /// 将错误信息追加写入到 fuzz_failures.log 文件中
 /// 如果文件写入失败，则回退到标准错误输出
-fn log_failure(args: impl std::fmt::Display,errorType:String) {
+fn log_failure(args: impl std::fmt::Display, errorType: String) {
     use std::fs::OpenOptions;
     use std::io::Write;
-    let file_result=match errorType.as_str(){
+    let file_result = match errorType.as_str() {
         "DifferentialMismatch" => {
+            let log_path = env::var("FUZZ_DIFF_LOG")
+                .expect("环境变量 FUZZ_DIFF_LOG 未设置，无法继续 fuzzing");
             OpenOptions::new()
-            .create(true)
-            .append(true)
-            .open("D:/regex/fuzz/results/fuzz_differential_failures.log")
-        },
-        "MetamorphicMismatch" => {
-            OpenOptions::new()
-            .create(true)
-            .append(true)
-            .open("D:/regex/fuzz/results/fuzz_metamorphic_failures.log")
+                .create(true)
+                .append(true)
+                .open(log_path)
         }
-        _ => panic!("Unknown log type: {}",errorType),
+        "MetamorphicMismatch" => {
+            let log_path = env::var("FUZZ_META_LOG")
+                .expect("环境变量 FUZZ_META_LOG 未设置，无法继续 fuzzing");
+            OpenOptions::new()
+                .create(true)
+                .append(true)
+                .open(log_path)
+        }
+        _ => panic!("Unknown log type: {}", errorType),
     };
-    
+
     match file_result {
         Ok(mut file) => {
             if let Err(io_err) = writeln!(file, "{}", args) {
-                eprintln!("Failed to write to log file: {}; Original error: {}", io_err, args);
+                eprintln!(
+                    "Failed to write to log file: {}; Original error: {}",
+                    io_err, args
+                );
             }
         }
         Err(io_err) => {
-            eprintln!("Failed to open log file: {}; Original error: {}", io_err, args);
+            eprintln!(
+                "Failed to open log file: {}; Original error: {}",
+                io_err, args
+            );
         }
     }
 }
@@ -249,7 +260,10 @@ fuzz_target!(|data: &[u8]| {
                 return; // Skip patterns that fail pre-checks or test string generation
             }
             ComparisonError::DifferentialMismatch { .. } => {
-                log_failure(format_args!("Differential testing failed, {}", e),"DifferentialMismatch".to_string());
+                log_failure(
+                    format_args!("Differential testing failed, {}", e),
+                    "DifferentialMismatch".to_string(),
+                );
             }
             _ => {
                 panic!("Unexpected error during differential testing: {}", e);
@@ -269,7 +283,10 @@ fuzz_target!(|data: &[u8]| {
     // Test each equivalent pattern on different regex libs
     for eq_pat in eq_patterns {
         if let Err(e) = validate_regexLib(&manager, &eq_pat) {
-            log_failure(format_args!("Metamorphic testing failed, {}", e),"MetamorphicMismatch".to_string());
+            log_failure(
+                format_args!("Metamorphic testing failed, {}", e),
+                "MetamorphicMismatch".to_string(),
+            );
         }
     }
 });
