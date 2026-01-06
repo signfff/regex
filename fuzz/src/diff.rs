@@ -979,6 +979,7 @@ pub fn gen_multiple_accepted_strings(
     count: usize,
 ) -> Vec<String> {
     let mut ret = vec![];
+    // TODO:
     let regex = match RandRegex::compile(pattern, RAND_REGEX_REPEAT_LIMIT) {
         Ok(r) => r,
         Err(_) => return ret,

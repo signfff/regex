@@ -66,6 +66,7 @@ fuzz_mutator!(|data: &mut [u8], size: usize, max_size: usize, _seed: u32| {
             }
         }
         1 => {
+            \\ TODO: 过滤\w
             let classes = ["\\d", "\\w", "\\s", "[a-z]", "[0-9]", ".", "[^a]"];
             let class = classes[(_seed as usize) % classes.len()];
             if pattern.len() < max_size - class.len() {
@@ -270,16 +271,17 @@ fuzz_target!(|data: &[u8]| {
             }
         }
     }
-    // TODO: pattern->equivalent patterns->（不做校验）regex等多个引擎测试
 
     // 2. Metamorphic Testing
     // Generate equivalent patterns and verify they behave the same as the original
-    // Limit: 3 iterations, min 1 pattern, max 3 patterns to keep fuzzing fast
-    let eq_patterns = match generate_equivalent_patterns(&pattern, 3, 1, 3) {
+    // Limit: 3 iterations, min 1 pattern, max 10 patterns to keep fuzzing fast
+    let eq_patterns = match generate_equivalent_patterns(&pattern, 3, 1, 10) {
         Ok(pats) => pats,
         Err(_) => return, // No equivalent patterns found or error, skip metamorphic test
     };
-
+    // FIXME: eq_pat翻译后再用对应的regexLib编译
+    // TODO: flag不处理
+    // TODO: egraph 等价结果打印
     // Test each equivalent pattern on different regex libs
     for eq_pat in eq_patterns {
         if let Err(e) = validate_regexLib(&manager, &eq_pat) {

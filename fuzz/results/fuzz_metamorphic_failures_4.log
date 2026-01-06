@@ -1,0 +1,12 @@
+Metamorphic testing failed, [METAMORPHIC] 蜕变测试失败
+  模式: "a\\ps|()(\\)){2,2}"
+regex-lite=compile failed: Unicode character classes are not supported
+Metamorphic testing failed, [METAMORPHIC] 蜕变测试失败
+  模式: "()(\\)){2,2}|a\\ps|a"
+regex-lite=compile failed: Unicode character classes are not supported
+Metamorphic testing failed, [METAMORPHIC] 蜕变测试失败
+  模式: "()(\\)){2,2}|a|a\\ps"
+regex-lite=compile failed: Unicode character classes are not supported
+Metamorphic testing failed, [METAMORPHIC] 蜕变测试失败
+  模式: "a\\ps|a|()(\\)){2,2}"
+regex-lite=compile failed: Unicode character classes are not supported
