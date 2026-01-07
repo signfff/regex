@@ -66,8 +66,10 @@ fuzz_mutator!(|data: &mut [u8], size: usize, max_size: usize, _seed: u32| {
             }
         }
         1 => {
-            \\ TODO: 过滤\w
-            let classes = ["\\d", "\\w", "\\s", "[a-z]", "[0-9]", ".", "[^a]"];
+            \\ TODO: 过滤\w，减少Unicode影响
+            // let classes = ["\\d", "\\w", "\\s", "[a-z]", "[0-9]", ".", "[^a]"];
+            let classes = ["\\d", "\\s", "[a-z]", "[0-9]", ".", "[^a]"];
+
             let class = classes[(_seed as usize) % classes.len()];
             if pattern.len() < max_size - class.len() {
                 let pos = if pattern.is_empty() {
@@ -108,11 +110,12 @@ fuzz_mutator!(|data: &mut [u8], size: usize, max_size: usize, _seed: u32| {
             }
         }
         5 => {
-            let flags = ["(?i)", "(?m)", "(?s)", "(?x)"];
-            let flag = flags[(_seed as usize) % flags.len()];
-            if pattern.len() < max_size - flag.len() {
-                pattern.insert_str(0, flag);
-            }
+            // TODO: 过滤flag
+            // let flags = ["(?i)", "(?m)", "(?s)", "(?x)"];
+            // let flag = flags[(_seed as usize) % flags.len()];
+            // if pattern.len() < max_size - flag.len() {
+            //     pattern.insert_str(0, flag);
+            // }
         }
         6 => {
             if !pattern.is_empty() {
@@ -127,6 +130,7 @@ fuzz_mutator!(|data: &mut [u8], size: usize, max_size: usize, _seed: u32| {
             }
         }
         7 => {
+            // TODO: 根据差分测试结果考虑是否过滤
             let unicode_classes = ["\\p{L}", "\\p{N}", "\\p{P}", "\\p{Greek}"];
             let class =
                 unicode_classes[(_seed as usize) % unicode_classes.len()];
@@ -140,24 +144,26 @@ fuzz_mutator!(|data: &mut [u8], size: usize, max_size: usize, _seed: u32| {
             }
         }
         8 => {
-            if !pattern.is_empty() && pattern.contains('(') {
-                let backrefs = ["\\1", "\\2", "\\3"];
-                let backref = backrefs[(_seed as usize) % backrefs.len()];
-                let pos = (_seed as usize) % pattern.len();
-                pattern.insert_str(pos, backref);
-            }
+            // FIXME:rust正则引擎不支持反向引用，因为反向引用需要回溯，无法保证线性时间复杂度
+            // if !pattern.is_empty() && pattern.contains('(') {
+            //     let backrefs = ["\\1", "\\2", "\\3"];
+            //     let backref = backrefs[(_seed as usize) % backrefs.len()];
+            //     let pos = (_seed as usize) % pattern.len();
+            //     pattern.insert_str(pos, backref);
+            // }
         }
         9 => {
-            let assertions = ["(?=\\w)", "(?!\\d)", "(?<=\\s)", "(?<!\\W)"];
-            let assertion = assertions[(_seed as usize) % assertions.len()];
-            if pattern.len() < max_size - assertion.len() {
-                let pos = if pattern.is_empty() {
-                    0
-                } else {
-                    (_seed as usize) % pattern.len()
-                };
-                pattern.insert_str(pos, assertion);
-            }
+            // FIXME:rust正则引擎不支持look-around,look-ahead,look-behind，因为性能要求限制
+            // let assertions = ["(?=\\w)", "(?!\\d)", "(?<=\\s)", "(?<!\\W)"];
+            // let assertion = assertions[(_seed as usize) % assertions.len()];
+            // if pattern.len() < max_size - assertion.len() {
+            //     let pos = if pattern.is_empty() {
+            //         0
+            //     } else {
+            //         (_seed as usize) % pattern.len()
+            //     };
+            //     pattern.insert_str(pos, assertion);
+            // }
         }
         10 => {
             if !pattern.is_empty() && pattern.len() < max_size - 4 {
@@ -279,8 +285,6 @@ fuzz_target!(|data: &[u8]| {
         Ok(pats) => pats,
         Err(_) => return, // No equivalent patterns found or error, skip metamorphic test
     };
-    // FIXME: eq_pat翻译后再用对应的regexLib编译
-    // TODO: flag不处理
     // TODO: egraph 等价结果打印
     // Test each equivalent pattern on different regex libs
     for eq_pat in eq_patterns {

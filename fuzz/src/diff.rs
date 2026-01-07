@@ -1109,7 +1109,27 @@ pub fn validate_regexLib(
     let mut errors: Vec<(&'static str, String)> = Vec::new();
     for compiler in manager.get_compilers() {
         let lib_name = compiler.name();
-        match compiler.compile(pattern) {
+        // FIXME: pattern用对应的语法翻译后再用regexLib编译
+        // 取对应的 AST 翻译器
+        let translator = match get_translator_for(lib_name) {
+            Some(t) => t,
+            None => continue,
+        };
+        // Convert pattern to ast
+        let ast = match Parser::new().parse(&pattern) {
+            Ok(ast) => ast,
+            Err(_) => return, // Invalid pattern, skip this input
+        };
+        // 把统一 AST 翻译成该库能理解的正则字符串
+        let pattern_for_lib = match translator.translate(ast) {
+            Ok(p) => p,
+            Err(e) => {
+                errors
+                    .push((lib_name, format!("AST translate failed: {}", e)));
+                continue;
+            }
+        };
+        match compiler.compile(pattern_for_lib) {
             Ok(matcher) => {}
             Err(e) => {
                 errors.push((lib_name, format!("compile failed: {}", e)));
