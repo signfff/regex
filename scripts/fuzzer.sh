@@ -31,7 +31,8 @@ for i in $(seq 1 $THREADS); do
     cargo fuzz run "$TARGET" "$CORPUS" -- \
       -max_len="$MAX_LEN" \
       -max_total_time="$MAX_TIME" \
-      -jobs=1
+      -jobs=1 \
+      > /dev/null 2>&1
   ) &
 done
 
