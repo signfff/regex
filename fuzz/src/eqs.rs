@@ -298,10 +298,6 @@ fn ast_to_recexpr_impl(
             let id = expr.add(RegexLang::FlagsStr(flags_str));
             Ok(id)
         }
-        
-        _ => {
-            panic!("Unsupported AST node: {:?}", ast);
-        }
     }
 }
 

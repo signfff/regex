@@ -4,6 +4,7 @@
 extern crate rand; //旧版，可以改
 use rand::Rng;
 use regex_syntax::ast::Ast; //导入多个，解析器和语法树
+use regex_syntax::ast::parse::Parser;
 
 use once_cell::sync::Lazy;
 use std::sync::Arc; //多线程共享数据 //全局变量的惰性初始化
@@ -49,7 +50,7 @@ pub enum ComparisonError {
     // 差分转写和编译不通过
     PreCheckFailed {
         pattern: String,
-        errors: Vec<(&'static str, String)>,
+        errors: Vec<(String, String)>,
     },
     // 无法生成差分测试需要的input
     TestStringsGenerationFailed {
@@ -59,14 +60,14 @@ pub enum ComparisonError {
     DifferentialMismatch {
         pattern: String,
         test_string: String,
-        errors: Vec<(&'static str, bool)>,
+        errors: Vec<(String, bool)>,
     },
     // 蜕变结果不一致
     MetamorphicMismatch {
         pattern: String,
-        errors: Vec<(&'static str, String)>,
+        errors: Vec<(String, String)>,
     },
-    // Egraph生成等价表达式无法全部通过编译
+    // Egraph生成等价表达式无法全部通过编译(可能是解析错误也可能是编译不通过)
     EgraphPreCheckFailed {
         pattern: String,
         errors: Vec<(String, String)>,
@@ -75,7 +76,7 @@ pub enum ComparisonError {
     EgraphMismatch {
         pattern: String,
         test_string: String,
-        errors: Vec<(&'static str, bool)>,
+        errors: Vec<(String, bool)>,
     },
     // 无法找到对应引擎
     CompilerNotFound {
@@ -124,6 +125,34 @@ impl std::fmt::Display for ComparisonError {
                     }
                     write!(f, "{}={}", name, err)?;
                 }
+                Ok(())
+            }
+            ComparisonError::EgraphPreCheckFailed{pattern, errors} => {
+                writeln!(f, "[EGRAPH] 预校验失败")?;
+                writeln!(f, "  模式: {:?}", pattern)?;
+                for (i, (name, err)) in errors.iter().enumerate() {
+                    if i > 0 {
+                        write!(f, ", ")?;
+                    }
+                    write!(f, "{}={}", name, err)?;
+                }
+                Ok(())
+            }
+            ComparisonError::EgraphMismatch{ pattern, test_string, errors }=>{
+                writeln!(f, "[EGRAPH] 等价表达式行为不一致")?;
+                writeln!(f, "  模式: {:?}", pattern)?;
+                writeln!(f, "  测试字符串: {:?}", test_string)?;
+                for (i, (name, err)) in errors.iter().enumerate() {
+                    if i > 0 {
+                        write!(f, ", ")?;
+                    }
+                    write!(f, "{}={}", name, err)?;
+                }
+                Ok(())
+            }
+            ComparisonError::CompilerNotFound{name}=>{
+                writeln!(f, "[EGRAPH] 未找到对应引擎")?;
+                writeln!(f, "  引擎: {:?}", name)?;
                 Ok(())
             }
         }
@@ -886,7 +915,6 @@ fn repetition_is_large(rep: &regex_syntax::ast::Repetition, limit: u32) -> bool 
 
 pub fn gen_multiple_accepted_strings(pattern: &str, count: usize) -> Vec<String> {
     let mut ret = vec![];
-    // TODO:
     let regex = match RandRegex::compile(pattern, RAND_REGEX_REPEAT_LIMIT) {
         Ok(r) => r,
         Err(_) => {
@@ -923,7 +951,7 @@ pub fn validate_pattern(
     ast: &Ast
 ) -> Result<(), ComparisonError> {
     let mut compiled: Vec<(&'static str, Arc<dyn (Fn(&str) -> bool) + Send + Sync>)> = Vec::new();
-    let mut errors: Vec<(&'static str, String)> = Vec::new();
+    let mut errors: Vec<(String, String)> = Vec::new();
 
     // 对每个库：先 AST 翻译，再调用该库的编译器
     for compiler in manager.get_compilers() {
@@ -945,7 +973,7 @@ pub fn validate_pattern(
         let pattern_for_lib = match translator.translate(ast) {
             Ok(p) => p,
             Err(e) => {
-                errors.push((lib_name, format!("AST translate failed: {}", e)));
+                errors.push((lib_name.to_string(), format!("AST translate failed: {}", e)));
                 continue;
             }
         };
@@ -960,7 +988,7 @@ pub fn validate_pattern(
                 compiled.push((name, mfn));
             }
             Err(e) => {
-                errors.push((lib_name, format!("compile failed: {}", e)));
+                errors.push((lib_name.to_string(), format!("compile failed: {}", e)));
                 continue;
             }
         }
@@ -984,9 +1012,9 @@ pub fn validate_pattern(
     for test_str in &test_strings {
         // 3.1 收集当前字符串在所有库上的运行结果
         // 结果格式: Vec<(库名, 是否匹配)>
-        let current_results: Vec<(&str, bool)> = compiled
+        let current_results: Vec<(String, bool)> = compiled
             .iter()
-            .map(|(lib_name, matcher)| (*lib_name, matcher(test_str)))
+            .map(|(lib_name, matcher)| (lib_name.to_string(), matcher(test_str)))
             .collect();
 
         // 3.2 检查一致性
@@ -1008,9 +1036,10 @@ pub fn validate_pattern(
 /**
  * 给定模式已通过前置检验，确定可以被各库编译。
  * 验证正则表达式库在多个给定模式的行为一致性
+ * 蜕变测试
  */
 pub fn validate_regexLib(manager: &RegexLibManager, pattern: &str) -> Result<(), ComparisonError> {
-    let mut errors: Vec<(&'static str, String)> = Vec::new();
+    let mut errors: Vec<(String, String)> = Vec::new();
     for compiler in manager.get_compilers() {
         let lib_name = compiler.name();
         // FIXME: pattern用对应的语法翻译后再用regexLib编译
@@ -1025,21 +1054,24 @@ pub fn validate_regexLib(manager: &RegexLibManager, pattern: &str) -> Result<(),
         let ast = match Parser::new().parse(&pattern) {
             Ok(ast) => ast,
             Err(_) => {
-                return;
+                return Err(ComparisonError::EgraphPreCheckFailed{
+                    pattern:pattern.to_string(),
+                    errors:errors,
+                });
             } // Invalid pattern, skip this input
         };
         // 把统一 AST 翻译成该库能理解的正则字符串
-        let pattern_for_lib = match translator.translate(ast) {
+        let pattern_for_lib = match translator.translate(&ast) {
             Ok(p) => p,
             Err(e) => {
-                errors.push((lib_name, format!("AST translate failed: {}", e)));
+                errors.push((lib_name.to_string(), format!("AST translate failed: {}", e)));
                 continue;
             }
         };
-        match compiler.compile(pattern_for_lib) {
+        match compiler.compile(&pattern_for_lib) {
             Ok(matcher) => {}
             Err(e) => {
-                errors.push((lib_name, format!("compile failed: {}", e)));
+                errors.push((lib_name.to_string(), format!("compile failed: {}", e)));
             }
         }
     }

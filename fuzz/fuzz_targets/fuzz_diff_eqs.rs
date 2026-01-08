@@ -67,9 +67,10 @@ fuzz_mutator!(|data: &mut [u8], size: usize, max_size: usize, _seed: u32| {
             }
         }
         1 => {
-            //  TODO: 过滤\w，减少Unicode影响
+            //  regex-lite在Unicode语义下和regex表现不同，过滤掉可以匹配Unicode字符的部分
+            // TODO: 考虑显式关闭Unicode，例如r"(?-u)\d" r"(?-u)\w" r"(?-u)\s" 待讨论
             // let classes = ["\\d", "\\w", "\\s", "[a-z]", "[0-9]", ".", "[^a]"];
-            let classes = ["\\d", "\\s", "[a-z]", "[0-9]", ".", "[^a]"];
+            let classes = ["[a-z]", "[0-9]"];
 
             let class = classes[(_seed as usize) % classes.len()];
             if pattern.len() < max_size - class.len() {
@@ -167,7 +168,9 @@ fuzz_mutator!(|data: &mut [u8], size: usize, max_size: usize, _seed: u32| {
             }
         }
         11 => {
-            let classes = ["[a-z&&[^aeiou]]", "[\\w&&[^\\d]]", "[a-z&&[^xyz]]"];
+            // "[\\w&&[^\\d]]包括Unicode字符
+            // let classes = ["[a-z&&[^aeiou]]", "[\\w&&[^\\d]]", "[a-z&&[^xyz]]"];
+            let classes = ["[a-z&&[^aeiou]]", "[a-z&&[^xyz]]"];
             let class = classes[(_seed as usize) % classes.len()];
             if pattern.len() < max_size - class.len() {
                 let pos = if pattern.is_empty() { 0 } else { (_seed as usize) % pattern.len() };
@@ -288,8 +291,8 @@ fuzz_target!(|data: &[u8]| {
             return;
         } // No equivalent patterns found or error, skip metamorphic test
     };
-    // TODO: egraph 等价结果打印
-    if let Err(e) = validate_eq_patterns(&manager, &pattern, &eq_pat) {
+    
+    if let Err(e) = validate_eq_patterns(&manager, &pattern, &eq_patterns) {
         match e {
             ComparisonError::TestStringsGenerationFailed { .. } => {
                 return;
@@ -308,6 +311,9 @@ fuzz_target!(|data: &[u8]| {
             }
             ComparisonError::EgraphMismatch { .. } => {
                 log_failure(format_args!("Egraph mismatch, {}", e), "EgraphMismatch".to_string());
+            }
+            _ => {
+                panic!("Unreachable error type during Egraph check: {}", e)
             }
         }
     }
