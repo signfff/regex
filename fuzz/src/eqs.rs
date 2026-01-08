@@ -391,75 +391,7 @@ pub fn perform_rewrites(
     let runner = Runner::default()
         .with_explanations_enabled()
         .with_iter_limit(iter_limit)
-        // .with_egraph(egraph.clone())
         .with_expr(expr)
-        // .with_hook(|runner| {
-        //     let iteration = runner.iterations.len();
-        //     if iteration == 0 {
-        //         return Ok(());
-        //     }
-        //     let report = &runner.iterations[iteration - 1];
-        //     eprintln!("┌─────────────────────────────────────────────────────────────┐");
-        //     eprintln!("│ ITERATION {} COMPLETED", iteration);
-        //     eprintln!("├─────────────────────────────────────────────────────────────┤");
-        //     eprintln!("│ E-graph Statistics:");
-        //     eprintln!("│   • E-classes: {}", runner.egraph.number_of_classes());
-        //     eprintln!("│   • E-nodes: {}", runner.egraph.total_size());
-        //     eprintln!("│   • Applied rules: {}", report.applied.values().sum::<usize>());
-        //     eprintln!("│   • Search time: {:.2?}", report.search_time);
-        //     eprintln!("│   • Apply time: {:.2?}", report.apply_time);
-        //     eprintln!("│   • Rebuild time: {:.2?}", report.rebuild_time);
-        //     eprintln!("│");
-        //     if !report.applied.is_empty() {
-        //         eprintln!("│ Rules Applied This Iteration:");
-        //         let mut applied_rules: Vec<_> = report.applied.iter().collect();
-        //         applied_rules.sort_by_key(|(_, count)| std::cmp::Reverse(**count));
-        //         let mut count = 0;
-        //         for (rule_name, rule_count) in &applied_rules {
-        //             if **rule_count > 0 {
-        //                 count += 1;
-        //                 if count <= 8 {  // Show top 8 rules to avoid clutter
-        //                     let rule_str = rule_name.to_string();
-        //                     let truncated_rule = if rule_str.len() > 25 {
-        //                         format!("{}...", rule_str.chars().take(22).collect::<String>())
-        //                     } else {
-        //                         rule_str
-        //                     };
-        //                     eprintln!("│   • {:25} : {} times", truncated_rule, rule_count);
-        //                 }
-        //             }
-        //         }
-        //         if count > 8 {
-        //             eprintln!("│   • ... and {} more rules", count - 8);
-        //         }
-        //         eprintln!("│");
-        //         eprintln!("│ Step-by-step rule applications:");
-        //         for (rule_name, rule_count) in applied_rules.iter().take(3) {
-        //             if **rule_count > 0 {
-        //                 eprintln!("│   → {} applied {} time(s)", rule_name, rule_count);
-        //                 // Show what this rule does
-        //                 match rule_name.as_str() {
-        //                     "plus-to-star" => eprintln!("│     Transforms: a+ → a(a*)"),
-        //                     "star-to-plus-or-empty" => eprintln!("│     Transforms: a* → a+|ε"),
-        //                     "question-to-alt" => eprintln!("│     Transforms: a? → a|ε"),
-        //                     "group-elim" => eprintln!("│     Transforms: (group a) → a"),
-        //                     "alt-commutative" => eprintln!("│     Transforms: a|b → b|a"),
-        //                     "alt-associative" => eprintln!("│     Transforms: a|(b|c) → (a|b)|c"),
-        //                     "concat-assoc" => eprintln!("│     Transforms: (ab)c → a(bc)"),
-        //                     "star-star" => eprintln!("│     Transforms: (a*)* → a*"),
-        //                     "plus-plus" => eprintln!("│     Transforms: (a+)+ → a+"),
-        //                     "concat-dist-alt-left" => eprintln!("│     Transforms: a(b|c) → ab|ac"),
-        //                     "concat-dist-alt-right" => eprintln!("│     Transforms: (a|b)c → ac|bc"),
-        //                     _ => eprintln!("│     (Rule description not available)"),
-        //                 }
-        //             }
-        //         }
-        //     } else {
-        //         eprintln!("│ No rules applied this iteration (saturation reached)");
-        //     }
-        //     eprintln!("└─────────────────────────────────────────────────────────────┘\n");
-        //     Ok(())
-        // })
         .run(&rules);
 
     // eprintln!("╔════════════════════════════════════════════════════════════════╗");

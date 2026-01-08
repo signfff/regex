@@ -22,10 +22,7 @@ pub trait RegexMatcher: Send + Sync {
 }
 
 pub trait RegexCompiler: Send + Sync {
-    fn compile(
-        &self,
-        pattern: &str,
-    ) -> Result<Box<dyn RegexMatcher>, Box<dyn std::error::Error>>;
+    fn compile(&self, pattern: &str) -> Result<Box<dyn RegexMatcher>, Box<dyn std::error::Error>>;
     fn name(&self) -> &'static str;
 }
 
@@ -37,11 +34,7 @@ pub struct LibCompilationError {
 
 impl std::fmt::Display for LibCompilationError {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(
-            f,
-            "Failed to compile pattern '{}' in any library:",
-            self.pattern
-        )?;
+        write!(f, "Failed to compile pattern '{}' in any library:", self.pattern)?;
         for (lib, err) in &self.errors {
             write!(f, "\n  {}: {}", lib, err)?;
         }
@@ -53,7 +46,7 @@ impl std::error::Error for LibCompilationError {}
 
 #[derive(Debug)]
 pub enum ComparisonError {
-    // 转写和编译不通过
+    // 差分转写和编译不通过
     PreCheckFailed {
         pattern: String,
         errors: Vec<(&'static str, String)>,
@@ -72,6 +65,21 @@ pub enum ComparisonError {
     MetamorphicMismatch {
         pattern: String,
         errors: Vec<(&'static str, String)>,
+    },
+    // Egraph生成等价表达式无法全部通过编译
+    EgraphPreCheckFailed {
+        pattern: String,
+        errors: Vec<(String, String)>,
+    },
+    // Egraph生成等价表达式行为不一致
+    EgraphMismatch {
+        pattern: String,
+        test_string: String,
+        errors: Vec<(&'static str, bool)>,
+    },
+    // 无法找到对应引擎
+    CompilerNotFound {
+        name: String,
     },
 }
 
@@ -95,11 +103,7 @@ impl std::fmt::Display for ComparisonError {
                 writeln!(f, "  模式: {:?}", pattern)?;
                 Ok(())
             }
-            ComparisonError::DifferentialMismatch {
-                pattern,
-                test_string,
-                errors,
-            } => {
+            ComparisonError::DifferentialMismatch { pattern, test_string, errors } => {
                 writeln!(f, "[DIFFERENTIAL] 差分测试失败")?;
                 writeln!(f, "  模式: {:?}", pattern)?;
                 writeln!(f, "  测试字符串: {:?}", test_string)?;
@@ -137,9 +141,8 @@ mod std_regex {
     impl RegexCompiler for StdRegexCompiler {
         fn compile(
             &self,
-            pattern: &str,
-        ) -> Result<Box<dyn RegexMatcher>, Box<dyn std::error::Error>>
-        {
+            pattern: &str
+        ) -> Result<Box<dyn RegexMatcher>, Box<dyn std::error::Error>> {
             let re = StdRegex::new(pattern)?;
             Ok(Box::new(StdRegexMatcher(re)))
         }
@@ -170,9 +173,8 @@ mod lite_regex {
     impl RegexCompiler for LiteRegexCompiler {
         fn compile(
             &self,
-            pattern: &str,
-        ) -> Result<Box<dyn RegexMatcher>, Box<dyn std::error::Error>>
-        {
+            pattern: &str
+        ) -> Result<Box<dyn RegexMatcher>, Box<dyn std::error::Error>> {
             let re = LiteRegex::new(pattern)?;
             Ok(Box::new(LiteRegexMatcher(re)))
         }
@@ -203,9 +205,8 @@ mod fancy_regex_adapter {
     impl RegexCompiler for FancyRegexCompiler {
         fn compile(
             &self,
-            pattern: &str,
-        ) -> Result<Box<dyn RegexMatcher>, Box<dyn std::error::Error>>
-        {
+            pattern: &str
+        ) -> Result<Box<dyn RegexMatcher>, Box<dyn std::error::Error>> {
             let re = FancyRegex::new(pattern)?;
             Ok(Box::new(FancyRegexMatcher(re)))
         }
@@ -236,9 +237,8 @@ mod onig_regex {
     impl RegexCompiler for OnigRegexCompiler {
         fn compile(
             &self,
-            pattern: &str,
-        ) -> Result<Box<dyn RegexMatcher>, Box<dyn std::error::Error>>
-        {
+            pattern: &str
+        ) -> Result<Box<dyn RegexMatcher>, Box<dyn std::error::Error>> {
             let re = OnigRegex::new(pattern)?;
             Ok(Box::new(OnigRegexMatcher(re)))
         }
@@ -269,11 +269,9 @@ mod pcre2_regex {
     impl RegexCompiler for Pcre2RegexCompiler {
         fn compile(
             &self,
-            pattern: &str,
-        ) -> Result<Box<dyn RegexMatcher>, Box<dyn std::error::Error>>
-        {
-            let re =
-                pcre2::bytes::RegexBuilder::new().utf(true).build(pattern)?;
+            pattern: &str
+        ) -> Result<Box<dyn RegexMatcher>, Box<dyn std::error::Error>> {
+            let re = pcre2::bytes::RegexBuilder::new().utf(true).build(pattern)?;
             Ok(Box::new(Pcre2RegexMatcher(re)))
         }
 
@@ -304,9 +302,8 @@ mod regex_automata_adapter {
     impl RegexCompiler for RegexAutomataCompiler {
         fn compile(
             &self,
-            pattern: &str,
-        ) -> Result<Box<dyn RegexMatcher>, Box<dyn std::error::Error>>
-        {
+            pattern: &str
+        ) -> Result<Box<dyn RegexMatcher>, Box<dyn std::error::Error>> {
             let re = Builder::new().build(pattern)?;
             Ok(Box::new(RegexAutomataMatcher(re)))
         }
@@ -343,7 +340,7 @@ impl RegexLibManager {
             Box::new(fancy_regex_adapter::FancyRegexCompiler),
             Box::new(onig_regex::OnigRegexCompiler),
             Box::new(pcre2_regex::Pcre2RegexCompiler),
-            Box::new(regex_automata_adapter::RegexAutomataCompiler),
+            Box::new(regex_automata_adapter::RegexAutomataCompiler)
         ];
 
         let baseline_priority = vec![
@@ -352,7 +349,7 @@ impl RegexLibManager {
             "regex-automata",
             "fancy-regex",
             "onig",
-            "pcre2",
+            "pcre2"
         ];
 
         Self { compilers, baseline_priority }
@@ -365,14 +362,14 @@ impl RegexLibManager {
     pub fn get_compilers(&self) -> &[Box<dyn RegexCompiler>] {
         &self.compilers
     }
+    pub fn get_compiler(&self, name: &str) -> Option<&Box<dyn RegexCompiler>> {
+        self.compilers.iter().find(|c| c.name() == name)
+    }
 
     pub fn get_baseline<'a>(
         &self,
-        compiled: &'a [(
-            &'static str,
-            Arc<dyn Fn(&str) -> bool + Send + Sync>,
-        )],
-    ) -> Option<(&'static str, Arc<dyn Fn(&str) -> bool + Send + Sync>)> {
+        compiled: &'a [(&'static str, Arc<dyn (Fn(&str) -> bool) + Send + Sync>)]
+    ) -> Option<(&'static str, Arc<dyn (Fn(&str) -> bool) + Send + Sync>)> {
         self.baseline_priority.iter().find_map(|&name| {
             compiled
                 .iter()
@@ -397,18 +394,14 @@ struct TranslatorOptions {
     supports_start_end_assertions: bool,
 }
 
-fn translate_ast(
-    ast: &Ast,
-    options: TranslatorOptions,
-) -> Result<String, String> {
+fn translate_ast(ast: &Ast, options: TranslatorOptions) -> Result<String, String> {
     match ast {
         Ast::Empty(_) => Ok(String::new()),
 
         Ast::Literal(lit) => Ok(translate_literal(lit, &options)),
 
         Ast::Concat(concat) => {
-            let parts: Result<Vec<String>, String> = concat
-                .asts
+            let parts: Result<Vec<String>, String> = concat.asts
                 .iter()
                 .map(|a| translate_ast(a, options.clone()))
                 .collect();
@@ -416,17 +409,12 @@ fn translate_ast(
         }
 
         Ast::Alternation(alt) => {
-            let parts: Result<Vec<String>, String> = alt
-                .asts
+            let parts: Result<Vec<String>, String> = alt.asts
                 .iter()
                 .map(|a| translate_ast(a, options.clone()))
                 .collect();
             parts.map(|v| {
-                if v.len() == 1 {
-                    v[0].clone()
-                } else {
-                    format!("(?:{})", v.join("|"))
-                }
+                if v.len() == 1 { v[0].clone() } else { format!("(?:{})", v.join("|")) }
             })
         }
 
@@ -434,22 +422,22 @@ fn translate_ast(
             let inner = translate_ast(&g.ast, options.clone())?;
 
             match &g.kind {
-                regex_syntax::ast::GroupKind::CaptureIndex(_) => {
-                    Ok(format!("({})", inner))
-                }
+                regex_syntax::ast::GroupKind::CaptureIndex(_) => { Ok(format!("({})", inner)) }
                 regex_syntax::ast::GroupKind::CaptureName { name, .. } => {
                     if !options.supports_named_groups {
                         // 检查模式中是否使用了这个命名组作为反向引用
                         if contains_named_backreference(&g.ast, &name.name) {
-                            return Err(format!(
-                                "库 {} 不支持命名捕获组，但模式中使用了命名组 '{}' 作为反向引用",
-                                options.library, name.name
-                            ));
+                            return Err(
+                                format!(
+                                    "库 {} 不支持命名捕获组，但模式中使用了命名组 '{}' 作为反向引用",
+                                    options.library,
+                                    name.name
+                                )
+                            );
                         }
-                        return Err(format!(
-                            "库 {} 不支持命名捕获组 '{}'",
-                            options.library, name.name
-                        ));
+                        return Err(
+                            format!("库 {} 不支持命名捕获组 '{}'", options.library, name.name)
+                        );
                     }
 
                     match options.library {
@@ -459,15 +447,10 @@ fn translate_ast(
                         "pcre2" | "onig" | "fancy-regex" => {
                             Ok(format!("(?<{}>{})", name.name, inner))
                         }
-                        _ => Err(format!(
-                            "库 {} 不支持命名捕获组",
-                            options.library
-                        )),
+                        _ => Err(format!("库 {} 不支持命名捕获组", options.library)),
                     }
                 }
-                regex_syntax::ast::GroupKind::NonCapturing(_) => {
-                    Ok(format!("(?:{})", inner))
-                }
+                regex_syntax::ast::GroupKind::NonCapturing(_) => { Ok(format!("(?:{})", inner)) }
             }
         }
 
@@ -482,35 +465,22 @@ fn translate_ast(
                 regex_syntax::ast::AssertionKind::EndLine => Ok("$".into()),
                 regex_syntax::ast::AssertionKind::StartText => {
                     if !options.supports_start_end_assertions {
-                        return Err(format!(
-                            "库 {} 不支持 \\A 断言",
-                            options.library
-                        ));
+                        return Err(format!("库 {} 不支持 \\A 断言", options.library));
                     }
                     Ok(r"\A".into())
                 }
                 regex_syntax::ast::AssertionKind::EndText => {
                     if !options.supports_start_end_assertions {
-                        return Err(format!(
-                            "库 {} 不支持 \\z 断言",
-                            options.library
-                        ));
+                        return Err(format!("库 {} 不支持 \\z 断言", options.library));
                     }
                     Ok(r"\z".into())
                 }
-                regex_syntax::ast::AssertionKind::WordBoundary => {
-                    Ok(r"\b".into())
-                }
-                regex_syntax::ast::AssertionKind::NotWordBoundary => {
-                    Ok(r"\B".into())
-                }
+                regex_syntax::ast::AssertionKind::WordBoundary => { Ok(r"\b".into()) }
+                regex_syntax::ast::AssertionKind::NotWordBoundary => { Ok(r"\B".into()) }
                 _ => {
                     // 处理所有查找断言（Lookaround）
                     if !options.supports_lookaround {
-                        return Err(format!(
-                            "库 {} 不支持查找断言",
-                            options.library
-                        ));
+                        return Err(format!("库 {} 不支持查找断言", options.library));
                     }
                     Err(format!("库 {} 需要实现查找断言支持", options.library))
                 }
@@ -527,63 +497,62 @@ fn translate_ast(
                     regex_syntax::ast::FlagsItemKind::Flag(flag) => {
                         match flag {
                             regex_syntax::ast::Flag::CaseInsensitive => {
-                                flag_str.push('i')
+                                flag_str.push('i');
                             }
                             regex_syntax::ast::Flag::MultiLine => {
-                                flag_str.push('m')
+                                flag_str.push('m');
                             }
                             regex_syntax::ast::Flag::DotMatchesNewLine => {
                                 match options.library {
-                                    "regex" | "regex-lite"
-                                    | "regex-automata" | "pcre2" | "onig"
+                                    | "regex"
+                                    | "regex-lite"
+                                    | "regex-automata"
+                                    | "pcre2"
+                                    | "onig"
                                     | "fancy-regex" => flag_str.push('s'),
                                     _ => {
-                                        return Err(format!(
-                                            "库 {} 不支持 's' 标志",
-                                            options.library
-                                        ))
+                                        return Err(
+                                            format!("库 {} 不支持 's' 标志", options.library)
+                                        );
                                     }
                                 }
                             }
                             regex_syntax::ast::Flag::SwapGreed => {
                                 match options.library {
-                                    "regex" | "regex-lite"
-                                    | "regex-automata" | "pcre2" | "onig"
+                                    | "regex"
+                                    | "regex-lite"
+                                    | "regex-automata"
+                                    | "pcre2"
+                                    | "onig"
                                     | "fancy-regex" => flag_str.push('U'),
                                     _ => {
-                                        return Err(format!(
-                                            "库 {} 不支持 'U' 标志",
-                                            options.library
-                                        ))
+                                        return Err(
+                                            format!("库 {} 不支持 'U' 标志", options.library)
+                                        );
                                     }
                                 }
                             }
                             regex_syntax::ast::Flag::IgnoreWhitespace => {
                                 match options.library {
-                                    "regex" | "fancy-regex" | "pcre2"
-                                    | "onig" => flag_str.push('x'),
+                                    "regex" | "fancy-regex" | "pcre2" | "onig" =>
+                                        flag_str.push('x'),
                                     _ => {
-                                        return Err(format!(
-                                            "库 {} 不支持 'x' 标志",
-                                            options.library
-                                        ))
+                                        return Err(
+                                            format!("库 {} 不支持 'x' 标志", options.library)
+                                        );
                                     }
                                 }
                             }
                             regex_syntax::ast::Flag::Unicode => {
                                 if !options.supports_unicode_classes {
-                                    return Err(format!(
-                                        "库 {} 不支持 'u' (Unicode) 标志",
-                                        options.library
-                                    ));
+                                    return Err(
+                                        format!("库 {} 不支持 'u' (Unicode) 标志", options.library)
+                                    );
                                 }
                                 flag_str.push('u');
                             }
                             _ => {
-                                return Err(format!(
-                                    "库 {} 不支持标志 {:?}",
-                                    options.library, flag
-                                ))
+                                return Err(format!("库 {} 不支持标志 {:?}", options.library, flag));
                             }
                         }
                     }
@@ -601,21 +570,15 @@ fn translate_ast(
 
         Ast::ClassPerl(class) => translate_perl_class(class, &options),
 
-        Ast::ClassBracketed(bracketed) => {
-            translate_bracketed_class(bracketed, &options)
-        }
+        Ast::ClassBracketed(bracketed) => { translate_bracketed_class(bracketed, &options) }
     }
 }
 
 /// 检查AST中是否包含对命名组的反向引用
 fn contains_named_backreference(ast: &Ast, name: &str) -> bool {
     match ast {
-        Ast::Concat(concat) => {
-            concat.asts.iter().any(|a| contains_named_backreference(a, name))
-        }
-        Ast::Alternation(alt) => {
-            alt.asts.iter().any(|a| contains_named_backreference(a, name))
-        }
+        Ast::Concat(concat) => { concat.asts.iter().any(|a| contains_named_backreference(a, name)) }
+        Ast::Alternation(alt) => { alt.asts.iter().any(|a| contains_named_backreference(a, name)) }
         Ast::Repetition(rep) => contains_named_backreference(&rep.ast, name),
         Ast::Group(group) => contains_named_backreference(&group.ast, name),
         _ => false,
@@ -623,15 +586,11 @@ fn contains_named_backreference(ast: &Ast, name: &str) -> bool {
 }
 
 /// 翻译字面量字符
-fn translate_literal(
-    lit: &regex_syntax::ast::Literal,
-    options: &TranslatorOptions,
-) -> String {
+fn translate_literal(lit: &regex_syntax::ast::Literal, options: &TranslatorOptions) -> String {
     let c = lit.c;
 
     match c {
-        '\\' | '^' | '$' | '.' | '|' | '?' | '*' | '+' | '(' | ')' | '['
-        | ']' | '{' | '}' => {
+        '\\' | '^' | '$' | '.' | '|' | '?' | '*' | '+' | '(' | ')' | '[' | ']' | '{' | '}' => {
             format!(r"\{}", c)
         }
         _ => c.to_string(),
@@ -642,32 +601,24 @@ fn translate_literal(
 fn translate_repetition(
     rep: &regex_syntax::ast::Repetition,
     inner: &str,
-    options: &TranslatorOptions,
+    options: &TranslatorOptions
 ) -> String {
     let quant = match &rep.op.kind {
         regex_syntax::ast::RepetitionKind::ZeroOrOne => "?".to_string(),
         regex_syntax::ast::RepetitionKind::ZeroOrMore => "*".to_string(),
         regex_syntax::ast::RepetitionKind::OneOrMore => "+".to_string(),
-        regex_syntax::ast::RepetitionKind::Range(range) => match range {
-            regex_syntax::ast::RepetitionRange::Exactly(m) => {
-                format!("{{{}}}", m)
+        regex_syntax::ast::RepetitionKind::Range(range) =>
+            match range {
+                regex_syntax::ast::RepetitionRange::Exactly(m) => { format!("{{{}}}", m) }
+                regex_syntax::ast::RepetitionRange::AtLeast(m) => { format!("{{{},}}", m) }
+                regex_syntax::ast::RepetitionRange::Bounded(m, n) => { format!("{{{},{}}}", m, n) }
             }
-            regex_syntax::ast::RepetitionRange::AtLeast(m) => {
-                format!("{{{},}}", m)
-            }
-            regex_syntax::ast::RepetitionRange::Bounded(m, n) => {
-                format!("{{{},{}}}", m, n)
-            }
-        },
     };
 
     let greedy = if rep.greedy { "" } else { "?" };
 
     let needs_group = match rep.ast.as_ref() {
-        Ast::Literal(_)
-        | Ast::Dot(_)
-        | Ast::ClassUnicode(_)
-        | Ast::ClassPerl(_) => false,
+        Ast::Literal(_) | Ast::Dot(_) | Ast::ClassUnicode(_) | Ast::ClassPerl(_) => false,
         _ => true,
     };
 
@@ -681,7 +632,7 @@ fn translate_repetition(
 /// 翻译Unicode字符类
 fn translate_unicode_class(
     class: &regex_syntax::ast::ClassUnicode,
-    options: &TranslatorOptions,
+    options: &TranslatorOptions
 ) -> Result<String, String> {
     match &class.kind {
         regex_syntax::ast::ClassUnicodeKind::OneLetter(letter) => {
@@ -693,10 +644,9 @@ fn translate_unicode_class(
                 _ => {
                     // 其他单个字母的Unicode字符类
                     if !options.supports_unicode_classes {
-                        return Err(format!(
-                            "库 {} 不支持Unicode字符类 \\{}",
-                            options.library, letter
-                        ));
+                        return Err(
+                            format!("库 {} 不支持Unicode字符类 \\{}", options.library, letter)
+                        );
                     }
                     Ok(format!(r"\{}", letter))
                 }
@@ -704,19 +654,13 @@ fn translate_unicode_class(
         }
         regex_syntax::ast::ClassUnicodeKind::Named(name) => {
             if !options.supports_unicode_classes {
-                return Err(format!(
-                    "库 {} 不支持Unicode属性 \\p{{{}}}",
-                    options.library, name
-                ));
+                return Err(format!("库 {} 不支持Unicode属性 \\p{{{}}}", options.library, name));
             }
             Ok(format!(r"\p{{{}}}", name))
         }
         regex_syntax::ast::ClassUnicodeKind::NamedValue { name, .. } => {
             if !options.supports_unicode_classes {
-                return Err(format!(
-                    "库 {} 不支持Unicode属性值 \\p{{{}}}",
-                    options.library, name
-                ));
+                return Err(format!("库 {} 不支持Unicode属性值 \\p{{{}}}", options.library, name));
             }
             Ok(format!(r"\p{{{}}}", name))
         }
@@ -726,7 +670,7 @@ fn translate_unicode_class(
 /// 翻译Perl字符类
 fn translate_perl_class(
     class: &regex_syntax::ast::ClassPerl,
-    options: &TranslatorOptions,
+    options: &TranslatorOptions
 ) -> Result<String, String> {
     match &class.kind {
         regex_syntax::ast::ClassPerlKind::Digit => {
@@ -755,24 +699,22 @@ fn translate_perl_class(
                 }
             }
         }
-        regex_syntax::ast::ClassPerlKind::Space => match options.library {
-            "regex-lite" => {
-                // 仅补充常见的 Unicode 空白字符
-                let spaces = r" \t\n\r\f\v\u0085\u00A0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000";
-                if class.negated {
-                    Ok(format!("[^{}]", spaces))
-                } else {
-                    Ok(format!("[{}]", spaces))
+        regex_syntax::ast::ClassPerlKind::Space =>
+            match options.library {
+                "regex-lite" => {
+                    // 仅补充常见的 Unicode 空白字符
+                    let spaces =
+                        r" \t\n\r\f\v\u0085\u00A0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000";
+                    if class.negated {
+                        Ok(format!("[^{}]", spaces))
+                    } else {
+                        Ok(format!("[{}]", spaces))
+                    }
+                }
+                _ => {
+                    if class.negated { Ok(r"\S".to_string()) } else { Ok(r"\s".to_string()) }
                 }
             }
-            _ => {
-                if class.negated {
-                    Ok(r"\S".to_string())
-                } else {
-                    Ok(r"\s".to_string())
-                }
-            }
-        },
         regex_syntax::ast::ClassPerlKind::Word => Ok(r"\w".to_string()),
     }
 }
@@ -782,13 +724,14 @@ fn translate_perl_class(
 /// 统一使用 `regex-syntax` 的 Printer 将 AST 打印回字符串。
 fn translate_bracketed_class(
     bracketed: &regex_syntax::ast::ClassBracketed,
-    _options: &TranslatorOptions,
+    _options: &TranslatorOptions
 ) -> Result<String, String> {
     use regex_syntax::ast::Ast;
 
     let ast = Ast::ClassBracketed(Box::new(bracketed.clone()));
     let mut printed = String::new();
-    regex_syntax::ast::print::Printer::new()
+    regex_syntax::ast::print::Printer
+        ::new()
         .print(&ast, &mut printed)
         .map_err(|e| format!("无法打印字符类 AST: {}", e))?;
 
@@ -799,96 +742,78 @@ fn translate_bracketed_class(
 struct RegexTranslator;
 impl AstTranslator for RegexTranslator {
     fn translate(&self, ast: &Ast) -> Result<String, String> {
-        translate_ast(
-            ast,
-            TranslatorOptions {
-                library: "regex",
-                supports_unicode_classes: true,
-                supports_named_groups: true,
-                supports_lookaround: false,
-                supports_start_end_assertions: true,
-            },
-        )
+        translate_ast(ast, TranslatorOptions {
+            library: "regex",
+            supports_unicode_classes: true,
+            supports_named_groups: true,
+            supports_lookaround: false,
+            supports_start_end_assertions: true,
+        })
     }
 }
 
 struct RegexLiteTranslator;
 impl AstTranslator for RegexLiteTranslator {
     fn translate(&self, ast: &Ast) -> Result<String, String> {
-        translate_ast(
-            ast,
-            TranslatorOptions {
-                library: "regex-lite",
-                supports_unicode_classes: false,
-                supports_named_groups: false,
-                supports_lookaround: false,
-                supports_start_end_assertions: true,
-            },
-        )
+        translate_ast(ast, TranslatorOptions {
+            library: "regex-lite",
+            supports_unicode_classes: false,
+            supports_named_groups: false,
+            supports_lookaround: false,
+            supports_start_end_assertions: true,
+        })
     }
 }
 
 struct RegexAutomataTranslator;
 impl AstTranslator for RegexAutomataTranslator {
     fn translate(&self, ast: &Ast) -> Result<String, String> {
-        translate_ast(
-            ast,
-            TranslatorOptions {
-                library: "regex-automata",
-                supports_unicode_classes: true,
-                supports_named_groups: true,
-                supports_lookaround: false,
-                supports_start_end_assertions: true,
-            },
-        )
+        translate_ast(ast, TranslatorOptions {
+            library: "regex-automata",
+            supports_unicode_classes: true,
+            supports_named_groups: true,
+            supports_lookaround: false,
+            supports_start_end_assertions: true,
+        })
     }
 }
 
 struct FancyRegexTranslator;
 impl AstTranslator for FancyRegexTranslator {
     fn translate(&self, ast: &Ast) -> Result<String, String> {
-        translate_ast(
-            ast,
-            TranslatorOptions {
-                library: "fancy-regex",
-                supports_unicode_classes: true,
-                supports_named_groups: true,
-                supports_lookaround: true,
-                supports_start_end_assertions: true,
-            },
-        )
+        translate_ast(ast, TranslatorOptions {
+            library: "fancy-regex",
+            supports_unicode_classes: true,
+            supports_named_groups: true,
+            supports_lookaround: true,
+            supports_start_end_assertions: true,
+        })
     }
 }
 
 struct OnigTranslator;
 impl AstTranslator for OnigTranslator {
     fn translate(&self, ast: &Ast) -> Result<String, String> {
-        translate_ast(
-            ast,
-            TranslatorOptions {
-                library: "onig",
-                supports_unicode_classes: true,
-                supports_named_groups: true,
-                supports_lookaround: true,
-                supports_start_end_assertions: true,
-            },
-        )
+        translate_ast(ast, TranslatorOptions {
+            library: "onig",
+            supports_unicode_classes: true,
+            supports_named_groups: true,
+            supports_lookaround: true,
+            supports_start_end_assertions: true,
+        })
     }
 }
 
 struct Pcre2Translator;
 impl AstTranslator for Pcre2Translator {
     fn translate(&self, ast: &Ast) -> Result<String, String> {
-        translate_ast(
-            ast,
-            TranslatorOptions {
-                library: "pcre2",
-                supports_unicode_classes: true,
-                supports_named_groups: true,
-                supports_lookaround: true,
-                supports_start_end_assertions: true,
-            },
-        )
+        translate_ast(ast, TranslatorOptions {
+            library: "pcre2",
+            supports_unicode_classes: true,
+            supports_named_groups: true,
+            supports_lookaround: true,
+            supports_start_end_assertions: true,
+        })
     }
 }
 
@@ -905,7 +830,7 @@ fn contains_unsupported_features(ast: &Ast) -> bool {
         Ast::Assertion(assertion) => {
             // 检查是否为查找断言
             match assertion.kind {
-                AssertionKind::StartLine
+                | AssertionKind::StartLine
                 | AssertionKind::EndLine
                 | AssertionKind::StartText
                 | AssertionKind::EndText
@@ -915,12 +840,8 @@ fn contains_unsupported_features(ast: &Ast) -> bool {
             }
         }
         Ast::Flags(_) => true,
-        Ast::Concat(concat) => {
-            concat.asts.iter().any(|a| contains_unsupported_features(a))
-        }
-        Ast::Alternation(alt) => {
-            alt.asts.iter().any(|a| contains_unsupported_features(a))
-        }
+        Ast::Concat(concat) => { concat.asts.iter().any(|a| contains_unsupported_features(a)) }
+        Ast::Alternation(alt) => { alt.asts.iter().any(|a| contains_unsupported_features(a)) }
         Ast::Repetition(rep) => contains_unsupported_features(&rep.ast),
         Ast::Group(group) => contains_unsupported_features(&group.ast),
         _ => false,
@@ -933,17 +854,12 @@ fn contains_large_repetition(ast: &Ast, limit: u32) -> bool {
     match ast {
         // 当前节点是重复，则先检查自身的量词是否超限，再递归其子 AST
         Ast::Repetition(rep) => {
-            repetition_is_large(rep, limit)
-                || contains_large_repetition(&rep.ast, limit)
+            repetition_is_large(rep, limit) || contains_large_repetition(&rep.ast, limit)
         }
 
         // 这些节点需要递归检查子节点
-        Ast::Concat(concat) => {
-            concat.asts.iter().any(|a| contains_large_repetition(a, limit))
-        }
-        Ast::Alternation(alt) => {
-            alt.asts.iter().any(|a| contains_large_repetition(a, limit))
-        }
+        Ast::Concat(concat) => { concat.asts.iter().any(|a| contains_large_repetition(a, limit)) }
+        Ast::Alternation(alt) => { alt.asts.iter().any(|a| contains_large_repetition(a, limit)) }
         Ast::Group(group) => contains_large_repetition(&group.ast, limit),
 
         // 其它节点不包含重复量词
@@ -951,38 +867,31 @@ fn contains_large_repetition(ast: &Ast, limit: u32) -> bool {
     }
 }
 
-fn repetition_is_large(
-    rep: &regex_syntax::ast::Repetition,
-    limit: u32,
-) -> bool {
-    use regex_syntax::ast::{RepetitionKind, RepetitionRange};
+fn repetition_is_large(rep: &regex_syntax::ast::Repetition, limit: u32) -> bool {
+    use regex_syntax::ast::{ RepetitionKind, RepetitionRange };
 
     match &rep.op.kind {
         // ?, *, + 这种不看具体次数，当前阶段不认为是“过大”
-        RepetitionKind::ZeroOrOne
-        | RepetitionKind::ZeroOrMore
-        | RepetitionKind::OneOrMore => false,
+        RepetitionKind::ZeroOrOne | RepetitionKind::ZeroOrMore | RepetitionKind::OneOrMore => false,
 
         // {N} / {N,} / {N,M} 的情况
-        RepetitionKind::Range(range) => match range {
-            RepetitionRange::Exactly(m) => *m as u32 > limit,
-            RepetitionRange::AtLeast(m) => *m as u32 > limit,
-            RepetitionRange::Bounded(m, n) => {
-                *m as u32 > limit || *n as u32 > limit
+        RepetitionKind::Range(range) =>
+            match range {
+                RepetitionRange::Exactly(m) => (*m as u32) > limit,
+                RepetitionRange::AtLeast(m) => (*m as u32) > limit,
+                RepetitionRange::Bounded(m, n) => { (*m as u32) > limit || (*n as u32) > limit }
             }
-        },
     }
 }
 
-pub fn gen_multiple_accepted_strings(
-    pattern: &str,
-    count: usize,
-) -> Vec<String> {
+pub fn gen_multiple_accepted_strings(pattern: &str, count: usize) -> Vec<String> {
     let mut ret = vec![];
     // TODO:
     let regex = match RandRegex::compile(pattern, RAND_REGEX_REPEAT_LIMIT) {
         Ok(r) => r,
-        Err(_) => return ret,
+        Err(_) => {
+            return ret;
+        }
     };
     let mut rng = rand::thread_rng();
     for _ in 0..count {
@@ -1011,12 +920,9 @@ fn get_translator_for(lib: &str) -> Option<Box<dyn AstTranslator>> {
 pub fn validate_pattern(
     manager: &RegexLibManager,
     pattern: &str,
-    ast: &Ast,
+    ast: &Ast
 ) -> Result<(), ComparisonError> {
-    let mut compiled: Vec<(
-        &'static str,
-        Arc<dyn Fn(&str) -> bool + Send + Sync>,
-    )> = Vec::new();
+    let mut compiled: Vec<(&'static str, Arc<dyn (Fn(&str) -> bool) + Send + Sync>)> = Vec::new();
     let mut errors: Vec<(&'static str, String)> = Vec::new();
 
     // 对每个库：先 AST 翻译，再调用该库的编译器
@@ -1030,15 +936,16 @@ pub fn validate_pattern(
         // 取对应的 AST 翻译器
         let translator = match get_translator_for(lib_name) {
             Some(t) => t,
-            None => continue,
+            None => {
+                continue;
+            }
         };
 
         // 把统一 AST 翻译成该库能理解的正则字符串
         let pattern_for_lib = match translator.translate(ast) {
             Ok(p) => p,
             Err(e) => {
-                errors
-                    .push((lib_name, format!("AST translate failed: {}", e)));
+                errors.push((lib_name, format!("AST translate failed: {}", e)));
                 continue;
             }
         };
@@ -1047,8 +954,9 @@ pub fn validate_pattern(
         match compiler.compile(&pattern_for_lib) {
             Ok(matcher) => {
                 let name = matcher.name();
-                let mfn: Arc<dyn Fn(&str) -> bool + Send + Sync> =
-                    Arc::new(move |text: &str| matcher.is_match(text));
+                let mfn: Arc<dyn (Fn(&str) -> bool) + Send + Sync> = Arc::new(move |text: &str|
+                    matcher.is_match(text)
+                );
                 compiled.push((name, mfn));
             }
             Err(e) => {
@@ -1083,8 +991,7 @@ pub fn validate_pattern(
 
         // 3.2 检查一致性
         if let Some((first_lib, first_result)) = current_results.first() {
-            let is_consistent =
-                current_results.iter().all(|(_, res)| res == first_result);
+            let is_consistent = current_results.iter().all(|(_, res)| res == first_result);
             if !is_consistent {
                 // 3.3 发现不一致，构造详细报告
                 return Err(ComparisonError::DifferentialMismatch {
@@ -1102,10 +1009,7 @@ pub fn validate_pattern(
  * 给定模式已通过前置检验，确定可以被各库编译。
  * 验证正则表达式库在多个给定模式的行为一致性
  */
-pub fn validate_regexLib(
-    manager: &RegexLibManager,
-    pattern: &str,
-) -> Result<(), ComparisonError> {
+pub fn validate_regexLib(manager: &RegexLibManager, pattern: &str) -> Result<(), ComparisonError> {
     let mut errors: Vec<(&'static str, String)> = Vec::new();
     for compiler in manager.get_compilers() {
         let lib_name = compiler.name();
@@ -1113,19 +1017,22 @@ pub fn validate_regexLib(
         // 取对应的 AST 翻译器
         let translator = match get_translator_for(lib_name) {
             Some(t) => t,
-            None => continue,
+            None => {
+                continue;
+            }
         };
         // Convert pattern to ast
         let ast = match Parser::new().parse(&pattern) {
             Ok(ast) => ast,
-            Err(_) => return, // Invalid pattern, skip this input
+            Err(_) => {
+                return;
+            } // Invalid pattern, skip this input
         };
         // 把统一 AST 翻译成该库能理解的正则字符串
         let pattern_for_lib = match translator.translate(ast) {
             Ok(p) => p,
             Err(e) => {
-                errors
-                    .push((lib_name, format!("AST translate failed: {}", e)));
+                errors.push((lib_name, format!("AST translate failed: {}", e)));
                 continue;
             }
         };
@@ -1144,6 +1051,72 @@ pub fn validate_regexLib(
     }
     Ok(())
 }
+/*
+ * 验证等价模式在regex引擎下的行为一致性
+ */
+pub fn validate_eq_patterns(
+    manager: &RegexLibManager,
+    pattern: &str,
+    eq_patterns: &[String]
+) -> Result<(), ComparisonError> {
+    let mut compiled: Vec<(String, Arc<dyn (Fn(&str) -> bool) + Send + Sync>)> = Vec::new();
+    let mut errors: Vec<(String, String)> = Vec::new();
+
+    // Egraph生成等价表达式预校验：是否可以通过编译
+    let compiler = manager.get_compiler("regex").ok_or_else(|| ComparisonError::CompilerNotFound {
+        name: "regex".to_string(),
+    })?;
+    for eq_pattern in eq_patterns {
+        match compiler.compile(&eq_pattern) {
+            Ok(matcher) => {
+                let pat = eq_pattern.clone();
+                let mfn: Arc<dyn (Fn(&str) -> bool) + Send + Sync> = Arc::new(move |text: &str|
+                    matcher.is_match(text)
+                );
+                compiled.push((pat, mfn));
+            }
+            Err(e) => {
+                errors.push((eq_pattern.clone(), format!("compile failed: {}", e)));
+                continue;
+            }
+        }
+    }
+    if !errors.is_empty() {
+        return Err(ComparisonError::EgraphPreCheckFailed {
+            pattern: pattern.to_string(),
+            errors: errors,
+        });
+    }
+
+    // Egraph生成等价表达式行为对比
+    let test_strings = gen_multiple_accepted_strings(pattern, 100);
+    if test_strings.is_empty() {
+        return Err(ComparisonError::TestStringsGenerationFailed {
+            pattern: pattern.to_string(),
+        });
+    }
+    for test_str in &test_strings {
+        // 结果格式: Vec<(模式字符串, 是否匹配)>
+        let current_results: Vec<(String, bool)> = compiled
+            .iter()
+            .map(|(pat, matcher)| (pat.clone(), matcher(test_str)))
+            .collect();
+
+        // 3.2 检查一致性
+        if let Some((first_lib, first_result)) = current_results.first() {
+            let is_consistent = current_results.iter().all(|(_, res)| res == first_result);
+            if !is_consistent {
+                // 3.3 发现不一致，构造详细报告
+                return Err(ComparisonError::EgraphMismatch {
+                    pattern: pattern.to_string(),
+                    test_string: test_str.clone(),
+                    errors: current_results, // 记录所有表达式的结果
+                });
+            }
+        }
+    }
+    Ok(())
+}
 
 // 第八部分：全局管理器初始化
 
@@ -1153,14 +1126,16 @@ static REGEX_LIB_MANAGER: Lazy<RegexLibManager> = Lazy::new(|| {
     if let Ok(priority) = std::env::var("REGEX_BASELINE_PRIORITY") {
         let priority_list: Vec<&'static str> = priority
             .split(',')
-            .map(|s| match s.trim() {
-                "regex" => "regex",
-                "regex-lite" => "regex-lite",
-                "fancy-regex" => "fancy-regex",
-                "onig" => "onig",
-                "pcre2" => "pcre2",
-                "regex-automata" => "regex-automata",
-                _ => "regex",
+            .map(|s| {
+                match s.trim() {
+                    "regex" => "regex",
+                    "regex-lite" => "regex-lite",
+                    "fancy-regex" => "fancy-regex",
+                    "onig" => "onig",
+                    "pcre2" => "pcre2",
+                    "regex-automata" => "regex-automata",
+                    _ => "regex",
+                }
             })
             .collect();
 
