@@ -1,0 +1,9 @@
+Metamorphic testing failed, [METAMORPHIC] 蜕变测试失败
+  模式: "(0){0,3333}13\\}()a\n"
+pcre2=compile failed: PCRE2: error compiling pattern at offset 23: regular expression is too large
+Metamorphic testing failed, [METAMORPHIC] 蜕变测试失败
+  模式: "0([a-z]){0,3333}13\\}()a\n"
+pcre2=compile failed: PCRE2: error compiling pattern at offset 28: regular expression is too large
+Metamorphic testing failed, [METAMORPHIC] 蜕变测试失败
+  模式: "0([a-z]){0,3333}13\\}()a\n"
+pcre2=compile failed: PCRE2: error compiling pattern at offset 28: regular expression is too large
