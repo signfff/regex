@@ -1,38 +1,49 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd /home/lxy/regex_fuzzing/regex/fuzz
-BASE_DIR="/home/lxy/regex_fuzzing/regex/fuzz/results"
+# Get the absolute path to the fuzz directory
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+REPO_ROOT="$(dirname "$SCRIPT_DIR")"
+FUZZ_DIR="$REPO_ROOT/fuzz"
+
+cd "$FUZZ_DIR"
+BASE_DIR="$FUZZ_DIR/results"
 TARGET="fuzz_diff_eqs"
-THREADS=10
-# THREADS=1
+THREADS=2
 MAX_LEN=512
 MAX_TIME=90000 # 25h
 
 mkdir -p "$BASE_DIR"
+mkdir -p "$BASE_DIR/differential"
+mkdir -p "$BASE_DIR/metamorphic"
+mkdir -p "$BASE_DIR/log"
 
 for i in $(seq 1 $THREADS); do
   (
-    export FUZZ_DIFF_LOG="$BASE_DIR/fuzz_differential_failures_$i.log"
-    export FUZZ_META_LOG="$BASE_DIR/fuzz_metamorphic_failures_$i.log"
-    rm -f $FUZZ_DIFF_LOG
-    rm -f $FUZZ_META_LOG
-    touch $FUZZ_DIFF_LOG
-    touch $FUZZ_META_LOG
+    export FUZZ_DIFF_LOG="$BASE_DIR/differential/fuzz_differential_failures_$i.log"
+    export FUZZ_META_LOG="$BASE_DIR/metamorphic/fuzz_metamorphic_failures_$i.log"
+    export LOG_FILE_DIR="$BASE_DIR/log/fuzz_$i"
+
+    rm -f "$FUZZ_DIFF_LOG"
+    rm -f "$FUZZ_META_LOG"
+    rm -rf "$LOG_FILE_DIR"
+
+    touch "$FUZZ_DIFF_LOG"
+    touch "$FUZZ_META_LOG"
+    mkdir -p "$LOG_FILE_DIR"
 
     echo "[*] Starting fuzz worker $i"
-
-    export CARGO_TARGET_DIR="/home/lxy/regex_fuzzing/regex/fuzz/target/target_$i"
+    cd "$LOG_FILE_DIR"
+    export CARGO_TARGET_DIR="$FUZZ_DIR/target/target_$i"
     export LLVM_PROFILE_FILE="$BASE_DIR/prof_${i}_%p.profraw"
-    CORPUS="/home/lxy/regex_fuzzing/regex/fuzz/corpus/corpus_$i"
-    rm -rf $CORPUS
-    mkdir -p $CORPUS
+    CORPUS="$FUZZ_DIR/corpus/corpus_$i"
+    rm -rf "$CORPUS"
+    mkdir -p "$CORPUS"
 
     cargo fuzz run "$TARGET" "$CORPUS" -- \
       -max_len="$MAX_LEN" \
       -max_total_time="$MAX_TIME" \
-      -jobs=1 \
-      > /dev/null 2>&1
+      -jobs=1
   ) &
 done
 
