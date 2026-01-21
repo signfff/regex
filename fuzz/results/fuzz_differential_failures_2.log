@@ -1,8 +1,0 @@
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "[a-z]|a[]-|a9]-"
-  测试字符串: "a--"
-regex=true, regex-lite=true, fancy-regex=true, onig=false, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "[a-z|a]|a[]-|a9]-"
-  测试字符串: "a--"
-regex=true, regex-lite=true, fancy-regex=true, onig=false, regex-automata=true

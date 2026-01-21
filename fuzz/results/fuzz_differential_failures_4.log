@@ -1,8 +1,0 @@
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "|[]-z]a(\n)\\[a-z&&[^xyz]]B"
-  测试字符串: "-a\n[a-z&&\u{101879}]B"
-regex=true, regex-lite=true, fancy-regex=true, onig=false, regex-automata=true
-Differential testing failed, [DIFFERENTIAL] 差分测试失败
-  模式: "b[]-z]a\nB"
-  测试字符串: "b-a\nB"
-regex=true, regex-lite=true, fancy-regex=true, onig=false, regex-automata=true
