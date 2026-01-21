@@ -27,6 +27,7 @@ rand_regex = "0.18.1"
 onig = "6.4.0" 
 pcre2 = "0.2.3"  
 once_cell = "1.21.3"
+ptree = "0.5.2"
 
 
 [dependencies.env_logger]
@@ -41,21 +42,13 @@ path = "src/lib.rs"
 [workspace]
 members = ["."]
 
-#[[bin]]
-#name = "regex_automata_deserialize_dense_dfa"
-#path = "fuzz_targets/regex_automata_deserialize_dense_dfa.rs"
-
-#[[bin]]
-#name = "regex_automata_deserialize_sparse_dfa"
-#path = "fuzz_targets/regex_automata_deserialize_sparse_dfa.rs"
-
-#[[bin]]
-#name = "ast_roundtrip"
-#path = "fuzz_targets/ast_roundtrip.rs"
-
 [[bin]]
 name = "fuzz_diff_eqs"
 path = "fuzz_targets/fuzz_diff_eqs.rs"
+
+[[bin]]
+name="testOne"
+path="fuzz_targets/testOne.rs"
 
 [profile.release]
 opt-level = 3

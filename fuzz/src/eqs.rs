@@ -347,6 +347,26 @@ fn make_rewrite_rules() -> Vec<Rewrite<RegexLang, ()>> {
         rewrite!("group-star"; "(group (* ?x))" => "(* (group ?x))"),
         rewrite!("group-plus"; "(group (+ ?x))" => "(+ (group ?x))"),
         rewrite!("group-question"; "(group (? ?x))" => "(? (group ?x))"),
+
+        // 新增重写规则（处理 empty 与 concat/alt 的化简）
+        rewrite!("concat-empty-left"; "(concat empty ?x)" => "?x"),
+        rewrite!("concat-empty-right"; "(concat ?x empty)" => "?x"),
+        rewrite!("alt-empty-idempotent"; "(| empty empty)" => "empty"),
+        rewrite!("alt-to-question"; "(| ?x empty)" => "(? ?x)"),
+
+        // 新增重写规则（进一步化简与吸收）
+        rewrite!("plus-empty"; "(+ empty)" => "empty"),
+        rewrite!("question-empty"; "(? empty)" => "empty"),
+        rewrite!("alt-absorb-star-left"; "(| (* ?x) ?x)" => "(* ?x)"),
+        rewrite!("alt-absorb-star-right"; "(| ?x (* ?x))" => "(* ?x)"),
+        rewrite!("alt-absorb-plus-left"; "(| (+ ?x) ?x)" => "(+ ?x)"),
+        rewrite!("alt-absorb-plus-right"; "(| ?x (+ ?x))" => "(+ ?x)"),
+        rewrite!("concat-star-left"; "(concat (* ?x) ?x)" => "(+ ?x)"),
+        rewrite!("concat-question-left"; "(concat (? ?x) ?x)" => "(+ ?x)"),
+        rewrite!("concat-question-right"; "(concat ?x (? ?x))" => "(+ ?x)"),
+        rewrite!("question-alt-distribute"; "(? (| ?x ?y))" => "(| (? ?x) (? ?y))"),
+        rewrite!("alt-absorb-question-left"; "(| (? ?x) ?x)" => "(? ?x)"),
+        rewrite!("alt-absorb-question-right"; "(| ?x (? ?x))" => "(? ?x)"),
     ];
 
     rules
