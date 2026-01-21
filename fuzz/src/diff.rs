@@ -4,7 +4,7 @@
 extern crate rand; //旧版，可以改
 use rand::Rng;
 use regex_syntax::ast::parse::Parser;
-use regex_syntax::ast::{Ast, ClassSet, ClassSetItem}; //导入多个，解析器和语法树
+use regex_syntax::ast::{Ast, ClassSet, ClassSetBinaryOpKind, ClassSetItem}; //导入多个，解析器和语法树
 
 use once_cell::sync::Lazy;
 use std::sync::Arc; //多线程共享数据 //全局变量的惰性初始化
@@ -679,17 +679,20 @@ fn contains_named_backreference(ast: &Ast, name: &str) -> bool {
 }
 
 /// 翻译字面量字符
-fn translate_literal(lit: &regex_syntax::ast::Literal, options: &TranslatorOptions) -> String {
+fn translate_literal(
+    lit: &regex_syntax::ast::Literal,
+    options: &TranslatorOptions,
+) -> String {
     let c = lit.c;
     match c {
-            '\\' | '^' | '$' | '.' | '|' | '?' | '*' | '+' | '(' | ')' | '['
-            | ']' | '{' | '}' => {
-                format!(r"\{}", c)
-            }
+        '\\' | '^' | '$' | '.' | '|' | '?' | '*' | '+' | '(' | ')' | '['
+        | ']' | '{' | '}' => {
+            format!(r"\{}", c)
+        }
         '-' if options.library == "onig" => {
             // eprintln!("Escaping '-' for onig");
             format!(r"\{}", c)
-        },
+        }
         _ => c.to_string(),
     }
 }
@@ -841,40 +844,29 @@ fn translate_bracketed_class(
     options: &TranslatorOptions,
 ) -> Result<String, String> {
     let mut buf = String::new();
-    match &bracketed.kind {
-        ClassSet::Item(item) => match &item {
-            ClassSetItem::Empty(_) => {
-                return Ok(buf);
-            }
-            _ => {
-                buf.push('[');
-                if bracketed.negated {
-                    buf.push('^');
-                }
-                buf.push_str(&translate_class_set_item(&item, options)?);
-                buf.push(']');
-            }
-        },
-        ClassSet::BinaryOp(op) => {
-            // 交集已经过滤
-            unimplemented!("BinaryOp not supported by translator");
-        }
+    let class_set_str = translate_class_set(&bracketed.kind, options)?;
+    buf.push('[');
+    if bracketed.negated {
+        buf.push('^');
     }
+    buf.push_str(&class_set_str);
+    buf.push(']');
     Ok(buf)
 }
 /// 递归翻译 ClassSetItem
-fn translate_class_set_item(item: &ClassSetItem, options: &TranslatorOptions) -> Result<String, String> {
+fn translate_class_set_item(
+    item: &ClassSetItem,
+    options: &TranslatorOptions,
+) -> Result<String, String> {
     match item {
         ClassSetItem::Empty(_) => {
             // 空字符类，在 PCRE/Onig 不允许，使用 [^\0] 代替
             Ok("^\\0".to_string())
         }
         ClassSetItem::Literal(lit) => Ok(translate_literal(lit, options)),
-        ClassSetItem::Range(range) => Ok(format!(
-            "{}-{}",
-            range.start.c,
-            range.end.c
-        )),
+        ClassSetItem::Range(range) => {
+            Ok(format!("{}-{}", range.start.c, range.end.c))
+        }
         ClassSetItem::Ascii(ascii) => {
             let kind_str = format!("{:?}", ascii.kind).to_lowercase();
             if ascii.negated {
@@ -886,10 +878,10 @@ fn translate_class_set_item(item: &ClassSetItem, options: &TranslatorOptions) ->
         ClassSetItem::Unicode(unicode) => {
             translate_unicode_class(unicode, options)
         }
-        ClassSetItem::Perl(perl) => {
-            translate_perl_class(perl, options)
+        ClassSetItem::Perl(perl) => translate_perl_class(perl, options),
+        ClassSetItem::Bracketed(inner) => {
+            translate_bracketed_class(inner, options)
         }
-        ClassSetItem::Bracketed(inner) => translate_bracketed_class(inner, options),
         ClassSetItem::Union(union) => {
             // 对于 fuzzer 过滤掉了交集，直接遍历 union.items
             let mut buf = String::new();
@@ -899,6 +891,30 @@ fn translate_class_set_item(item: &ClassSetItem, options: &TranslatorOptions) ->
             Ok(buf)
         }
     }
+}
+fn translate_class_set(
+    classSetItem: &ClassSet,
+    options: &TranslatorOptions,
+) -> Result<String, String> {
+    let mut buf = String::new();
+    match &classSetItem {
+        ClassSet::Item(item) => {
+            buf.push_str(&translate_class_set_item(&item, options)?);
+        }
+        ClassSet::BinaryOp(op) => {
+            let lhs = translate_class_set(op.lhs.as_ref(), options)?;
+            let rhs = translate_class_set(op.rhs.as_ref(), options)?;
+            let kind = match &op.kind {
+                ClassSetBinaryOpKind::Intersection => "&&",
+                ClassSetBinaryOpKind::Difference => "--",
+                ClassSetBinaryOpKind::SymmetricDifference => "~~",
+            };
+            buf.push_str(&lhs);
+            buf.push_str(&kind);
+            buf.push_str(&rhs);
+        }
+    }
+    Ok(buf)
 }
 // 第五部分：Translator实现
 
