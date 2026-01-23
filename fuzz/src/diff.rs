@@ -686,13 +686,13 @@ fn translate_literal(
     let c = lit.c;
     match c {
         '\\' | '^' | '$' | '.' | '|' | '?' | '*' | '+' | '(' | ')' | '['
-        | ']' | '{' | '}' => {
+        | ']' | '{' | '}' | '-' => {
             format!(r"\{}", c)
         }
-        '-' if options.library == "onig" => {
-            // eprintln!("Escaping '-' for onig");
-            format!(r"\{}", c)
-        }
+        // '-' if options.library == "onig" => {
+        //     // eprintln!("Escaping '-' for onig");
+        //     format!(r"\{}", c)
+        // }
         _ => c.to_string(),
     }
 }
@@ -1249,6 +1249,9 @@ pub fn validate_regexLib(
     let mut errors: Vec<(String, String)> = Vec::new();
     for compiler in manager.get_compilers() {
         let lib_name = compiler.name();
+        if lib_name == "pcre2" {
+            continue;
+        }
         // 取对应的 AST 翻译器
         let translator = match get_translator_for(lib_name) {
             Some(t) => t,

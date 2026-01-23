@@ -1,10 +1,10 @@
 use regex_fuzz::diff::*;
 use regex_syntax::ast::parse::Parser;
-use regex_syntax::ast::Ast;
+use regex_syntax::ast::{Ast, ClassSet, ClassSetItem};
 
 fn main() {
     let manager = RegexLibManager::new();
-    let pattern = "[a-z|a]|a[]-|a9]-";
+    let pattern = "(\n[]-z{1,3}&(]\\(\\))";
     // let pattern = "[^\x00]";
 
     let ast = match Parser::new().parse(&pattern) {
@@ -33,7 +33,6 @@ fn pretty_print_ast(ast: &Ast, depth: usize) {
         Ast::Literal(lit) => println!("{}{:?}", indent, lit),
 
         Ast::Concat(concat) => {
-
             println!("{}Concat", indent);
             for a in &concat.asts {
                 pretty_print_ast(a, depth + 1);
@@ -82,7 +81,40 @@ fn pretty_print_ast(ast: &Ast, depth: usize) {
         }
 
         Ast::ClassBracketed(bracketed) => {
-            println!("{}{:?}", indent, bracketed);
+            println!("{}Bracketed", indent);
+            pretty_print_class_set(&bracketed.kind, depth + 1)
+        }
+    }
+}
+fn pretty_print_class_set(class_set: &ClassSet, depth: usize) {
+    let indent = format!("{}", "  ".repeat(depth));
+    match class_set {
+        ClassSet::Item(item) => {
+            pretty_print_class_set_item(item, depth);
+        }
+        ClassSet::BinaryOp(bin_op) => {
+            println!("{}{:?}", indent, bin_op)
+        }
+    }
+}
+fn pretty_print_class_set_item(item: &ClassSetItem, depth: usize) {
+    let indent = format!("{}", "  ".repeat(depth));
+    match item {
+        ClassSetItem::Empty(_)
+        | ClassSetItem::Literal(_)
+        | ClassSetItem::Range(_)
+        | ClassSetItem::Ascii(_)
+        | ClassSetItem::Unicode(_)
+        | ClassSetItem::Perl(_) => {
+            println!("{}{:?}", indent, item)
+        }
+        ClassSetItem::Bracketed(bracket) => {
+            pretty_print_class_set(&bracket.kind, depth + 1);
+        }
+        ClassSetItem::Union(union) => {
+            for item in &union.items {
+                pretty_print_class_set_item(item, depth + 1);
+            }
         }
     }
 }
