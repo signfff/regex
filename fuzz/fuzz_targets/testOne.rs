@@ -4,7 +4,7 @@ use regex_syntax::ast::{Ast, ClassSet, ClassSetItem};
 
 fn main() {
     let manager = RegexLibManager::new();
-    let pattern = "[0-\\]a?]?]?]";
+    let pattern = r"a\[0-9]|aa?[a-w]]{25}.";
     // let pattern = "[^\x00]";
 
     let ast = match Parser::new().parse(&pattern) {

@@ -1,5 +1,5 @@
 #![no_main]
-use libfuzzer_sys::{ fuzz_mutator, fuzz_target };
+use libfuzzer_sys::{fuzz_mutator, fuzz_target};
 use regex_fuzz::diff::*;
 use regex_fuzz::eqs::generate_equivalent_patterns;
 use regex_syntax::ast::parse::Parser;
@@ -12,32 +12,27 @@ fn log_failure(args: impl std::fmt::Display, errorType: String) {
     use std::io::Write;
     let file_result = match errorType.as_str() {
         "DifferentialMismatch" => {
-            let log_path = env
-                ::var("FUZZ_DIFF_LOG")
+            let log_path = env::var("FUZZ_DIFF_LOG")
                 .expect("环境变量 FUZZ_DIFF_LOG 未设置，无法继续 fuzzing");
             OpenOptions::new().create(true).append(true).open(log_path)
         }
         "MetamorphicMismatch" => {
-            let log_path = env
-                ::var("FUZZ_META_LOG")
+            let log_path = env::var("FUZZ_META_LOG")
                 .expect("环境变量 FUZZ_META_LOG 未设置，无法继续 fuzzing");
             OpenOptions::new().create(true).append(true).open(log_path)
         }
         "EgraphMismatch" => {
-            let log_path = env
-                ::var("FUZZ_META_LOG")
+            let log_path = env::var("FUZZ_META_LOG")
                 .expect("环境变量 FUZZ_META_LOG 未设置，无法继续 fuzzing");
             OpenOptions::new().create(true).append(true).open(log_path)
         }
         "CompilerNotFound" => {
-            let log_path = env
-                ::var("FUZZ_META_LOG")
+            let log_path = env::var("FUZZ_META_LOG")
                 .expect("环境变量 FUZZ_META_LOG 未设置，无法继续 fuzzing");
             OpenOptions::new().create(true).append(true).open(log_path)
         }
         "EgraphPreCheckFailed" => {
-            let log_path = env
-                ::var("FUZZ_META_LOG")
+            let log_path = env::var("FUZZ_META_LOG")
                 .expect("环境变量 FUZZ_META_LOG 未设置，无法继续 fuzzing");
             OpenOptions::new().create(true).append(true).open(log_path)
         }
@@ -47,11 +42,17 @@ fn log_failure(args: impl std::fmt::Display, errorType: String) {
     match file_result {
         Ok(mut file) => {
             if let Err(io_err) = writeln!(file, "{}", args) {
-                eprintln!("Failed to write to log file: {}; Original error: {}", io_err, args);
+                eprintln!(
+                    "Failed to write to log file: {}; Original error: {}",
+                    io_err, args
+                );
             }
         }
         Err(io_err) => {
-            eprintln!("Failed to open log file: {}; Original error: {}", io_err, args);
+            eprintln!(
+                "Failed to open log file: {}; Original error: {}",
+                io_err, args
+            );
         }
     }
 }
@@ -67,7 +68,8 @@ fuzz_mutator!(|data: &mut [u8], size: usize, max_size: usize, _seed: u32| {
         0 => {
             if !pattern.is_empty() {
                 let pos = (_seed as usize) % pattern.len();
-                let quantifiers = ["?", "{2,5}", "{1,3}", "{0,1}", "{1,}", "{2}", "{0,3}"];
+                let quantifiers =
+                    ["?", "{2,5}", "{1,3}", "{0,1}", "{1,}", "{2}", "{0,3}"];
                 let q = quantifiers[(_seed as usize) % quantifiers.len()];
                 pattern.insert_str(pos, q);
             }
@@ -80,7 +82,11 @@ fuzz_mutator!(|data: &mut [u8], size: usize, max_size: usize, _seed: u32| {
 
             let class = classes[(_seed as usize) % classes.len()];
             if pattern.len() < max_size - class.len() {
-                let pos = if pattern.is_empty() { 0 } else { (_seed as usize) % pattern.len() };
+                let pos = if pattern.is_empty() {
+                    0
+                } else {
+                    (_seed as usize) % pattern.len()
+                };
                 pattern.insert_str(pos, class);
             }
         }
@@ -125,18 +131,24 @@ fuzz_mutator!(|data: &mut [u8], size: usize, max_size: usize, _seed: u32| {
             if !pattern.is_empty() {
                 let pos = (_seed as usize) % pattern.len();
                 if let Some(ch) = pattern.chars().nth(pos) {
-                    if ".+*?^${}[]|()\\".contains(ch) && pattern.len() < max_size {
+                    if ".+*?^${}[]|()\\".contains(ch)
+                        && pattern.len() < max_size
+                    {
                         pattern.insert(pos, '\\');
                     }
                 }
             }
         }
         7 => {
-            // TODO: 根据差分测试结果考虑是否过滤
             let unicode_classes = ["\\p{L}", "\\p{N}", "\\p{P}", "\\p{Greek}"];
-            let class = unicode_classes[(_seed as usize) % unicode_classes.len()];
+            let class =
+                unicode_classes[(_seed as usize) % unicode_classes.len()];
             if pattern.len() < max_size - class.len() {
-                let pos = if pattern.is_empty() { 0 } else { (_seed as usize) % pattern.len() };
+                let pos = if pattern.is_empty() {
+                    0
+                } else {
+                    (_seed as usize) % pattern.len()
+                };
                 pattern.insert_str(pos, class);
             }
         }
@@ -176,10 +188,14 @@ fuzz_mutator!(|data: &mut [u8], size: usize, max_size: usize, _seed: u32| {
         11 => {
             // "[\\w&&[^\\d]]包括Unicode字符
             // let classes = ["[a-z&&[^aeiou]]", "[\\w&&[^\\d]]", "[a-z&&[^xyz]]"];
-            let classes = ["[a-z&&[^aeiou]]", "[a-z&&[^xyz]]"];
+            let classes = ["[b-df-hj-np-tv-z]", "[a-w]"];
             let class = classes[(_seed as usize) % classes.len()];
             if pattern.len() < max_size - class.len() {
-                let pos = if pattern.is_empty() { 0 } else { (_seed as usize) % pattern.len() };
+                let pos = if pattern.is_empty() {
+                    0
+                } else {
+                    (_seed as usize) % pattern.len()
+                };
                 pattern.insert_str(pos, class);
             }
         }
@@ -221,23 +237,11 @@ fuzz_mutator!(|data: &mut [u8], size: usize, max_size: usize, _seed: u32| {
             if !pattern.is_empty() {
                 let pos = (_seed as usize) % pattern.len();
                 let replacements = [
-                    'a',
-                    '1',
-                    '.',
-                    '*',
-                    '|',
-                    '(',
-                    ')',
-                    '[',
-                    ']',
-                    '\\',
-                    '{',
-                    '}',
-                    '-',
-                    '^',
-                    '$',
+                    'a', '1', '.', '*', '|', '(', ')', '[', ']', '\\', '{',
+                    '}', '-', '^', '$',
                 ];
-                let replacement = replacements[(_seed as usize) % replacements.len()];
+                let replacement =
+                    replacements[(_seed as usize) % replacements.len()];
                 pattern.replace_range(pos..pos + 1, &replacement.to_string());
             }
         }
@@ -272,14 +276,14 @@ fuzz_target!(|data: &[u8]| {
     let manager = RegexLibManager::new();
     if let Err(e) = validate_pattern(&manager, &pattern, &ast) {
         match e {
-            | ComparisonError::PreCheckFailed { .. }
+            ComparisonError::PreCheckFailed { .. }
             | ComparisonError::TestStringsGenerationFailed { .. } => {
                 return; // Skip patterns that fail pre-checks or test string generation
             }
             ComparisonError::DifferentialMismatch { .. } => {
                 log_failure(
                     format_args!("Differential testing failed, {}", e),
-                    "DifferentialMismatch".to_string()
+                    "DifferentialMismatch".to_string(),
                 );
             }
             _ => {
@@ -297,7 +301,7 @@ fuzz_target!(|data: &[u8]| {
             return;
         } // No equivalent patterns found or error, skip metamorphic test
     };
-    
+
     if let Err(e) = validate_eq_patterns(&manager, &pattern, &eq_patterns) {
         match e {
             ComparisonError::TestStringsGenerationFailed { .. } => {
@@ -306,17 +310,20 @@ fuzz_target!(|data: &[u8]| {
             ComparisonError::CompilerNotFound { .. } => {
                 log_failure(
                     format_args!("CompilerNotFound, {}", e),
-                    "CompilerNotFound".to_string()
+                    "CompilerNotFound".to_string(),
                 );
             }
             ComparisonError::EgraphPreCheckFailed { .. } => {
                 log_failure(
                     format_args!("Egraph preCheck failed, {}", e),
-                    "EgraphPreCheckFailed".to_string()
+                    "EgraphPreCheckFailed".to_string(),
                 );
             }
             ComparisonError::EgraphMismatch { .. } => {
-                log_failure(format_args!("Egraph mismatch, {}", e), "EgraphMismatch".to_string());
+                log_failure(
+                    format_args!("Egraph mismatch, {}", e),
+                    "EgraphMismatch".to_string(),
+                );
             }
             _ => {
                 panic!("Unreachable error type during Egraph check: {}", e)
@@ -328,7 +335,7 @@ fuzz_target!(|data: &[u8]| {
         if let Err(e) = validate_regexLib(&manager, &eq_pat) {
             log_failure(
                 format_args!("Metamorphic testing failed, {}", e),
-                "MetamorphicMismatch".to_string()
+                "MetamorphicMismatch".to_string(),
             );
         }
     }
