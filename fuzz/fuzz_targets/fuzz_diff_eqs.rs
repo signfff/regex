@@ -35,6 +35,12 @@ fn log_failure(args: impl std::fmt::Display, errorType: String) {
                 .expect("环境变量 FUZZ_META_LOG 未设置，无法继续 fuzzing");
             OpenOptions::new().create(true).append(true).open(log_path)
         }
+        "EgraphPreCheckFailed" => {
+            let log_path = env
+                ::var("FUZZ_META_LOG")
+                .expect("环境变量 FUZZ_META_LOG 未设置，无法继续 fuzzing");
+            OpenOptions::new().create(true).append(true).open(log_path)
+        }
         _ => panic!("Unknown log type: {}", errorType),
     };
 
