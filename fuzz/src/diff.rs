@@ -865,7 +865,7 @@ fn translate_class_set_item(
         }
         ClassSetItem::Literal(lit) => Ok(translate_literal(lit, options)),
         ClassSetItem::Range(range) => {
-            Ok(format!("{}-{}", range.start.c, range.end.c))
+            Ok(format!("{}-{}", translate_literal(&range.start, options), translate_literal(&range.end, options)))
         }
         ClassSetItem::Ascii(ascii) => {
             let kind_str = format!("{:?}", ascii.kind).to_lowercase();

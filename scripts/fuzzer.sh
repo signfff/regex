@@ -9,10 +9,12 @@ FUZZ_DIR="$REPO_ROOT/fuzz"
 cd "$FUZZ_DIR"
 BASE_DIR="$FUZZ_DIR/results"
 TARGET="fuzz_diff_eqs"
-THREADS=2
+THREADS=10
 MAX_LEN=512
 MAX_TIME=90000 # 25h
+# MAX_TIME=120 # 2min
 
+rm -rf "$FUZZ_DIR/target"
 mkdir -p "$BASE_DIR"
 mkdir -p "$BASE_DIR/differential"
 mkdir -p "$BASE_DIR/metamorphic"
@@ -35,7 +37,8 @@ for i in $(seq 1 $THREADS); do
     echo "[*] Starting fuzz worker $i"
     cd "$LOG_FILE_DIR"
     export CARGO_TARGET_DIR="$FUZZ_DIR/target/target_$i"
-    export LLVM_PROFILE_FILE="$BASE_DIR/prof_${i}_%p.profraw"
+    export RUSTFLAGS="-Cinstrument-coverage"
+    export LLVM_PROFILE_FILE="$LOG_FILE_DIR/prof_${i}_%p.profraw"
     CORPUS="$FUZZ_DIR/corpus/corpus_$i"
     rm -rf "$CORPUS"
     mkdir -p "$CORPUS"
