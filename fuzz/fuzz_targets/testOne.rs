@@ -4,13 +4,17 @@ use regex_syntax::ast::{Ast, ClassSet, ClassSetItem};
 
 fn main() {
     let manager = RegexLibManager::new();
-    let pattern = r"a\[0-9]|aa?[a-w]]{25}.";
+    let pattern = "\\w|a]?]?]??]";
+    if contains_unsupported_perl(&pattern) {
+        println!("contains_unsupported_perl: {}", pattern);
+        return;
+    }
     // let pattern = "[^\x00]";
 
     let ast = match Parser::new().parse(&pattern) {
         Ok(ast) => {
             println!("{:?}", ast);
-            pretty_print_ast(&ast, 0);
+            // pretty_print_ast(&ast, 0);
             ast
         }
         Err(e) => {

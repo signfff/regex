@@ -1096,6 +1096,30 @@ fn repetition_is_large(
     }
 }
 
+pub fn contains_unsupported_perl(pattern: &str) -> bool {
+    let mut chars = pattern.chars().peekable();
+    let mut escaped = false;
+
+    while let Some(c) = chars.next() {
+        if escaped {
+            escaped = false;
+            continue;
+        }
+
+        if c == '\\' {
+            if let Some(&next) = chars.peek() {
+                match next {
+                    'w' | 'W' | 'd' | 'D' | 's' | 'S' => return true,
+                    _ => {}
+                }
+            }
+            escaped = true;
+        }
+    }
+
+    false
+}
+
 pub fn gen_multiple_accepted_strings(
     pattern: &str,
     count: usize,

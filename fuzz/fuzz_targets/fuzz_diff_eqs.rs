@@ -76,7 +76,6 @@ fuzz_mutator!(|data: &mut [u8], size: usize, max_size: usize, _seed: u32| {
         }
         1 => {
             //  regex-lite在Unicode语义下和regex表现不同，过滤掉可以匹配Unicode字符的部分
-            // TODO: 考虑显式关闭Unicode，例如r"(?-u)\d" r"(?-u)\w" r"(?-u)\s" 待讨论
             // let classes = ["\\d", "\\w", "\\s", "[a-z]", "[0-9]", ".", "[^a]"];
             let classes = ["[a-z]", "[0-9]"];
 
@@ -186,7 +185,7 @@ fuzz_mutator!(|data: &mut [u8], size: usize, max_size: usize, _seed: u32| {
             }
         }
         11 => {
-            // "[\\w&&[^\\d]]包括Unicode字符
+            // "[\\w&&[^\\d]]包括Unicode字符,另外两种包含&&容易在regex-automata中状态爆炸导致oom或者timeout
             // let classes = ["[a-z&&[^aeiou]]", "[\\w&&[^\\d]]", "[a-z&&[^xyz]]"];
             let classes = ["[b-df-hj-np-tv-z]", "[a-w]"];
             let class = classes[(_seed as usize) % classes.len()];
@@ -261,6 +260,11 @@ fuzz_target!(|data: &[u8]| {
             return;
         } // Invalid UTF-8, skip this input
     };
+
+    if contains_unsupported_perl(&pattern) {
+        // println!("contains_unsupported_perl: {}", pattern);
+        return;
+    }
 
     // Convert pattern to ast
     let ast = match Parser::new().parse(&pattern) {
