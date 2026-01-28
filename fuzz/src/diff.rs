@@ -346,7 +346,7 @@ mod pcre2_regex {
 
 mod regex_automata_adapter {
     use super::*;
-    use regex_automata::dfa::regex::Builder;
+    use regex_automata::dfa::{dense, regex};
 
     pub struct RegexAutomataCompiler;
 
@@ -356,7 +356,13 @@ mod regex_automata_adapter {
             pattern: &str,
         ) -> Result<Box<dyn RegexMatcher>, Box<dyn std::error::Error>>
         {
-            let re = Builder::new().build(pattern)?;
+            let re = regex::Regex::builder()
+                .dense(
+                    dense::Config::new()
+                        .dfa_size_limit(Some(10 * 1024 * 1024)),
+                )
+                .build(pattern)?;
+
             Ok(Box::new(RegexAutomataMatcher(re)))
         }
 
@@ -864,9 +870,11 @@ fn translate_class_set_item(
             Ok("^\\0".to_string())
         }
         ClassSetItem::Literal(lit) => Ok(translate_literal(lit, options)),
-        ClassSetItem::Range(range) => {
-            Ok(format!("{}-{}", translate_literal(&range.start, options), translate_literal(&range.end, options)))
-        }
+        ClassSetItem::Range(range) => Ok(format!(
+            "{}-{}",
+            translate_literal(&range.start, options),
+            translate_literal(&range.end, options)
+        )),
         ClassSetItem::Ascii(ascii) => {
             let kind_str = format!("{:?}", ascii.kind).to_lowercase();
             if ascii.negated {

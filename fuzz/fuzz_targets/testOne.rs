@@ -4,7 +4,7 @@ use regex_syntax::ast::{Ast, ClassSet, ClassSetItem};
 
 fn main() {
     let manager = RegexLibManager::new();
-    let pattern = "\\w|a]?]?]??]";
+    let pattern = "\\p{L}[-z]{113}.";
     if contains_unsupported_perl(&pattern) {
         println!("contains_unsupported_perl: {}", pattern);
         return;
