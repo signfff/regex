@@ -290,6 +290,13 @@ mod onig_regex {
         {
             let re = OnigRegex::new(pattern)?;
             Ok(Box::new(OnigRegexMatcher(re)))
+
+            // let result = std::panic::catch_unwind(|| OnigRegex::new(pattern));
+            // match result {
+            //     Ok(Ok(re)) => Ok(Box::new(OnigRegexMatcher(re))),
+            //     Ok(Err(e)) => Err(Box::new(e)),
+            //     Err(_) => Err("onig panicked".into()),
+            // }
         }
 
         fn name(&self) -> &'static str {
@@ -358,8 +365,7 @@ mod regex_automata_adapter {
         {
             let re = regex::Regex::builder()
                 .dense(
-                    dense::Config::new()
-                        .dfa_size_limit(Some(10 * 1024 * 1024)),
+                    dense::Config::new().dfa_size_limit(Some(5 * 1024 * 1024)),
                 )
                 .build(pattern)?;
 
@@ -1206,10 +1212,9 @@ pub fn validate_pattern(
         // 用该库自己的编译器编译翻译后的模式
         match compiler.compile(&pattern_for_lib) {
             Ok(matcher) => {
-                let name = matcher.name();
                 let mfn: Arc<dyn (Fn(&str) -> bool) + Send + Sync> =
                     Arc::new(move |text: &str| matcher.is_match(text));
-                compiled.push((name, pattern_for_lib, mfn));
+                compiled.push((lib_name, pattern_for_lib, mfn));
             }
             Err(e) => {
                 errors.push((
@@ -1245,7 +1250,10 @@ pub fn validate_pattern(
                 (
                     lib_name.to_string(),
                     pattern_for_lib.clone(),
-                    matcher(test_str),
+                    std::panic::catch_unwind(std::panic::AssertUnwindSafe(
+                        || matcher(test_str),
+                    ))
+                    .unwrap_or(false),
                 )
             })
             .collect();

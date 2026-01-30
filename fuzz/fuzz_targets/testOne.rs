@@ -1,10 +1,11 @@
 use regex_fuzz::diff::*;
+use regex_fuzz::eqs::*;
 use regex_syntax::ast::parse::Parser;
 use regex_syntax::ast::{Ast, ClassSet, ClassSetItem};
 
 fn main() {
     let manager = RegexLibManager::new();
-    let pattern = "\\p{L}[-z]{113}.";
+    let pattern = "|\012{2,5}?{13}\012";
     if contains_unsupported_perl(&pattern) {
         println!("contains_unsupported_perl: {}", pattern);
         return;
@@ -23,11 +24,38 @@ fn main() {
         }
     };
 
-    // 调用 validate_pattern 进行测试
+    // 差分测试
     match validate_pattern(&manager, &pattern, &ast) {
-        Ok(_) => println!("模式验证通过"),
-        Err(e) => println!("模式验证失败: {:?}", e),
+        Ok(_) => println!("差分测试通过"),
+        Err(e) => {
+            println!("差分测试失败: {:?}", e);
+            return;
+        }
     }
+    // 蜕变测试
+    let eq_patterns = match generate_equivalent_patterns(&pattern, 3, 1, 10) {
+        Ok(pats) => pats,
+        Err(_) => {
+            println!("未找到等价pattern");
+            return;
+        }
+    };
+    // 1. egraph验证
+    match validate_eq_patterns(&manager, &pattern, &eq_patterns) {
+        Ok(_) => println!("egraph验证通过"),
+        Err(e) => {
+            println!("egraph验证失败: {:?}", e);
+            return;
+        }
+    }
+    // 2. 验证等价pattern在不同regex libs上的结果是否一致
+    for eq_pat in &eq_patterns {
+        if let Err(e) = validate_regexLib(&manager, &eq_pat) {
+            println!("等价pattern在不同regex libs上的结果不一致: {:?}", e);
+            return;
+        }
+    }
+    println!("等价pattern在不同regex libs上的结果一致");
 }
 fn pretty_print_ast(ast: &Ast, depth: usize) {
     let indent = format!("{}", "  ".repeat(depth));
