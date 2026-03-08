@@ -7,6 +7,7 @@ REPO_ROOT="$(dirname "$SCRIPT_DIR")"
 FUZZ_DIR="$REPO_ROOT/fuzz"
 
 cd "$FUZZ_DIR"
+cargo clean
 BASE_DIR="$FUZZ_DIR/results"
 TARGET="fuzz_diff_eqs"
 THREADS=10
