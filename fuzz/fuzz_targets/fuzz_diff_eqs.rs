@@ -7,52 +7,65 @@ use std::env;
 
 /// 将错误信息追加写入到 fuzz_failures.log 文件中
 /// 如果文件写入失败，则回退到标准错误输出
-fn log_failure(args: impl std::fmt::Display, errorType: String) {
+fn log_failure(args: impl std::fmt::Display, error_type: String) {
+    use std::env;
     use std::fs::OpenOptions;
     use std::io::Write;
-    let file_result = match errorType.as_str() {
-        "DifferentialMismatch" => {
-            let log_path = env::var("FUZZ_DIFF_LOG")
-                .expect("环境变量 FUZZ_DIFF_LOG 未设置，无法继续 fuzzing");
-            OpenOptions::new().create(true).append(true).open(log_path)
-        }
-        "MetamorphicMismatch" => {
-            let log_path = env::var("FUZZ_META_LOG")
-                .expect("环境变量 FUZZ_META_LOG 未设置，无法继续 fuzzing");
-            OpenOptions::new().create(true).append(true).open(log_path)
-        }
-        "EgraphMismatch" => {
-            let log_path = env::var("FUZZ_META_LOG")
-                .expect("环境变量 FUZZ_META_LOG 未设置，无法继续 fuzzing");
-            OpenOptions::new().create(true).append(true).open(log_path)
-        }
-        "CompilerNotFound" => {
-            let log_path = env::var("FUZZ_META_LOG")
-                .expect("环境变量 FUZZ_META_LOG 未设置，无法继续 fuzzing");
-            OpenOptions::new().create(true).append(true).open(log_path)
-        }
-        "EgraphPreCheckFailed" => {
-            let log_path = env::var("FUZZ_META_LOG")
-                .expect("环境变量 FUZZ_META_LOG 未设置，无法继续 fuzzing");
-            OpenOptions::new().create(true).append(true).open(log_path)
-        }
-        _ => panic!("Unknown log type: {}", errorType),
+    use std::path::PathBuf;
+    use std::process;
+
+    // 1. 获取当前进程 ID (PID)
+    let pid = process::id();
+
+    // 2. 定义一个辅助闭包来处理路径生成
+    let get_log_path = |env_var: &str| -> PathBuf {
+        let path_str = env::var(env_var)
+            .unwrap_or_else(|_| panic!("环境变量 {} 未设置，无法继续 fuzzing", env_var));
+        
+        let mut path = PathBuf::from(path_str);
+        
+        // 获取原有的文件名 stem (不带扩展名) 和 extension (扩展名)
+        let stem = path.file_stem().unwrap_or_default().to_string_lossy();
+        let extension = path.extension().unwrap_or_default().to_string_lossy();
+
+        // 构造新文件名：name_PID.log
+        let new_name = if extension.is_empty() {
+            format!("{}_{}.log", stem, pid)
+        } else {
+            format!("{}_{}.{}", stem, pid, extension)
+        };
+
+        path.set_file_name(new_name);
+        path
     };
 
-    match file_result {
+    // 3. 根据错误类型选择日志文件
+    let log_path = match error_type.as_str() {
+        "DifferentialMismatch" => get_log_path("FUZZ_DIFF_LOG"),
+        "MetamorphicMismatch" | "EgraphMismatch" | "CompilerNotFound" | "EgraphPreCheckFailed" => {
+            get_log_path("FUZZ_META_LOG")
+        }
+        _ => panic!("Unknown log type: {}", error_type),
+    };
+
+    // 4. 写入日志
+    // 注意：OpenOptions 每次都会打开文件，对于错误日志这种低频操作是可以接受的
+    match OpenOptions::new().create(true).append(true).open(&log_path) {
         Ok(mut file) => {
             if let Err(io_err) = writeln!(file, "{}", args) {
                 eprintln!(
-                    "Failed to write to log file: {}; Original error: {}",
-                    io_err, args
+                    "Failed to write to log file: {:?}; Original error: {}",
+                    log_path, args // 打印路径方便调试
                 );
+                eprintln!("IO Error: {}", io_err);
             }
         }
         Err(io_err) => {
             eprintln!(
-                "Failed to open log file: {}; Original error: {}",
-                io_err, args
+                "Failed to open log file: {:?}; Original error: {}",
+                log_path, args
             );
+            eprintln!("IO Error: {}", io_err);
         }
     }
 }
