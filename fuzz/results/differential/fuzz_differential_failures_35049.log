@@ -1,0 +1,32 @@
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(?i)s"
+  测试字符串: "ſ"
+regex((?i)s): true, regex-lite((?i)s): false, fancy-regex((?i)s): true, onig((?i)s): true, regex-automata((?i)s): true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(?i)sss"
+  测试字符串: "ſsS"
+regex((?i)sss): true, regex-lite((?i)sss): false, fancy-regex((?i)sss): true, onig((?i)sss): true, regex-automata((?i)sss): true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(?i)[a-z]"
+  测试字符串: "K"
+regex((?i)[a-z]): true, regex-lite((?i)[a-z]): false, fancy-regex((?i)[a-z]): true, onig((?i)[a-z]): true, regex-automata((?i)[a-z]): true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(?i)[a-rt-z]"
+  测试字符串: "K"
+regex((?i)[a-rt-z]): true, regex-lite((?i)[a-rt-z]): false, fancy-regex((?i)[a-rt-z]): true, onig((?i)[a-rt-z]): true, regex-automata((?i)[a-rt-z]): true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "([^[:alpha:],])"
+  测试字符串: "깺"
+regex(([^[:alpha:],])): true, regex-lite(([^[:alpha:],])): true, fancy-regex(([^[:alpha:],])): true, onig(([^[:alpha:],])): false, regex-automata(([^[:alpha:],])): true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "([^[:alpha:]Z])"
+  测试字符串: "𥮰"
+regex(([^[:alpha:]Z])): true, regex-lite(([^[:alpha:]Z])): true, fancy-regex(([^[:alpha:]Z])): true, onig(([^[:alpha:]Z])): false, regex-automata(([^[:alpha:]Z])): true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(?i)sss"
+  测试字符串: "ſSſ"
+regex((?i)sss): true, regex-lite((?i)sss): false, fancy-regex((?i)sss): true, onig((?i)sss): true, regex-automata((?i)sss): true
+Differential testing failed, [DIFFERENTIAL] 差分测试失败
+  模式: "(?i)s"
+  测试字符串: "ſ"
+regex((?i)s): true, regex-lite((?i)s): false, fancy-regex((?i)s): true, onig((?i)s): true, regex-automata((?i)s): true

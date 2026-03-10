@@ -1,0 +1,3634 @@
+INFO: found LLVMFuzzerCustomMutator (0x55bea4996190). Disabling -len_control by default.
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 1928654959
+INFO: Loaded 1 modules   (209012 inline 8-bit counters): 209012 [0x55bea579af30, 0x55bea57cdfa4), 
+INFO: Loaded 1 PC tables (209012 PCs): 209012 [0x55bea57cdfa8,0x55bea5afe6e8), 
+INFO:      989 files found in /home/lxy/regex_fuzzing/regex/fuzz/corpus/fuzz_diff_eqs
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: ''
+Extracted 1 unique patterns after 1 attempts
+INFO: seed corpus: files: 989 min: 1b max: 184b total: 20702b rss: 64Mb
+Extracting patterns from root e-class: 1
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: ' '
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 1
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '''
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: 'a|'
+  [1] Extracted unique pattern: '|a'
+Extracted 2 unique patterns after 2 attempts
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '7.'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '3.'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 1
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: ''
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(x)*'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '6.'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 1
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(.)*'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 1
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '
+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(a)+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(\])*'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(a)*'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '5.'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(\])+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '2.'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '1.x'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '/|/'
+Extracted 1 unique patterns after 2 attempts
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(<)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[ ]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 4
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '"|''
+  [1] Extracted unique pattern: ''|"'
+Extracted 2 unique patterns after 2 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '0.1'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(!)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(\])*'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(/)+/'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(n)+1'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '0.2'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[&]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '(a)+'
+  [1] Extracted unique pattern: '((a)+)+'
+Extracted 2 unique patterns after 2 attempts
+Extracting patterns from root e-class: 1
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '...'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '0.7'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 1
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(.)*'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '1.0'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 4
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: 'b|a'
+  [1] Extracted unique pattern: 'a|b'
+Extracted 2 unique patterns after 2 attempts
+Extracting patterns from root e-class: 6
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'zsh'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(\{)+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 3 nodes
+  [0] Extracted unique pattern: 'a(|b)'
+  [1] Extracted unique pattern: 'a(b|)'
+  [2] Extracted unique pattern: 'a(b)?'
+Extracted 3 unique patterns after 3 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[:.]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(#){1,1}'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/../'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 8
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'dash'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(?m)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: 'C|AB'
+  [1] Extracted unique pattern: 'AB|C'
+Extracted 2 unique patterns after 2 attempts
+Extracting patterns from root e-class: 8
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'bash'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 4
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: 'β|a'
+Extracted 1 unique patterns after 2 attempts
+Extracting patterns from root e-class: 6
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'hi\\'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '((.))*'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '0..1'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 4
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '(\\)*|'
+  [1] Extracted unique pattern: '|(\\)*'
+Extracted 2 unique patterns after 2 attempts
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(#){0,0}'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 4
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(.)*\}'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'p.th'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(?i)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/(\])*/'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '2..3'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[\&]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/(\])+/'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 6
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '"ui"'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 6
+Target: at least 1 unique patterns
+Root e-class has 6 nodes
+  [0] Extracted unique pattern: 'a|b|'
+  [1] Extracted unique pattern: 'b|a|'
+  [2] Extracted unique pattern: '|a|b'
+  [3] Extracted unique pattern: '|b|a'
+  [4] Extracted unique pattern: 'a||b'
+Extracted 5 unique patterns after 6 attempts
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '((.)+)'
+Extracted 1 unique patterns after 2 attempts
+Extracting patterns from root e-class: 6
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '<(.)+>'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 4
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(x){1,}'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 4
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(\\.)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 8
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'green'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(?i)s'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 1
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '()'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 9
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '406(7)+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '1.x.y'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[\n.]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '((|a))*'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[.\n]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '&[u8]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: ''(| ) ''
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 6
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '/|/(\])+'
+Extracted 1 unique patterns after 2 attempts
+Extracting patterns from root e-class: 9
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '407(5)+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 8
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'hwb()'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 6
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: ',(.)*\}'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 1
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '([,.])+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(s)*,(s)*'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 9
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '405(1)+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 4
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: ''\\'''
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 1
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '()'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 4
+Target: at least 1 unique patterns
+Root e-class has 4 nodes
+  [0] Extracted unique pattern: '((x))*'
+  [1] Extracted unique pattern: '((x))+|'
+  [2] Extracted unique pattern: '((x)+)|'
+  [3] Extracted unique pattern: '|((x)+)'
+Extracted 4 unique patterns after 4 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'r"(a)*"'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '["a"]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[&-&]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[☃]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 9
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(6)+uc7'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[ \t]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/.../i'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'a(b){2,}'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 6
+Target: at least 1 unique patterns
+Root e-class has 3 nodes
+  [0] Extracted unique pattern: '(-)+|(-)+(.)'
+  [1] Extracted unique pattern: '(-)+((.))?'
+  [2] Extracted unique pattern: '(-)+((.)|)'
+Extracted 3 unique patterns after 3 attempts
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '((.)){3,3}'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 10
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'trim()'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 1
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '()'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(.)(.)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 6
+Target: at least 1 unique patterns
+Root e-class has 7 nodes
+  [0] Extracted unique pattern: '|(.)*/|/'
+  [1] Extracted unique pattern: '(.)*/||/'
+  [2] Extracted unique pattern: '/||(.)*/'
+  [3] Extracted unique pattern: '(/|(.)*/)?'
+  [4] Extracted unique pattern: '((.)*/|/)?'
+  [5] Extracted unique pattern: '/|(.)*/|'
+Extracted 6 unique patterns after 7 attempts
+Extracting patterns from root e-class: 9
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'a.b\.c'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 6
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '@(.)+#(.)+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 11
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: 'DNS=|/'
+  [1] Extracted unique pattern: '/|DNS='
+Extracted 2 unique patterns after 2 attempts
+Extracting patterns from root e-class: 11
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'Holes.'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[^a-f]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 6
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '\{(.)*\}'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(5, 5)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 6
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(a|ab)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 11
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'DNS=(a)+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'a((.)*)f'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(1, 1)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 10
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'DNS=(.)+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 10
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/i>\}</'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 1
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '([ \t])+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[slug]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(pass)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 11
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'cmd1(8)+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(2, 2)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 1
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(.)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(4, 4)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 6
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '((\\))*"'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 4
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '((b)+)(b)+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 1
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: ''
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[1, 2]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[^a-z]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(8, 8)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 11
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '>= 0.3'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 9
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'rure.h'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 1
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '([^A,])'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '&[char]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 9
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '((b|a))+d'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(?i)sss'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 12
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: 'bar|foo'
+  [1] Extracted unique pattern: 'foo|bar'
+Extracted 2 unique patterns after 2 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(a)b'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 4
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '@([a-z])+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 10
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '\[ext\]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 4
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '"(.)*"'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(.)*:((.))*'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 11
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(U)+17828'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 13
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(U)+105BF'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: ''((.)*)''
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 11
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(U)+10570'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'aaa....'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 6
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: 'b|(?i)a'
+Extracted 1 unique patterns after 2 attempts
+Extracting patterns from root e-class: 10
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '"(a)+(b)*c"'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 9
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'caps[3]'
+Extracted 1 unique patterns after 1 attempts
+#256	pulse  cov: 19431 ft: 64138 corp: 201/931b exec/s: 64 rss: 423Mb
+Extracting patterns from root e-class: 10
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'I("ab")'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '( )'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 8
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(a|b|c)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[:word:]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 11
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'Box<[T]>'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 8
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '\\_|\\\*'
+Extracted 1 unique patterns after 2 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'a(b){2,10}'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 12
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '\[name\]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 16
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'script>\]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 4
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(.|
+)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 4
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: ''''
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 15
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'export( )*'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 12
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '\[path\]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '((.)*)'
+  [1] Extracted unique pattern: '((.))*'
+Extracted 2 unique patterns after 2 attempts
+Extracting patterns from root e-class: 15
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'build.sh'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '(([0-9])*)'
+Extracted 1 unique patterns after 2 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '((.)*)#(.)*'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(...)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 15
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 're.match'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 8
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(?i)p.th'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '(([Sap]))+'
+Extracted 1 unique patterns after 2 attempts
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 4 nodes
+  [0] Extracted unique pattern: '|(([^<]))+'
+  [1] Extracted unique pattern: '((([^<]))+)?'
+  [2] Extracted unique pattern: '((([^<])+))?'
+Extracted 3 unique patterns after 4 attempts
+Extracting patterns from root e-class: 8
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'A(B|C)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 15
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '.hgignore'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 11
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '\\\(\)(\])*"'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[:alpha:]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 14
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '18(1)+.kiro'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 15
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'si( )+ byte'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 17
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'push`;1(4)+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '\?((.))*\?'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '<(([^>])+)>'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[^a-fA-F]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 14
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'literal(.)*'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 11
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/10.1145/'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 14
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(.)*literal'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '["a", ""]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[:upper:]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 11
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '"((b|a))+d"'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 11
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'tree.expr'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(☃)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 17
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'crates.io'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 17
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '. Namely,'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[\r\n\t ]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 10
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: ';(((.)*,)){1,1}'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 9
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/10.1109/'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 16
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'libstd(c)+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(?i)[a-z]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 12
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '/(.)*|arvr/'
+  [1] Extracted unique pattern: 'arvr/|/(.)*'
+Extracted 2 unique patterns after 2 attempts
+Extracting patterns from root e-class: 14
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '\[query\]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 15
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/joxi.ru/'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 13
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 're.search'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 16
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '5(9)+6(0)+The'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 9
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'r#"..."#B'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 11
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '<s_((.))*>'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 10
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'I("abab")'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '(([^ \t]))+'
+Extracted 1 unique patterns after 2 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/([0-9])+/'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 15
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/tc39.es/'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 12
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'A((B|(C)+))+D'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 13
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(hi|hello)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 15
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(a(b)c)def'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 14
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'download()'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 10
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '\]'23232424'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '<(([^<>])+)>'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 8
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '\[(.)+m'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 10
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'r'<([^>])+>''
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 17
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'Tablet22(5)+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '(([0-9\.])+)'
+  [1] Extracted unique pattern: '(([0-9\.]))+'
+Extracted 2 unique patterns after 2 attempts
+Extracting patterns from root e-class: 15
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/\\.cargo/'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 17
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'regex <1.8'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 15
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '.replace()'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 11
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '"1"( )* 5000'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '["a", "-"]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 16
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '/(.)*|xplat/'
+Extracted 1 unique patterns after 2 attempts
+Extracting patterns from root e-class: 9
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/<(([^>]))+>'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 10
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '<!--(.)*-->'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 6
+Target: at least 1 unique patterns
+Root e-class has 6 nodes
+  [0] Extracted unique pattern: '
+||
+'
+  [1] Extracted unique pattern: '
+|
+|'
+  [2] Extracted unique pattern: '|
+|
+'
+  [3] Extracted unique pattern: '|
+|
+'
+Extracted 4 unique patterns after 6 attempts
+Extracting patterns from root e-class: 10
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '<((
+|.))+>'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 1
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '([ \n\f\r])+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 11
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '.reset(..)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 15
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/.cargo/gi'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 12
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '"(.)*(a)+(b)*c"'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 16
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '\[folder\]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 17
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: ',46(4)+ tag:'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 4
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '"([^\"])*"'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '&(([^;]))+;'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[a:digit:]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '["'](.)*["']'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 18
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '/(.)*|fbcode/'
+Extracted 1 unique patterns after 2 attempts
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '(([A-Za-z]))*'
+Extracted 1 unique patterns after 2 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[[:alpha:]]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 14
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(.)*literal(.)*'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 16
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: 'fbobjc/|/(.)*'
+  [1] Extracted unique pattern: '/(.)*|fbobjc/'
+Extracted 2 unique patterns after 2 attempts
+Extracting patterns from root e-class: 8
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '"(\\B)"'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 18
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '/(.)*|xplat/u'
+  [1] Extracted unique pattern: 'xplat/u|/(.)*'
+Extracted 2 unique patterns after 2 attempts
+Extracting patterns from root e-class: 15
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'regex = (")*"'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 11
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: ' |<([^>])*>''
+  [1] Extracted unique pattern: '<([^>])*>'| '
+Extracted 2 unique patterns after 2 attempts
+Extracting patterns from root e-class: 9
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '\$<(([^>]))+>'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 18
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '/(.)*|xplat/s'
+  [1] Extracted unique pattern: 'xplat/s|/(.)*'
+Extracted 2 unique patterns after 2 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[[:upper:]]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 15
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'AsRef<[u8]>'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 18
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'flag is set'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 11
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'test((it))?'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 11
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '&b"foo"[..]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '&[Info<'_>]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 4
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '([^\\])\.'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 6
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '. ＝ [^\n]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[[:blank:]]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 16
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'uppercase()'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 13
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(?i)FOO BAR'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 18
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'lowercase()'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '<[?](.)*[?]>'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '&[&Info<'_>]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 14
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'add_header()'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 19
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'Some((0, 5))'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[^\x00-\xFF]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 19
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'i,1(0)+ 'uri':'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(?i)[a-rt-z]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 17
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'Some((1, 1))'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 8
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(a|Â )'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 13
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(end >= end)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 9
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'caps["name"]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 17
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'Some((4, 4))'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '\((([^\)]))*\)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 1
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '([ \t\n\f\r])+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 15
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '>= 0.3 < 0.7'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[a[:digit:]]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 17
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/.multirust/'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 10
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '\\u\{([^}])*\}'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 19
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'Some((0, 3))'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 17
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'Some((0, 0))'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 19
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/bestia.dev/'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 17
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'Headers.set()'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 21
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '':36(1)+ case ''
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 19
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'regex = "1.8"'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 19
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'regex = "1.5"'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 22
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'braceExpand()'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[0-9A-Za-z<>]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 11
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'd=((.)*)&u=((.)*)'
+Extracted 1 unique patterns after 1 attempts
+#512	pulse  cov: 21993 ft: 76549 corp: 385/2768b exec/s: 42 rss: 468Mb
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[\x00-\x1F\\]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 22
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'get_imports()'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 10
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '((|a)){100,100}x'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 6
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '. ＝ [^\r\n]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '["a", "", ""]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 13
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/www.diku.dk/'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 20
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: 'Research/|/(.)*'
+  [1] Extracted unique pattern: '/(.)*|Research/'
+Extracted 2 unique patterns after 2 attempts
+Extracting patterns from root e-class: 19
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'élégance.fr'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 22
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '/(.)*|fbandroid/'
+Extracted 1 unique patterns after 2 attempts
+Extracting patterns from root e-class: 21
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(end >= start)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 17
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '.syntax( ... )'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 21
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '.unwrap_or("")'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 20
+Target: at least 1 unique patterns
+Root e-class has 4 nodes
+  [0] Extracted unique pattern: '|.test(name) |'
+  [1] Extracted unique pattern: '|.test(name) '
+  [2] Extracted unique pattern: '.test(name) |'
+  [3] Extracted unique pattern: '||.test(name) '
+Extracted 4 unique patterns after 4 attempts
+Extracting patterns from root e-class: 18
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '"load_locales"'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 23
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/.virtualenvs/'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 4
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '([0-9])+\.([0-9])+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 15
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(usize, usize)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(|
+|
+)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 8
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'f(([aeiou]){2,2})s'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 18
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/:test((\\(d)+))?/'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 9
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '&text[start..]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 19
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '.test(name) &&'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 25
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/tmp.l0If1jQ6/'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 21
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '\\\(\)&amp;(\])*"'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 6
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[a-q]([u-z]){13,13}x'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 1
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '([^[:alpha:]Z])'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 11
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'O:([0-9])+:"((.))*"'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 6
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(( )+)([^\xA0])+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '["1", "x", "2"]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 17
+Target: at least 1 unique patterns
+Root e-class has 15 nodes
+  [0] Extracted unique pattern: '...|re2|re3|re1'
+  [1] Extracted unique pattern: 're1|re3|...|re2'
+  [2] Extracted unique pattern: 're1|re2|...|re3'
+  [3] Extracted unique pattern: 're2|...|re3|re1'
+  [4] Extracted unique pattern: 're3|re2|re1|...'
+  [5] Extracted unique pattern: 're3|...|re1|re2'
+  [6] Extracted unique pattern: 're1|...|re3|re2'
+  [7] Extracted unique pattern: 're3|...|re2|re1'
+  [8] Extracted unique pattern: 're1|re2|re3|...'
+  [9] Extracted unique pattern: '...|re2|re1|re3'
+Extracted 10 unique patterns after 15 attempts
+Extracting patterns from root e-class: 19
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/caml.inria.fr/'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 27
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '.sublime-syntax'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 22
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '.test(value)6(0)+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 6
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '([^\xA0])+(( )+)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 21
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/-/.split("a-")'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 1
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '([^[:alpha:],])'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/(([a-z0-9.-]))+/'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '["-bbb", "-ccc"]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 24
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/(\])*\\.xcodeproj/'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 23
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(exit code: 101)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 21
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/\\.lsp\\.buckd/'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 1
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '([ \n\r\t\f\xA0])+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 19
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'Headers.append()'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 23
+Target: at least 1 unique patterns
+Root e-class has 15 nodes
+  [0] Extracted unique pattern: '...|abc|def|text'
+  [1] Extracted unique pattern: '...|def|abc|text'
+  [2] Extracted unique pattern: 'def|abc|...|text'
+  [3] Extracted unique pattern: 'text|...|abc|def'
+  [4] Extracted unique pattern: 'text|abc|def|...'
+  [5] Extracted unique pattern: 'abc|def|text|...'
+  [6] Extracted unique pattern: '...|text|def|abc'
+  [7] Extracted unique pattern: 'abc|...|text|def'
+  [8] Extracted unique pattern: 'text|def|abc|...'
+  [9] Extracted unique pattern: 'def|...|abc|text'
+  [10] Extracted unique pattern: 'def|text|abc|...'
+Extracted 11 unique patterns after 15 attempts
+Extracting patterns from root e-class: 16
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '(@http)|(    at )'
+Extracted 1 unique patterns after 2 attempts
+Extracting patterns from root e-class: 12
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '\^(.)|\^\[([^\]])*\]'
+Extracted 1 unique patterns after 2 attempts
+Extracting patterns from root e-class: 15
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '( |)\[(.)*\]|\((.)*\)'
+  [1] Extracted unique pattern: '\((.)*\)|( |)\[(.)*\]'
+Extracted 2 unique patterns after 2 attempts
+Extracting patterns from root e-class: 23
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/systemf.epfl.ch/'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '["abcdef", "ghj"]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 20
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'PLEASE READ(.)*\*\*'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'r#"[^\x00-\xFF]"#'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/([^/])*___(([^/])*)/'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 17
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '<!--((|.|
+))*-->'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 27
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: ', e.g. this works:'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 22
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'the requirement is'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 21
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'config\.((.))*\.json'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 29
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/-/.splitn("a", 2)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 11
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '&((|#)([0-9a-zA-Z])+;)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 15
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '\[CDATA\[((.)*)\]\]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 25
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(a(b)c)(ghi|def)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 21
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 're.find_iter("...")'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 24
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'preprocess_string()'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 13
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '!\[((.)*)\]\(((.)*)\)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 13
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(@|)\\u\{([0-9a-z])*\}'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 17
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: ' ([0-9\.])+((Mi|Ki))?B '
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 25
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/www.hs-albsig.de/s'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 23
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '((IMG|MGG|MVI)|DS)X'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 30
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'fetch_distribution()'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 6
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(([A-Z]))+([A-Z][a-z])'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 20
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(0, 1) (2, 5) (6, 6)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 35
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'OjMHtq2TNPz9r(j)+7staG'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 21
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '<(.)*href="(([^"]))+"(.)*>'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[[:upper:][:blank:]]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 32
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'InvalidEscape("\\b")'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 17
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'Vec<Box<[StatePtr]>>'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 27
+Target: at least 1 unique patterns
+Root e-class has 29 nodes
+  [0] Extracted unique pattern: '...|quux|foo|baz|bar'
+  [1] Extracted unique pattern: 'quux|...|bar|foo|baz'
+  [2] Extracted unique pattern: 'baz|bar|foo|quux|...'
+  [3] Extracted unique pattern: '...|foo|bar|baz|quux'
+  [4] Extracted unique pattern: 'quux|...|bar|baz|foo'
+  [5] Extracted unique pattern: 'baz|bar|quux|...|foo'
+  [6] Extracted unique pattern: 'quux|foo|baz|bar|...'
+  [7] Extracted unique pattern: 'foo|bar|quux|...|baz'
+  [8] Extracted unique pattern: 'bar|foo|quux|baz|...'
+  [9] Extracted unique pattern: 'bar|foo|baz|quux|...'
+  [10] Extracted unique pattern: 'quux|...|foo|bar|baz'
+  [11] Extracted unique pattern: '...|quux|bar|foo|baz'
+  [12] Extracted unique pattern: 'baz|...|quux|bar|foo'
+  [13] Extracted unique pattern: 'bar|foo|quux|...|baz'
+  [14] Extracted unique pattern: '...|quux|foo|bar|baz'
+  [15] Extracted unique pattern: 'quux|...|baz|foo|bar'
+  [16] Extracted unique pattern: 'bar|baz|foo|...|quux'
+  [17] Extracted unique pattern: '...|quux|baz|foo|bar'
+  [18] Extracted unique pattern: 'bar|baz|...|foo|quux'
+  [19] Extracted unique pattern: 'baz|bar|foo|...|quux'
+  [20] Extracted unique pattern: 'quux|...|foo|baz|bar'
+  [21] Extracted unique pattern: 'foo|baz|bar|quux|...'
+  [22] Extracted unique pattern: 'quux|baz|...|foo|bar'
+  [23] Extracted unique pattern: '...|quux|bar|baz|foo'
+  [24] Extracted unique pattern: 'bar|foo|...|baz|quux'
+  [25] Extracted unique pattern: '...|baz|foo|bar|quux'
+Extracted 26 unique patterns after 29 attempts
+Extracting patterns from root e-class: 14
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '([{}])|(\\N\{([^}])+\})'
+  [1] Extracted unique pattern: '(\\N\{([^}])+\})|([{}])'
+Extracted 2 unique patterns after 2 attempts
+Extracting patterns from root e-class: 29
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'captures.name("foo")'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 19
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'at position (([0-9]))+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 6
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '"񜄤򵝬"'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 24
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(DS|((IMG|MVI)|MG))X'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 24
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'si( )* #classes( )+ byte'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 31
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'regex-syntax = "0.2"'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 23
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'find_iter(...).rev()'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 21
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '<(.)*class="(([^"]))+"(.)*>'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 10
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '"((\\.|[^"\\\r\n]))*"'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 31
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '4(8)+const slashSplit ='
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '["123", "456", "789"]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 28
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '\*\*BEFORE SUBMITTING'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 33
+Target: at least 1 unique patterns
+Root e-class has 57 nodes
+  [0] Extracted unique pattern: '7|5|1|2|3|4|6|9|8|int'
+  [1] Extracted unique pattern: '2|1|4|3|5|6|9|int|8|7'
+  [2] Extracted unique pattern: '5|2|1|4|3|6|int|9|7|8'
+  [3] Extracted unique pattern: '4|5|2|1|3|6|7|9|8|int'
+  [4] Extracted unique pattern: '7|8|9|int|6|2|1|3|4|5'
+  [5] Extracted unique pattern: '7|2|1|4|3|6|5|8|9|int'
+  [6] Extracted unique pattern: '5|3|4|1|2|8|9|7|6|int'
+  [7] Extracted unique pattern: '4|3|2|1|5|6|7|8|int|9'
+  [8] Extracted unique pattern: '7|5|2|1|4|3|6|8|9|int'
+  [9] Extracted unique pattern: 'int|7|5|6|2|1|4|3|9|8'
+  [10] Extracted unique pattern: '1|3|2|4|5|6|7|int|9|8'
+  [11] Extracted unique pattern: '3|2|4|1|6|5|8|7|int|9'
+  [12] Extracted unique pattern: 'int|7|5|2|3|1|4|6|9|8'
+  [13] Extracted unique pattern: '9|int|8|5|1|4|2|3|7|6'
+  [14] Extracted unique pattern: '8|2|3|1|6|4|5|7|int|9'
+  [15] Extracted unique pattern: '4|1|3|2|5|7|6|8|9|int'
+  [16] Extracted unique pattern: 'int|2|3|1|5|4|8|9|6|7'
+  [17] Extracted unique pattern: '6|7|2|3|1|4|5|8|9|int'
+  [18] Extracted unique pattern: 'int|7|8|9|5|6|3|2|4|1'
+  [19] Extracted unique pattern: '3|2|5|4|1|6|7|8|9|int'
+  [20] Extracted unique pattern: 'int|6|1|2|3|5|4|9|8|7'
+  [21] Extracted unique pattern: '7|2|1|3|4|5|6|8|9|int'
+  [22] Extracted unique pattern: '6|1|3|2|5|4|9|int|7|8'
+  [23] Extracted unique pattern: '4|6|3|1|2|5|8|7|9|int'
+  [24] Extracted unique pattern: '7|8|5|6|2|1|4|3|int|9'
+  [25] Extracted unique pattern: 'int|8|9|4|6|5|7|2|3|1'
+  [26] Extracted unique pattern: '5|4|2|3|1|6|7|8|int|9'
+  [27] Extracted unique pattern: '2|1|3|4|6|5|int|9|8|7'
+  [28] Extracted unique pattern: '8|7|int|9|2|4|3|1|6|5'
+  [29] Extracted unique pattern: '8|5|2|3|1|4|6|7|int|9'
+  [30] Extracted unique pattern: 'int|9|4|5|2|3|1|8|7|6'
+  [31] Extracted unique pattern: '6|4|5|1|3|2|7|9|8|int'
+  [32] Extracted unique pattern: 'int|6|7|5|4|1|2|3|9|8'
+  [33] Extracted unique pattern: 'int|9|5|4|3|1|2|8|7|6'
+  [34] Extracted unique pattern: '6|7|2|1|4|3|5|9|int|8'
+  [35] Extracted unique pattern: 'int|5|1|3|2|4|7|6|8|9'
+  [36] Extracted unique pattern: '6|3|4|2|1|7|5|8|int|9'
+  [37] Extracted unique pattern: 'int|8|9|6|1|2|3|4|5|7'
+  [38] Extracted unique pattern: '9|int|6|4|1|2|3|5|8|7'
+  [39] Extracted unique pattern: '9|int|7|8|2|1|4|3|6|5'
+  [40] Extracted unique pattern: '9|8|int|3|5|4|2|1|7|6'
+  [41] Extracted unique pattern: '5|6|1|2|4|3|9|int|7|8'
+  [42] Extracted unique pattern: '9|int|4|6|5|2|3|1|8|7'
+  [43] Extracted unique pattern: 'int|9|6|2|3|1|4|5|7|8'
+  [44] Extracted unique pattern: '7|8|5|3|4|1|2|6|int|9'
+  [45] Extracted unique pattern: '4|2|1|3|6|5|9|8|7|int'
+  [46] Extracted unique pattern: '7|6|3|2|1|4|5|9|8|int'
+  [47] Extracted unique pattern: '9|int|3|1|2|4|5|8|7|6'
+  [48] Extracted unique pattern: '3|2|4|1|5|6|int|9|8|7'
+  [49] Extracted unique pattern: '7|6|2|1|4|3|5|8|9|int'
+  [50] Extracted unique pattern: '9|int|6|1|5|4|3|2|7|8'
+  [51] Extracted unique pattern: '1|2|3|5|4|8|7|6|9|int'
+  [52] Extracted unique pattern: '6|5|3|2|1|4|7|8|9|int'
+  [53] Extracted unique pattern: '6|4|5|1|2|3|int|9|8|7'
+  [54] Extracted unique pattern: '2|3|4|5|1|8|7|6|int|9'
+  [55] Extracted unique pattern: '9|7|3|4|1|2|5|6|8|int'
+  [56] Extracted unique pattern: 'int|5|2|4|3|1|7|6|9|8'
+Extracted 57 unique patterns after 57 attempts
+Extracting patterns from root e-class: 23
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '<(.)*style="(([^"])+)"(.)*>'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 13
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '\[([^\]])*\](| )(\(|\[)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 12
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '\\((.)*\\)|( )?\\[.*?\\]'
+  [1] Extracted unique pattern: '\\((.)*\\)|( |)\\[.*?\\]'
+Extracted 2 unique patterns after 2 attempts
+Extracting patterns from root e-class: 28
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'headerValueNormalize()'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 21
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'From (((
+|.))*)
+(-){3,3}
+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 24
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '".repeat(100000)( )+ "@"'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 22
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'href="(<reference>)"'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 29
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'Anchored(PatternId(_))'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 14
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '(\|([^{])*\})|(\{([^}])*\|)'
+  [1] Extracted unique pattern: '(\{([^}])*\|)|(\|([^{])*\})'
+Extracted 2 unique patterns after 2 attempts
+Extracting patterns from root e-class: 25
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'String.prototype.trim()'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[\U0002B740-\U0002B81D]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 12
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '(\}\})|\{(([^{}}])+\}|\{)'
+Extracted 1 unique patterns after 2 attempts
+Extracting patterns from root e-class: 29
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'regexp_bytes!(r#"..."#)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 30
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'injectScript('page-ssr')'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 23
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'at position(:| )(([0-9]))+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 37
+Target: at least 1 unique patterns
+Root e-class has 57 nodes
+  [0] Extracted unique pattern: '7|2|1|4|3|5|6|9|8|int|10'
+  [1] Extracted unique pattern: 'int|9|6|4|5|3|2|1|7|8|10'
+  [2] Extracted unique pattern: '8|1|3|2|4|5|7|6|9|int|10'
+  [3] Extracted unique pattern: '2|3|4|5|1|6|7|10|int|8|9'
+  [4] Extracted unique pattern: 'int|9|10|5|6|7|3|4|1|2|8'
+  [5] Extracted unique pattern: '10|int|4|1|2|3|6|5|9|7|8'
+  [6] Extracted unique pattern: '10|int|3|2|1|4|6|5|7|8|9'
+  [7] Extracted unique pattern: 'int|8|7|5|6|1|2|4|3|10|9'
+  [8] Extracted unique pattern: '7|8|2|1|3|4|5|6|9|int|10'
+  [9] Extracted unique pattern: 'int|10|9|6|2|3|4|1|5|7|8'
+  [10] Extracted unique pattern: '3|1|4|2|6|5|7|8|10|9|int'
+  [11] Extracted unique pattern: '3|2|4|5|1|6|7|8|9|10|int'
+  [12] Extracted unique pattern: 'int|10|8|9|5|7|6|2|3|4|1'
+  [13] Extracted unique pattern: '3|2|1|5|4|8|6|7|int|10|9'
+  [14] Extracted unique pattern: '1|4|2|3|6|5|8|7|int|9|10'
+  [15] Extracted unique pattern: 'int|4|5|6|1|2|3|9|10|8|7'
+  [16] Extracted unique pattern: 'int|10|9|3|1|2|5|4|8|7|6'
+  [17] Extracted unique pattern: '5|4|2|1|3|6|7|8|9|int|10'
+  [18] Extracted unique pattern: '8|7|5|6|4|1|3|2|9|10|int'
+  [19] Extracted unique pattern: '8|7|1|2|3|4|6|5|9|int|10'
+  [20] Extracted unique pattern: '9|int|10|8|7|4|3|1|2|6|5'
+  [21] Extracted unique pattern: '10|9|int|3|1|4|2|5|7|8|6'
+  [22] Extracted unique pattern: '5|3|1|2|4|7|6|9|10|8|int'
+  [23] Extracted unique pattern: '9|4|3|1|2|5|6|8|7|int|10'
+  [24] Extracted unique pattern: 'int|6|5|1|4|2|3|7|8|10|9'
+  [25] Extracted unique pattern: '4|3|1|2|5|7|6|10|int|9|8'
+  [26] Extracted unique pattern: 'int|10|7|4|1|3|2|6|5|8|9'
+  [27] Extracted unique pattern: '5|4|1|2|3|7|6|8|9|int|10'
+  [28] Extracted unique pattern: 'int|5|6|7|3|4|2|1|9|8|10'
+  [29] Extracted unique pattern: '8|4|5|1|2|3|7|6|10|9|int'
+  [30] Extracted unique pattern: 'int|6|5|7|4|2|1|3|8|9|10'
+  [31] Extracted unique pattern: '7|4|1|2|3|6|5|8|10|9|int'
+  [32] Extracted unique pattern: '8|1|2|3|5|4|7|6|10|9|int'
+  [33] Extracted unique pattern: 'int|10|1|4|3|2|5|7|6|8|9'
+  [34] Extracted unique pattern: 'int|2|4|3|1|5|6|7|10|9|8'
+  [35] Extracted unique pattern: 'int|4|5|2|3|1|6|8|7|10|9'
+  [36] Extracted unique pattern: 'int|4|5|6|2|1|3|10|9|8|7'
+  [37] Extracted unique pattern: '10|int|1|4|2|3|5|7|6|9|8'
+  [38] Extracted unique pattern: 'int|10|1|2|3|4|5|6|7|9|8'
+  [39] Extracted unique pattern: 'int|10|2|1|5|3|4|7|6|9|8'
+  [40] Extracted unique pattern: '6|4|5|3|2|1|7|8|10|9|int'
+  [41] Extracted unique pattern: 'int|10|6|5|2|4|3|1|9|8|7'
+  [42] Extracted unique pattern: '8|9|7|5|3|4|2|1|6|10|int'
+  [43] Extracted unique pattern: '5|6|4|1|3|2|7|8|9|int|10'
+  [44] Extracted unique pattern: '7|4|3|1|2|5|6|8|9|10|int'
+  [45] Extracted unique pattern: '5|2|1|3|4|7|8|6|int|9|10'
+  [46] Extracted unique pattern: '7|1|4|3|2|5|6|8|10|int|9'
+  [47] Extracted unique pattern: '5|6|1|3|2|4|7|8|9|int|10'
+  [48] Extracted unique pattern: '10|int|6|7|5|2|1|3|4|9|8'
+  [49] Extracted unique pattern: '3|4|5|2|1|6|8|7|10|int|9'
+  [50] Extracted unique pattern: '10|int|9|4|1|3|2|6|5|8|7'
+  [51] Extracted unique pattern: '9|8|3|2|1|5|4|7|6|10|int'
+  [52] Extracted unique pattern: 'int|10|4|5|1|2|3|6|7|9|8'
+  [53] Extracted unique pattern: '4|1|3|2|5|6|8|7|9|int|10'
+  [54] Extracted unique pattern: '3|2|1|4|5|7|6|9|8|10|int'
+  [55] Extracted unique pattern: 'int|8|7|6|5|3|1|2|4|9|10'
+Extracted 56 unique patterns after 57 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[2595, 1, 1, 1, 1, 1, 1]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 21
+Target: at least 1 unique patterns
+Root e-class has 15 nodes
+  [0] Extracted unique pattern: 'regexN|regex1|...|regex2'
+  [1] Extracted unique pattern: 'regexN|regex2|...|regex1'
+  [2] Extracted unique pattern: 'regexN|...|regex1|regex2'
+  [3] Extracted unique pattern: 'regex1|regex2|regexN|...'
+  [4] Extracted unique pattern: 'regexN|regex1|regex2|...'
+  [5] Extracted unique pattern: 'regex2|...|regexN|regex1'
+  [6] Extracted unique pattern: '...|regex2|regex1|regexN'
+  [7] Extracted unique pattern: 'regex2|regexN|...|regex1'
+  [8] Extracted unique pattern: '...|regex1|regex2|regexN'
+  [9] Extracted unique pattern: 'regex1|...|regex2|regexN'
+  [10] Extracted unique pattern: 'regex1|...|regexN|regex2'
+Extracted 11 unique patterns after 15 attempts
+Extracting patterns from root e-class: 18
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'self.stacks[thread_id % 8]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(([OdWo5NIbpuU4V2iJT0n]){5,5})'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 19
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '([^\]])*\]((| )\[(.)*\]|\((.)*\))'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 27
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'caps.name("name").unwrap()'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 22
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(0, 0) (2, 2) (3, 5) (6, 6)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 38
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: ';3(5)+ this.reWhitespaceEnd ='
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 23
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'class(|(Name))=["']((.))*["']'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 37
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'errata_search.ph(p|)eid=1690( )*'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 11
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(?m)(|\[([0-9;])*[a-zA-Z])'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 43
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: ';1(4)+var protocolAndDomainRE ='
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 41
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '1(7)+var nonLocalhostDomainRE ='
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 23
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(#(@)?((\$\?|\$|\?|%))?#)(.){1,2}'
+Extracted 1 unique patterns after 1 attempts
+Slowest unit: 11 s:
+artifact_prefix='/home/lxy/regex_fuzzing/regex/fuzz/artifacts/fuzz_diff_eqs/'; Test unit written to /home/lxy/regex_fuzzing/regex/fuzz/artifacts/fuzz_diff_eqs/slow-unit-3a831774e5013b7c464db25c98a4da82ad392541
+Base64: XHB7WElEX1NUQVJUfVxwe1hJRF9DT05USU5VRX0q
+Extracting patterns from root e-class: 44
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: ';1(5)+1(6)+var localhostDomainRE ='
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 39
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'pkg_resources.normalize_path()'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 51
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '9(m)+JeRGwwUblwhPDWX7cuBI9NhKPtFr'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 16
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(\[-((.))*-\]|\{-((.))*-\})'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 25
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'Time: ((.))+ IP: ((.))+ User: ((.))+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 18
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[^\\](\])*\\\](( )?\\[.*?\\]|\\((.)*\\))'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 28
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/foo\.example\.com(|([:]([0-9])+))/'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 36
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'Object\.defineProperty\(([A-Za-z])+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 26
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(0, 0) (1, 1) (2, 2) (3, 5) (6, 6)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 51
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/5.0 (X11; Linux x86_64) AppleWebKit/'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 14
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'Concat([EndText, NotWordBoundaryAscii])'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 21
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '\](('([^'])*'(['"])*|"([^"])*"(['"])*|[^'">]))*>'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 16
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'Alternate([EndLine, WordBoundaryAscii])'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 26
+Target: at least 1 unique patterns
+Root e-class has 6 nodes
+  [0] Extracted unique pattern: '\[([^\]])*\]\(([^\)])*\)|`([^`])*`|<([^>])*>'
+  [1] Extracted unique pattern: '`([^`])*`|<([^>])*>|\[([^\]])*\]\(([^\)])*\)'
+  [2] Extracted unique pattern: '\[([^\]])*\]\(([^\)])*\)|<([^>])*>|`([^`])*`'
+  [3] Extracted unique pattern: '<([^>])*>|\[([^\]])*\]\(([^\)])*\)|`([^`])*`'
+Extracted 4 unique patterns after 6 attempts
+Extracting patterns from root e-class: 39
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'captures.name("foo").map(|m| m.as_str())'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 27
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '<!\[CDATA\[((([^\]])+|\]\][^>]|\][^\]]))*\]\]>'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[2595, 2596, 2597, 2598, 2599, 2600, 2601]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 25
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '\((([^()\\]|\\.))*\]\)|( )?\[(([^\]\\]|\\.))*\]'
+Extracted 1 unique patterns after 2 attempts
+Extracting patterns from root e-class: 39
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'android(.)+(mi([s-])*(pad)(([s])*([ws])+))(s)+build'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 49
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'bash2(4)+2(5)+meteor update --release 3.2.12(6)+2(7)+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 45
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(Unusualifier|Kit Fabricator|Kit|Strangifier)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 39
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/ .case_insensitive(!self.match_case.clone()) /'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '["", "Should", " this", " ", "(work", "?", ")"]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '["", "Should", " ", "this", " (", "work", "?)"]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 42
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(range_start..range_end).any( c == input_char||c)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 42
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'android(.)+(redmi([s-])*((note))?(([s])*([ws])+))(s)+build'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 37
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 're.captures("something").name("capture_group_name")'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 57
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(Collector's|Self-Made|Genuine|Normal|Unusual|Unique)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 43
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'original_str.replace_range(m.start()..m.end(), "foo")'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 43
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '        installed packages.  If a distribution matching'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 32
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(\(([^()])*\)|"((\\"|\\|[^"\\]))*"|'([^'\n])*((
+([^'\n])+))*(|
+)')'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 20
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '('([^'\\\n\r])*((\\.([^'\\\n\r])*))*'|"([^"\\\n\r])*((\\.([^"\\\n\r])*))*")'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 42
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'original_str.replace_range(m.start() .. m.start()( )+ m.len(), "foo")'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 42
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '        searched for in the (online) package index as well as the locally'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 37
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'ÑMrotcangePO3âåñè[.]ã'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 58
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '([0-9])+\.([0-9])+\.([0-9])+ \(([^;])*;( )*(CUS:(([^;]))*|(([^;])+))( )*;( )*(([^;]))*( )*;(.)*;'514(4)+  - regex: '(HbbTV)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 89
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'mowzk4446[security@ericcornelissen.dev]: mailto:security@ericcornelissen.de(v|)subject=SECURITY%20%28shescape%294(7)+[snyk]: https:'
+Extracted 1 unique patterns after 1 attempts
+#990	INITED cov: 23346 ft: 98629 corp: 661/11307b exec/s: 21 rss: 521Mb
+#991	NEW    cov: 23347 ft: 98659 corp: 662/11322b lim: 512 exec/s: 21 rss: 521Mb L: 15/181 MS: 1 Custom-
+	NEW_FUNC[1/1]: 0x55bea499bdd0 in core::ptr::drop_in_place::<core::result::Result<regex_syntax::ast::Ast, regex_syntax::ast::Error>> /rustc/27b076af7e3e7a363975443d81dfa9ecee5a74ec/library/core/src/ptr/mod.rs:805
+#992	NEW    cov: 23364 ft: 98681 corp: 663/11327b lim: 512 exec/s: 21 rss: 521Mb L: 5/181 MS: 1 Custom-
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '(x)*(x)*'
+Extracted 1 unique patterns after 2 attempts
+#993	NEW    cov: 23365 ft: 98736 corp: 664/11331b lim: 512 exec/s: 21 rss: 521Mb L: 4/181 MS: 1 Custom-
+Extracting patterns from root e-class: 4
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '2a'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 4
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '22a'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 4
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '22a'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 4
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '22a'
+Extracted 1 unique patterns after 1 attempts
+	NEW_FUNC[1/4]: 0x55bea49a0980 in core::ptr::drop_in_place::<regex_syntax::ast::ClassSetUnion> /rustc/27b076af7e3e7a363975443d81dfa9ecee5a74ec/library/core/src/ptr/mod.rs:805
+	NEW_FUNC[2/4]: 0x55bea49a39c0 in core::ptr::drop_in_place::<regex_syntax::ast::parse::ClassState> /rustc/27b076af7e3e7a363975443d81dfa9ecee5a74ec/library/core/src/ptr/mod.rs:805
+#998	NEW    cov: 23382 ft: 98775 corp: 665/11334b lim: 512 exec/s: 21 rss: 521Mb L: 3/181 MS: 5 Custom-Custom-Custom-Custom-Custom-
+Extracting patterns from root e-class: 14
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '([{}])|(\\N\{([^}])+\})'
+  [1] Extracted unique pattern: '(\\N\{([^}])+\})|([{}])'
+Extracted 2 unique patterns after 2 attempts
+Extracting patterns from root e-class: 14
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '(\\N\{([^}])+\})|([{}])'
+  [1] Extracted unique pattern: '([{}])|(\\N\{([^}])+\})'
+Extracted 2 unique patterns after 2 attempts
+	NEW_FUNC[1/2]: 0x55bea49a3b90 in core::ptr::drop_in_place::<regex_syntax::ast::parse::GroupState> /rustc/27b076af7e3e7a363975443d81dfa9ecee5a74ec/library/core/src/ptr/mod.rs:805
+	NEW_FUNC[2/2]: 0x55bea49a9b00 in <alloc::vec::Vec<regex_syntax::ast::Ast> as core::ops::drop::Drop>::drop /rustc/27b076af7e3e7a363975443d81dfa9ecee5a74ec/library/alloc/src/vec/mod.rs:4071
+#1001	NEW    cov: 23393 ft: 98794 corp: 666/11374b lim: 512 exec/s: 21 rss: 521Mb L: 40/181 MS: 3 Custom-Custom-Custom-
+#1004	NEW    cov: 23393 ft: 98795 corp: 667/11396b lim: 512 exec/s: 21 rss: 521Mb L: 22/181 MS: 3 Custom-Custom-Custom-
+#1005	NEW    cov: 23393 ft: 99479 corp: 668/11906b lim: 512 exec/s: 21 rss: 521Mb L: 510/510 MS: 1 Custom-
+Extracting patterns from root e-class: 26
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '".repeat(1()00000)( )+ "@"'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 26
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '".repeat(1()00000)( )+ "@"'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 26
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '".rpeat(1()00000)( )+ "@"'
+Extracted 1 unique patterns after 1 attempts
+#1008	NEW    cov: 23393 ft: 99481 corp: 669/11931b lim: 512 exec/s: 21 rss: 521Mb L: 25/510 MS: 3 Custom-Custom-Custom-
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '7.'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 4
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[b-df-hj-np-tv-z]7.'
+Extracted 1 unique patterns after 1 attempts
+#1010	NEW    cov: 23393 ft: 99525 corp: 670/11950b lim: 512 exec/s: 21 rss: 521Mb L: 19/510 MS: 2 Custom-Custom-
+Loaded 1024/1026 files from /home/lxy/regex_fuzzing/regex/fuzz/corpus/fuzz_diff_eqs
+Extracting patterns from root e-class: 16
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(uize, usiz[a-w]e)'
+Extracted 1 unique patterns after 1 attempts
+#1024	pulse  cov: 23393 ft: 99533 corp: 672/11974b lim: 512 exec/s: 21 rss: 521Mb
+Extracting patterns from root e-class: 10
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'I("ab")'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[0-9][&]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 18
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'lowercase()'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(4, 4)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(1, 1)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(8, 8)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[\r\n\t ]t \]t \]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 22
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'href="(<reference>)"'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 17
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'Headers.set()'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 17
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'Some((1, 1))'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 19
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'Some((0, 5))'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 11
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(U)+10570'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[.\n]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 12
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '\[path\]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 19
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'Headers.append()'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(pass)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 1
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '([ {0,1}\n\f\r])+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '0.2'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 17
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'Some((4, 4))'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 15
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/tc39.es/'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 34
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '\[b-df-hj-np-tv-z\]A(a)+(b)*c'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 10
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'I("abab")'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 19
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '.test(name) &&'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 19
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'Some((0, 3))'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 8
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'p[0-9].th'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '["", "Should", " ", "this", " (", "work", "?)"]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 8
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '0|a.1'
+Extracted 1 unique patterns after 2 attempts
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '.([a-w])*'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 17
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'Some((0, 0))'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 15
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/\\.cargo/'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 10
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'r'<([^(?:)>])+>''
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(!)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(2, 2)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 15
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '.r()-set(..)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 4 nodes
+  [0] Extracted unique pattern: '(:)+'
+  [1] Extracted unique pattern: '::|:'
+Extracted 2 unique patterns after 4 attempts
+Extracting patterns from root e-class: 30
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'fetch_distribution()'
+Extracted 1 unique patterns after 1 attempts
+#1366	RELOAD cov: 23432 ft: 99997 corp: 699/12494b lim: 512 exec/s: 27 rss: 521Mb
+#1367	NEW    cov: 23432 ft: 100000 corp: 700/12506b lim: 512 exec/s: 27 rss: 521Mb L: 12/510 MS: 1 Custom-
+#1368	NEW    cov: 23432 ft: 100006 corp: 701/12543b lim: 512 exec/s: 27 rss: 521Mb L: 37/510 MS: 1 Custom-
+#1369	NEW    cov: 23432 ft: 100008 corp: 702/12550b lim: 512 exec/s: 26 rss: 523Mb L: 7/510 MS: 1 Custom-
+Extracting patterns from root e-class: 6
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '1[0-9].0'
+Extracted 1 unique patterns after 1 attempts
+	NEW_FUNC[1/2]: 0x55bea5391c30 in core::ptr::drop_in_place::<core::result::Result<regex_syntax::ast::Ast, regex_syntax::ast::Error>> /rustc/27b076af7e3e7a363975443d81dfa9ecee5a74ec/library/core/src/ptr/mod.rs:805
+	NEW_FUNC[2/2]: 0x55bea539a7f0 in core::ptr::drop_in_place::<regex_syntax::ast::Group> /rustc/27b076af7e3e7a363975443d81dfa9ecee5a74ec/library/core/src/ptr/mod.rs:805
+Extracting patterns from root e-class: 18
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'H[a-z]eaders.set()'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 16
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '\[folder\]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '&[-8]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '('){2,2}(\\)*''
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 6
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: 'a\]|'
+Extracted 1 unique patterns after 2 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[1n.]'
+Extracted 1 unique patterns after 1 attempts
+	NEW_FUNC[1/2]: 0x55bea51a57b0 in <regex_automata::meta::strategy::Pre<regex_automata::util::prefilter::memchr::Memchr3> as regex_automata::meta::strategy::Strategy>::create_cache /home/lxy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-automata-0.4.13/src/meta/strategy.rs:361
+	NEW_FUNC[2/2]: 0x55bea51a7c80 in <regex_automata::meta::strategy::Pre<regex_automata::util::prefilter::memchr::Memchr3> as regex_automata::meta::strategy::Strategy>::is_match /home/lxy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-automata-0.4.13/src/meta/strategy.rs:408
+Extracting patterns from root e-class: 44
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'original_str.[0-9]replace_range(m.start()..m.end(), "foo")'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '('())'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '(|(3)).'
+  [1] Extracted unique pattern: '((3))?.'
+Extracted 2 unique patterns after 2 attempts
+Extracting patterns from root e-class: 24
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/vi(r){2,2}tualenvs/'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 13
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '\[na[b-df-hj-np-tv-z]me\]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 9
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '1.(a|x)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[a-z][:word:]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(.)*[b-df-hj-np-tv-z]\}'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 16
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '\[C[a-w]DATA\[((.))*\]\]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 25
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'at() position(:| )(([0-9]))+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 44
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(end|range_start..range).any(c| c == input_char|)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[a-z](.)*'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 21
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[0-9]&&Info<'_>\]'
+Extracted 1 unique patterns after 1 attempts
+	NEW_FUNC[1/12]: 0x55bea4a04200 in core::ptr::drop_in_place::<regex_syntax::error::Error> /rustc/27b076af7e3e7a363975443d81dfa9ecee5a74ec/library/core/src/ptr/mod.rs:805
+	NEW_FUNC[2/12]: 0x55bea4bfdf70 in core::ptr::drop_in_place::<regex_syntax::hir::translate::HirFrame> /rustc/27b076af7e3e7a363975443d81dfa9ecee5a74ec/library/core/src/ptr/mod.rs:805
+Extracting patterns from root e-class: 8
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[a-q][u-](\]){13,13}x'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 12
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'H\}l(s){2,5}.'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 9
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: 'a(n)+1|'
+  [1] Extracted unique pattern: '|a(n)+1'
+Extracted 2 unique patterns after 2 attempts
+Extracting patterns from root e-class: 10
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(?i)()p.th'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 21
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: 'fbcode/|/((.){2,5})*'
+  [1] Extracted unique pattern: '/((.){2,5})*|fbcode/'
+Extracted 2 unique patterns after 2 attempts
+#1455	RELOAD cov: 23743 ft: 101810 corp: 777/13834b lim: 512 exec/s: 26 rss: 555Mb
+#1457	NEW    cov: 23743 ft: 101811 corp: 778/13842b lim: 512 exec/s: 26 rss: 555Mb L: 8/510 MS: 2 Custom-Custom-
+Extracting patterns from root e-class: 12
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(c)md1(8)+'
+Extracted 1 unique patterns after 1 attempts
+#1459	NEW    cov: 23743 ft: 101815 corp: 779/13852b lim: 512 exec/s: 26 rss: 555Mb L: 10/510 MS: 2 Custom-Custom-
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '0..1'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 6
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '0.(.)1'
+Extracted 1 unique patterns after 1 attempts
+#1462	NEW    cov: 23743 ft: 101816 corp: 780/13860b lim: 512 exec/s: 26 rss: 555Mb L: 8/510 MS: 3 Custom-Custom-Custom-
+#1472	NEW    cov: 23746 ft: 101933 corp: 781/13870b lim: 512 exec/s: 26 rss: 555Mb L: 10/510 MS: 5 Custom-Custom-Custom-Custom-Custom-
+Extracting patterns from root e-class: 1
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: ' '
+Extracted 1 unique patterns after 1 attempts
+#1478	NEW    cov: 23746 ft: 101938 corp: 782/13886b lim: 512 exec/s: 26 rss: 555Mb L: 16/510 MS: 1 Custom-
+Extracting patterns from root e-class: 6
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(\\.())'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '()(\\.())'
+Extracted 1 unique patterns after 1 attempts
+#1482	NEW    cov: 23746 ft: 101983 corp: 783/13906b lim: 512 exec/s: 26 rss: 555Mb L: 20/510 MS: 4 Custom-Custom-Custom-Custom-
+#1488	NEW    cov: 23746 ft: 101991 corp: 784/13914b lim: 512 exec/s: 26 rss: 555Mb L: 8/510 MS: 1 Custom-
+#1489	NEW    cov: 23746 ft: 101998 corp: 785/13930b lim: 512 exec/s: 26 rss: 555Mb L: 16/510 MS: 1 Custom-
+#1490	NEW    cov: 23746 ft: 102000 corp: 786/13952b lim: 512 exec/s: 25 rss: 555Mb L: 22/510 MS: 1 Custom-
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '.([a-w{2}])*'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 23
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'at posi[0-9]tion(:| )(([0-9]))+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 13
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '0(|a:|:)2'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 4
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(
+){2,}'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 24
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/systemf.ep[a-w]fl.ch/'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(a)+([b-df-hj-np-tv-z])+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 10
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '6([b-df-hj-np-tv-z])+uc7'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 12
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(
+||
+|a)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '"[a-w](.)*"'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '((1){0,3})*'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 36
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '\[b-df-hj-n()p-tv-z\]A(a)+(b)*c'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 1
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: ''
+Extracted 1 unique patterns after 2 attempts
+	NEW_FUNC[1/1]: 0x55bea499ba60 in core::ptr::drop_in_place::<core::result::Result<alloc::vec::Vec<alloc::string::String>, alloc::string::String>> /rustc/27b076af7e3e7a363975443d81dfa9ecee5a74ec/library/core/src/ptr/mod.rs:805
+Extracting patterns from root e-class: 8
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: 'af|((.)*)'
+  [1] Extracted unique pattern: '((.))*|af'
+Extracted 2 unique patterns after 2 attempts
+Extracting patterns from root e-class: 6
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '([a-w])"''
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '.:((.))*'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 4
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '/|\}'
+Extracted 1 unique patterns after 2 attempts
+Extracting patterns from root e-class: 11
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: 'g|areen'
+  [1] Extracted unique pattern: 'areen|g'
+Extracted 2 unique patterns after 2 attempts
+Extracting patterns from root e-class: 9
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '406(7)+(7)+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 1
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '([ \\p{Greek}n\r\t\f\xA0])+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 11
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[b-df-hj-np-tv-z]/i(>){2,2}</'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '  '
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 47
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(Kit Fabric()ator|Strangifier|Kit|Unusualifier)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 3 nodes
+  [0] Extracted unique pattern: '-(:)?'
+  [1] Extracted unique pattern: '-:|-'
+Extracted 2 unique patterns after 3 attempts
+Extracting patterns from root e-class: 16
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: 'xplat|/(.)*'
+  [1] Extracted unique pattern: '/(.)*|xplat'
+Extracted 2 unique patterns after 2 attempts
+Extracting patterns from root e-class: 37
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'Object\.definePrope(r)ty\(([A-Za-z])+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 8
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(p|).th'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 9
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(b)?ash'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 14
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '()download()'
+Extracted 1 unique patterns after 1 attempts
+	NEW_FUNC[1/2]: 0x55bea4e804e0 in <regex_syntax::hir::interval::IntervalSet<regex_syntax::hir::ClassUnicodeRange>>::difference /home/lxy/regex_fuzzing/regex/regex-syntax/src/hir/interval.rs:185
+	NEW_FUNC[2/2]: 0x55bea53d2360 in <regex_syntax::hir::interval::IntervalSet<regex_syntax::hir::ClassUnicodeRange>>::difference /home/lxy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-syntax-0.8.8/src/hir/interval.rs:185
+Extracting patterns from root e-class: 32
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(\[b-df-hj-np-tv-z\](w)+)[ ]'
+Extracted 1 unique patterns after 1 attempts
+#1573	RELOAD cov: 23856 ft: 102772 corp: 858/15575b lim: 512 exec/s: 23 rss: 555Mb
+Extracting patterns from root e-class: 29
+Target: at least 1 unique patterns
+Root e-class has 29 nodes
+  [0] Extracted unique pattern: 'baz|bar|fo-|quux|...'
+  [1] Extracted unique pattern: 'baz|...|quux|fo-|bar'
+  [2] Extracted unique pattern: '...|baz|bar|fo-|quux'
+  [3] Extracted unique pattern: 'bar|fo-|baz|quux|...'
+  [4] Extracted unique pattern: 'quux|fo-|...|baz|bar'
+  [5] Extracted unique pattern: 'quux|bar|fo-|...|baz'
+  [6] Extracted unique pattern: 'bar|fo-|...|baz|quux'
+  [7] Extracted unique pattern: 'quux|...|bar|fo-|baz'
+  [8] Extracted unique pattern: 'bar|fo-|...|quux|baz'
+  [9] Extracted unique pattern: 'baz|fo-|bar|quux|...'
+  [10] Extracted unique pattern: 'bar|fo-|baz|...|quux'
+  [11] Extracted unique pattern: 'baz|bar|fo-|...|quux'
+  [12] Extracted unique pattern: 'quux|...|bar|baz|fo-'
+  [13] Extracted unique pattern: 'fo-|bar|...|quux|baz'
+  [14] Extracted unique pattern: 'quux|...|baz|bar|fo-'
+  [15] Extracted unique pattern: '...|baz|quux|fo-|bar'
+  [16] Extracted unique pattern: 'bar|baz|fo-|...|quux'
+  [17] Extracted unique pattern: '...|fo-|bar|baz|quux'
+  [18] Extracted unique pattern: 'quux|fo-|bar|...|baz'
+  [19] Extracted unique pattern: '...|bar|fo-|baz|quux'
+  [20] Extracted unique pattern: 'baz|quux|fo-|bar|...'
+  [21] Extracted unique pattern: 'fo-|quux|...|bar|baz'
+  [22] Extracted unique pattern: 'quux|...|fo-|baz|bar'
+Extracted 23 unique patterns after 29 attempts
+#1574	NEW    cov: 23857 ft: 102840 corp: 859/15595b lim: 512 exec/s: 23 rss: 555Mb L: 20/510 MS: 1 Custom-
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[(?:):.]'
+Extracted 1 unique patterns after 1 attempts
+#1576	NEW    cov: 23857 ft: 102843 corp: 860/15600b lim: 512 exec/s: 23 rss: 555Mb L: 5/510 MS: 2 Custom-Custom-
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(..)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(.(.){0,3})'
+Extracted 1 unique patterns after 1 attempts
+#1578	NEW    cov: 23857 ft: 102856 corp: 861/15612b lim: 512 exec/s: 23 rss: 555Mb L: 12/510 MS: 2 Custom-Custom-
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '["", "Should", " this", " ", "(work", "?", ")"]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '["", "Should", " this", " ", "(work", "?", ")"]'
+Extracted 1 unique patterns after 1 attempts
+#1586	NEW    cov: 23857 ft: 102963 corp: 862/15661b lim: 512 exec/s: 23 rss: 555Mb L: 49/510 MS: 3 Custom-Custom-Custom-
+Extracting patterns from root e-class: 4
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '\{(.)*'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '(a)*|\{.'
+Extracted 1 unique patterns after 2 attempts
+#1588	NEW    cov: 23857 ft: 102975 corp: 863/15667b lim: 512 exec/s: 23 rss: 555Mb L: 6/510 MS: 2 Custom-Custom-
+#1592	NEW    cov: 23857 ft: 102978 corp: 864/15682b lim: 512 exec/s: 23 rss: 555Mb L: 15/510 MS: 4 Custom-Custom-Custom-Custom-
+Extracting patterns from root e-class: 24
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '<(.)*style[a-z]="(([^"]))+"(.)*>'
+Extracted 1 unique patterns after 1 attempts
+#1593	NEW    cov: 23857 ft: 102985 corp: 865/15708b lim: 512 exec/s: 23 rss: 555Mb L: 26/510 MS: 1 Custom-
+Extracting patterns from root e-class: 8
+Target: at least 1 unique patterns
+Root e-class has 6 nodes
+  [0] Extracted unique pattern: '|r
+|
+'
+  [1] Extracted unique pattern: '|
+|r
+'
+  [2] Extracted unique pattern: 'r
+|
+|'
+Extracted 3 unique patterns after 6 attempts
+#1594	NEW    cov: 23857 ft: 103012 corp: 866/15717b lim: 512 exec/s: 23 rss: 555Mb L: 9/510 MS: 1 Custom-
+Extracting patterns from root e-class: 1
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '\+'
+Extracted 1 unique patterns after 1 attempts
+#1595	NEW    cov: 23858 ft: 103015 corp: 867/15719b lim: 512 exec/s: 23 rss: 555Mb L: 2/510 MS: 1 Custom-
+Extracting patterns from root e-class: 19
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '/(.)*[b-df-hj-np-tv-z]|xplat/u'
+  [1] Extracted unique pattern: 'xplat/u|/(.)*[b-df-hj-np-tv-z]'
+Extracted 2 unique patterns after 2 attempts
+#1596	NEW    cov: 23858 ft: 103092 corp: 868/15747b lim: 512 exec/s: 23 rss: 555Mb L: 28/510 MS: 1 Custom-
+Extracting patterns from root e-class: 11
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '()r#"..."#."#B'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 19
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '"load_(|l)oca_(|l)oca_(|l)oca_(|l)ocales"'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 16
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '\[CDA(T)A\[A\[((.)*)\]\]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 11
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '<!--(.)*-(-)?-(-)?-(-)?-->'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 27
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '((e)xit cod(e){2,5}: 101)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 22
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(0, [b-df-hj-np-tv-z]1) (2, 5) (6[a-z], 6)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '((\\))*'
+  [1] Extracted unique pattern: '((\\)*)'
+Extracted 2 unique patterns after 2 attempts
+Extracting patterns from root e-class: 19
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: 'a = (")*"|regex'
+  [1] Extracted unique pattern: 'regex|a = (")*"'
+Extracted 2 unique patterns after 2 attempts
+	NEW_FUNC[1/1]: 0x55bea531fa70 in <aho_corasick::packed::teddy::builder::x86_64::SlimAVX2<4> as aho_corasick::packed::teddy::builder::SearcherT>::find /home/lxy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aho-corasick-1.1.4/src/packed/teddy/builder.rs:575
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[b-df-hj-np-tv-z]
+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '2a.'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '&[n?fo<'_>]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 6
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/\]([a-w])+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 1
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '()'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 22
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(0, 1) (2,a5) (6, 6)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 9
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '|r#"[^\x00-\xFF]"'
+Extracted 1 unique patterns after 2 attempts
+Extracting patterns from root e-class: 13
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(U)+(U)+(U)+105050505BF'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 18
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/ww(w){2,2}.di1(u).dk/'
+Extracted 1 unique patterns after 1 attempts
+	NEW_FUNC[1/1]: 0x55bea49a0120 in core::ptr::drop_in_place::<regex_syntax::ast::ClassSetItem> /rustc/27b076af7e3e7a363975443d81dfa9ecee5a74ec/library/core/src/ptr/mod.rs:805
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(?i)([a=])+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 21
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: 'Vec<B|aox<[StatePtr]>>'
+  [1] Extracted unique pattern: 'aox<[StatePtr]>>|Vec<B'
+Extracted 2 unique patterns after 2 attempts
+Extracting patterns from root e-class: 11
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '&((#)*([0-9a-zA-Z])+;)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '<(.)*>'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 24
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '('([^'\\\n\r])*((\\.([^'\\\n\r])*))*'||a"([^"\\\n\r])*((\\.([^"\\\n\r])*))*")'
+Extracted 1 unique patterns after 1 attempts
+	NEW_FUNC[1/2]: 0x55bea4c2de80 in regex_automata::util::empty::skip_splits_fwd::<regex_automata::util::search::HalfMatch, <regex_automata::hybrid::dfa::DFA>::try_search_fwd::{closure#0}> /home/lxy/regex_fuzzing/regex/regex-automata/src/util/empty.rs:161
+	NEW_FUNC[2/2]: 0x55bea5039f10 in regex_automata::util::empty::skip_splits_fwd::<regex_automata::util::search::HalfMatch, <regex_automata::hybrid::dfa::DFA>::try_search_fwd::{closure#0}> /home/lxy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-automata-0.4.13/src/util/empty.rs:161
+	NEW_FUNC[1/2]: 0x55bea4ed9e20 in <regex_syntax::hir::ClassBytes>::empty /home/lxy/regex_fuzzing/regex/regex-syntax/src/hir/mod.rs:1371
+	NEW_FUNC[2/2]: 0x55bea542e7d0 in <regex_syntax::hir::ClassBytes>::empty /home/lxy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-syntax-0.8.8/src/hir/mod.rs:1371
+Extracting patterns from root e-class: 24
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '".rpeat(1()00000)( )+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 6
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(5){0,3}.'
+Extracted 1 unique patterns after 1 attempts
+#1653	RELOAD cov: 23972 ft: 103820 corp: 915/16Kb lim: 512 exec/s: 22 rss: 555Mb
+Extracting patterns from root e-class: 32
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'regex-syntax = "0.2(")'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 33
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'regex-syntax = "0.[b-df-hj-np-tv-z]2(")'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 33
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'regex-syntax = "0.[b-df-hj-np-tv-z]2(")'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 20
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'get_mports()'
+Extracted 1 unique patterns after 1 attempts
+#1661	NEW    cov: 23972 ft: 103821 corp: 916/16Kb lim: 512 exec/s: 22 rss: 555Mb L: 17/510 MS: 3 Custom-Custom-Custom-
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[1,(?:) 2]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 43
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'orginal_str.replace_range(m.start()..m.end(), "foo")'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 16
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '.r()(-)?set(..)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 18
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '/(.)*\|fbcode/'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 6
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '[a-w]b|a'
+  [1] Extracted unique pattern: 'a|[a-w]b'
+Extracted 2 unique patterns after 2 attempts
+Extracting patterns from root e-class: 8
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'd(a)[b-df-hj-np-tv-z]h'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 8
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[a-q][u](\]){13,13}x'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 22
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(0, 1) (2,a5) (6, 6)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 30
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'injectScrip('page-ssr')'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '(.)*|a\}'
+Extracted 1 unique patterns after 2 attempts
+Extracting patterns from root e-class: 30
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '\*\*BEFORE SUBM()ITTING'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 14
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: 'bobj\]/|/(.)*'
+Extracted 1 unique patterns after 2 attempts
+Extracting patterns from root e-class: 11
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '406[a-w][(a)-z](7)+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 16
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: 'aset|flag'
+Extracted 1 unique patterns after 2 attempts
+Extracting patterns from root e-class: 11
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '\^\[([^\]])*\]|\)'
+Extracted 1 unique patterns after 2 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[&{0,1}&]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 42
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'android(.)+(redmi([s-])*(|(note))(([s])*([ws])+)mi([s-])*(|(note))(([s])*([ws])+))(s)+build'
+Extracted 1 unique patterns after 1 attempts
+#1702	RELOAD cov: 23983 ft: 104547 corp: 948/16Kb lim: 512 exec/s: 22 rss: 555Mb
+#1703	NEW    cov: 23983 ft: 104549 corp: 949/16Kb lim: 512 exec/s: 21 rss: 555Mb L: 20/510 MS: 1 Custom-
+Extracting patterns from root e-class: 27
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(DS|(|aIMG|MGG|MVI))X'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 9
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '406(7)+7'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 10
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: 'ahi\\|'
+Extracted 1 unique patterns after 2 attempts
+Extracting patterns from root e-class: 26
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'Time: [a-z]((.)+) IP: ((.)+) User: ((.)+)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 37
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'Object\.definePrope(r)ty\(([A-Za)z])+'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 30
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(\[-df-hj-np-tv-z\](w)+)[ ]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(x)*()(x)*'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 43
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'origina[0-9]l_str.replace_range(m.start() .. m.start()( )+ m.len(), "foo")'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 7
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '1..y1B'
+Extracted 1 unique patterns after 1 attempts
+#1739	RELOAD cov: 24001 ft: 104859 corp: 982/17Kb lim: 512 exec/s: 21 rss: 555Mb
+#1740	NEW    cov: 24002 ft: 104862 corp: 983/17Kb lim: 512 exec/s: 21 rss: 555Mb L: 17/510 MS: 1 Custom-
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[slu(?:)g]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[slu(?:)g]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[slu(?::::)g]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[slu(?::::)g]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 0
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[slu(?::::)g]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '.([(?:)a-w])*'
+Extracted 1 unique patterns after 1 attempts
+#1746	NEW    cov: 24002 ft: 104863 corp: 984/17Kb lim: 512 exec/s: 21 rss: 555Mb L: 11/510 MS: 1 Custom-
+#1747	NEW    cov: 24003 ft: 104864 corp: 985/17Kb lim: 512 exec/s: 21 rss: 555Mb L: 5/510 MS: 1 Custom-
+Extracting patterns from root e-class: 29
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'headerV[a-w]alueNormalize()'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 29
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'headerV[a-w]alueN()ormalize()'
+Extracted 1 unique patterns after 1 attempts
+#1749	NEW    cov: 24003 ft: 104865 corp: 986/17Kb lim: 512 exec/s: 21 rss: 555Mb L: 31/510 MS: 2 Custom-Custom-
+Extracting patterns from root e-class: 14
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(end >= (e)nd)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 14
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(end >= (e)nd)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 14
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(end >= (e)nd)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 16
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(()end >= (e)nd)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 16
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(([a-z])end >= (e)nd)'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(a)*'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '((a){0,1})*'
+Extracted 1 unique patterns after 1 attempts
+	NEW_FUNC[1/2]: 0x55bea4c9d330 in <regex_automata::nfa::thompson::compiler::Compiler>::add_union_reverse /home/lxy/regex_fuzzing/regex/regex-automata/src/nfa/thompson/compiler.rs:1681
+	NEW_FUNC[2/2]: 0x55bea509b6f0 in <regex_automata::nfa::thompson::compiler::Compiler>::add_union_reverse /home/lxy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-automata-0.4.13/src/nfa/thompson/compiler.rs:1681
+#1756	NEW    cov: 24011 ft: 104873 corp: 987/17Kb lim: 512 exec/s: 21 rss: 555Mb L: 8/510 MS: 2 Custom-Custom-
+#1757	NEW    cov: 24011 ft: 104874 corp: 988/17Kb lim: 512 exec/s: 21 rss: 555Mb L: 38/510 MS: 1 Custom-
+Extracting patterns from root e-class: 4
+Target: at least 1 unique patterns
+Root e-class has 2 nodes
+  [0] Extracted unique pattern: '|(a)'
+Extracted 1 unique patterns after 2 attempts
+#1758	NEW    cov: 24011 ft: 104877 corp: 989/17Kb lim: 512 exec/s: 21 rss: 555Mb L: 4/510 MS: 1 Custom-
+Extracting patterns from root e-class: 26
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: 'Time: [a-z]((.))+ IP: ((.))+ Usr: ((.))+'
+Extracted 1 unique patterns after 1 attempts
+#1761	NEW    cov: 24011 ft: 104883 corp: 990/17Kb lim: 512 exec/s: 21 rss: 555Mb L: 41/510 MS: 3 Custom-Custom-Custom-
+Extracting patterns from root e-class: 9
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '\\\((\))*"'
+Extracted 1 unique patterns after 1 attempts
+#1763	NEW    cov: 24011 ft: 104889 corp: 991/17Kb lim: 512 exec/s: 21 rss: 555Mb L: 10/510 MS: 2 Custom-Custom-
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 3 nodes
+  [0] Extracted unique pattern: '|b'
+  [1] Extracted unique pattern: '(b)?'
+Extracted 2 unique patterns after 3 attempts
+#1764	NEW    cov: 24011 ft: 104891 corp: 992/17Kb lim: 512 exec/s: 21 rss: 555Mb L: 3/510 MS: 1 Custom-
+#1766	NEW    cov: 24011 ft: 104892 corp: 993/18Kb lim: 512 exec/s: 21 rss: 555Mb L: 43/510 MS: 2 Custom-Custom-
+#1768	NEW    cov: 24011 ft: 104893 corp: 994/18Kb lim: 512 exec/s: 21 rss: 555Mb L: 12/510 MS: 2 Custom-Custom-
+Extracting patterns from root e-class: 15
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '\[na(m){0,3}e\]'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 6
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(( )+)([^\{A0])+'
+Extracted 1 unique patterns after 1 attempts
+#1784	NEW    cov: 24011 ft: 104923 corp: 995/18Kb lim: 512 exec/s: 21 rss: 555Mb L: 15/510 MS: 1 Custom-
+Extracting patterns from root e-class: 16
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '5(1)+6(0)+The'
+Extracted 1 unique patterns after 1 attempts
+#1795	RELOAD cov: 24033 ft: 105005 corp: 1004/18Kb lim: 512 exec/s: 20 rss: 555Mb
+#1796	NEW    cov: 24033 ft: 105009 corp: 1005/18Kb lim: 512 exec/s: 20 rss: 555Mb L: 7/510 MS: 1 Custom-
+#1797	NEW    cov: 24033 ft: 105023 corp: 1006/18Kb lim: 512 exec/s: 20 rss: 555Mb L: 6/510 MS: 1 Custom-
+Extracting patterns from root e-class: 2
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '(\])'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 1
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '()'
+Extracted 1 unique patterns after 1 attempts
+Extracting patterns from root e-class: 3
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '[b-df-hj-np-tv-z]()'
+Extracted 1 unique patterns after 1 attempts
+#1800	NEW    cov: 24037 ft: 105028 corp: 1007/18Kb lim: 512 exec/s: 20 rss: 555Mb L: 23/510 MS: 3 Custom-Custom-Custom-
+#1801	NEW    cov: 24037 ft: 105030 corp: 1008/18Kb lim: 512 exec/s: 20 rss: 555Mb L: 8/510 MS: 1 Custom-
+Extracting patterns from root e-class: 5
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '([a-w].)(.)'
+Extracted 1 unique patterns after 1 attempts
+#1802	NEW    cov: 24037 ft: 105031 corp: 1009/18Kb lim: 512 exec/s: 20 rss: 555Mb L: 11/510 MS: 1 Custom-
+Extracting patterns from root e-class: 13
+Target: at least 1 unique patterns
+Root e-class has 1 nodes
+  [0] Extracted unique pattern: '&((#)?([0-9a-zA-Z])+;())'
+Extracted 1 unique patterns after 1 attempts
+#1803	NEW    cov: 24037 ft: 105033 corp: 1010/18Kb lim: 512 exec/s: 20 rss: 555Mb L: 20/510 MS: 1 Custom-
+#1804	NEW    cov: 24038 ft: 105035 corp: 1011/18Kb lim: 512 exec/s: 20 rss: 555Mb L: 25/510 MS: 1 Custom-
+#1805	NEW    cov: 24038 ft: 105063 corp: 1012/18Kb lim: 512 exec/s: 20 rss: 555Mb L: 15/510 MS: 1 Custom-
+#1806	NEW    cov: 24038 ft: 105073 corp: 1013/18Kb lim: 512 exec/s: 21 rss: 555Mb L: 13/510 MS: 1 Custom-
+
+thread '<unnamed>' (35056) panicked at fuzz_targets/fuzz_diff_eqs.rs:229:25:
+assertion failed: self.is_char_boundary(idx)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+==35056== ERROR: libFuzzer: deadly signal
+    #0 0x55bea496f651 in __sanitizer_print_stack_trace /rustc/llvm/src/llvm-project/compiler-rt/lib/asan/asan_stack.cpp:87:3
+    #1 0x55bea548eeee in fuzzer::PrintStackTrace() /home/lxy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/libfuzzer-sys-0.4.10/libfuzzer/FuzzerUtil.cpp:210:38
+    #2 0x55bea54a3b69 in fuzzer::Fuzzer::CrashCallback() /home/lxy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/libfuzzer-sys-0.4.10/libfuzzer/FuzzerLoop.cpp:231:18
+    #3 0x55bea54a3b69 in fuzzer::Fuzzer::CrashCallback() /home/lxy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/libfuzzer-sys-0.4.10/libfuzzer/FuzzerLoop.cpp:226:6
+    #4 0x7fa63605d51f  (/lib/x86_64-linux-gnu/libc.so.6+0x4251f) (BuildId: 4f7b0c955c3d81d7cac1501a2498b69d1d82bfe7)
+    #5 0x7fa6360b19fb in pthread_kill (/lib/x86_64-linux-gnu/libc.so.6+0x969fb) (BuildId: 4f7b0c955c3d81d7cac1501a2498b69d1d82bfe7)
+    #6 0x7fa63605d475 in gsignal (/lib/x86_64-linux-gnu/libc.so.6+0x42475) (BuildId: 4f7b0c955c3d81d7cac1501a2498b69d1d82bfe7)
+    #7 0x7fa6360437f2 in abort (/lib/x86_64-linux-gnu/libc.so.6+0x287f2) (BuildId: 4f7b0c955c3d81d7cac1501a2498b69d1d82bfe7)
+    #8 0x55bea54dcb59 in std::sys::pal::unix::abort_internal::h3ed30778992aa9a2 /rustc/27b076af7e3e7a363975443d81dfa9ecee5a74ec/library/std/src/sys/pal/unix/mod.rs:363:14
+    #9 0x55bea54dfbd8 in std::process::abort::hcd4a9035c59321f0 /rustc/27b076af7e3e7a363975443d81dfa9ecee5a74ec/library/std/src/process.rs:2511:5
+    #10 0x55bea547cfcc in libfuzzer_sys::initialize::{closure#0} /home/lxy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/libfuzzer-sys-0.4.10/src/lib.rs:94:9
+    #11 0x55bea54e04a1 in _$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$::call::h3f02d64a13002381 /rustc/27b076af7e3e7a363975443d81dfa9ecee5a74ec/library/alloc/src/boxed.rs:2099:9
+    #12 0x55bea54e04a1 in std::panicking::panic_with_hook::h2f4c56c0c4843e96 /rustc/27b076af7e3e7a363975443d81dfa9ecee5a74ec/library/std/src/panicking.rs:834:13
+    #13 0x55bea54e0319 in std::panicking::panic_handler::_$u7b$$u7b$closure$u7d$$u7d$::h0fa4994b396b29f7 /rustc/27b076af7e3e7a363975443d81dfa9ecee5a74ec/library/std/src/panicking.rs:692:13
+    #14 0x55bea54de368 in std::sys::backtrace::__rust_end_short_backtrace::h46b6065c8f6829a7 /rustc/27b076af7e3e7a363975443d81dfa9ecee5a74ec/library/std/src/sys/backtrace.rs:174:18
+    #15 0x55bea54cf4fc in __rustc::rust_begin_unwind /rustc/27b076af7e3e7a363975443d81dfa9ecee5a74ec/library/std/src/panicking.rs:690:5
+    #16 0x55bea551419b in core::panicking::panic_fmt::h61e306559ea7c820 /rustc/27b076af7e3e7a363975443d81dfa9ecee5a74ec/library/core/src/panicking.rs:80:14
+    #17 0x55bea5514161 in core::panicking::panic::h72bbad2541be5af9 /rustc/27b076af7e3e7a363975443d81dfa9ecee5a74ec/library/core/src/panicking.rs:150:5
+    #18 0x55bea49ad22f in alloc::string::String::insert_str::he6f25b52f178ef6f /rustc/27b076af7e3e7a363975443d81dfa9ecee5a74ec/library/alloc/src/string.rs:1757:9
+    #19 0x55bea4997292 in custom_mutator /home/lxy/regex_fuzzing/regex/fuzz/fuzz_targets/fuzz_diff_eqs.rs:229:25
+    #20 0x55bea4997292 in LLVMFuzzerCustomMutator /home/lxy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/libfuzzer-sys-0.4.10/src/lib.rs:558:28
+    #21 0x55bea5493e14 in fuzzer::MutationDispatcher::MutateImpl(unsigned char*, unsigned long, unsigned long, std::vector<fuzzer::MutationDispatcher::Mutator, std::allocator<fuzzer::MutationDispatcher::Mutator> >&) /home/lxy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/libfuzzer-sys-0.4.10/libfuzzer/FuzzerMutate.cpp:550:37
+    #22 0x55bea5493e14 in fuzzer::MutationDispatcher::MutateImpl(unsigned char*, unsigned long, unsigned long, std::vector<fuzzer::MutationDispatcher::Mutator, std::allocator<fuzzer::MutationDispatcher::Mutator> >&) /home/lxy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/libfuzzer-sys-0.4.10/libfuzzer/FuzzerMutate.cpp:541:8
+    #23 0x55bea54a9e4e in fuzzer::Fuzzer::MutateAndTestOne() /home/lxy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/libfuzzer-sys-0.4.10/libfuzzer/FuzzerLoop.cpp:757:26
+    #24 0x55bea54ac2c7 in fuzzer::Fuzzer::Loop(std::vector<fuzzer::SizedFile, std::allocator<fuzzer::SizedFile> >&) /home/lxy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/libfuzzer-sys-0.4.10/libfuzzer/FuzzerLoop.cpp:910:21
+    #25 0x55bea548be84 in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /home/lxy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/libfuzzer-sys-0.4.10/libfuzzer/FuzzerDriver.cpp:915:10
+    #26 0x55bea547d596 in main /home/lxy/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/libfuzzer-sys-0.4.10/libfuzzer/FuzzerMain.cpp:20:30
+    #27 0x7fa636044d8f  (/lib/x86_64-linux-gnu/libc.so.6+0x29d8f) (BuildId: 4f7b0c955c3d81d7cac1501a2498b69d1d82bfe7)
+    #28 0x7fa636044e3f in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x29e3f) (BuildId: 4f7b0c955c3d81d7cac1501a2498b69d1d82bfe7)
+    #29 0x55bea48d95e4 in _start (/home/lxy/regex_fuzzing/regex/fuzz/target/x86_64-unknown-linux-gnu/release/fuzz_diff_eqs+0x97b5e4) (BuildId: f035a84849aa373300869b565b2ce4730b3d7c5e)
+
+NOTE: libFuzzer has rudimentary signal handlers.
+      Combine libFuzzer with AddressSanitizer or similar for better crash reports.
+SUMMARY: libFuzzer: deadly signal
+MS: 2 Custom-Custom-; base unit: 9012621e0b607ca7be6eeb120d48df1bf88d5496
+
+
+artifact_prefix='/home/lxy/regex_fuzzing/regex/fuzz/artifacts/fuzz_diff_eqs/'; Test unit written to /home/lxy/regex_fuzzing/regex/fuzz/artifacts/fuzz_diff_eqs/crash-da39a3ee5e6b4b0d3255bfef95601890afd80709
+Base64: 

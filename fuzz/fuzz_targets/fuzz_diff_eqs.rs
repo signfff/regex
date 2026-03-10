@@ -4,7 +4,25 @@ use regex_fuzz::diff::*;
 use regex_fuzz::eqs::generate_equivalent_patterns;
 use regex_syntax::ast::parse::Parser;
 use std::env;
+use libc;
+use std::sync::Once;
 
+static START: Once = Once::new();
+static mut SHOULD_FLUSH: bool = false;
+
+extern "C" {
+    fn __llvm_profile_write_file() -> i32;
+}
+
+unsafe extern "C" fn handle_sigusr1(_sig: i32) {
+    SHOULD_FLUSH = true;
+}
+
+fn setup_signal_handler() {
+    unsafe {
+        libc::signal(libc::SIGUSR1, handle_sigusr1 as libc::sighandler_t);
+    }
+}
 /// 将错误信息追加写入到 fuzz_failures.log 文件中
 /// 如果文件写入失败，则回退到标准错误输出
 fn log_failure(args: impl std::fmt::Display, error_type: String) {
@@ -266,6 +284,16 @@ fuzz_mutator!(|data: &mut [u8], size: usize, max_size: usize, _seed: u32| {
 });
 
 fuzz_target!(|data: &[u8]| {
+    START.call_once(|| {
+        setup_signal_handler();
+    });
+
+    if unsafe { SHOULD_FLUSH } {
+        unsafe {
+            __llvm_profile_write_file();
+            SHOULD_FLUSH = false;
+        }
+    }
     // Convert input data to pattern
     let pattern = match String::from_utf8(data.to_vec()) {
         Ok(pat) => pat,

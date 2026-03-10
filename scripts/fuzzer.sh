@@ -12,7 +12,7 @@ TARGET="fuzz_diff_eqs"
 THREADS=8
 MAX_LEN=512
 # MAX_TIME=90000 # 25h
-MAX_TIME=120
+MAX_TIME=1200
 
 rm -rf "$FUZZ_DIR/target"
 rm -rf "$BASE_DIR"
@@ -42,9 +42,9 @@ export LLVM_PROFILE_PERIODIC_FLUSH="10"
 export LLVM_PROFILE_FILE="$LOG_FILE_DIR/prof_%p.profraw"
 
 # Shared corpus directory
-CORPUS="$FUZZ_DIR/corpus/empty_dir"
-rm -rf "$CORPUS"
-mkdir -p "$CORPUS"
+CORPUS="$FUZZ_DIR/corpus/fuzz_diff_eqs"
+# rm -rf "$CORPUS"
+# mkdir -p "$CORPUS"
 
 # Run cargo fuzz with jobs parameter
 cargo clean

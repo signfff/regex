@@ -1,0 +1,4 @@
+Egraph mismatch, [EGRAPH] 等价表达式行为不一致
+  模式: "(?i)a|b"
+  测试字符串: "B"
+(?i)a|b=true, b|(?i)a=false

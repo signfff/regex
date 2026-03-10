@@ -1,0 +1,265 @@
+[*] Starting fuzz workers with 8 threads (jobs)
+     Removed 0 files
+   Compiling libc v0.2.179
+   Compiling proc-macro2 v1.0.104
+   Compiling unicode-ident v1.0.22
+   Compiling quote v1.0.42
+   Compiling cfg-if v1.0.4
+   Compiling serde_core v1.0.228
+   Compiling log v0.4.29
+   Compiling memchr v2.7.6
+   Compiling zerocopy v0.8.31
+   Compiling shlex v1.3.0
+   Compiling find-msvc-tools v0.1.6
+   Compiling serde v1.0.228
+   Compiling autocfg v1.5.0
+   Compiling version_check v0.9.5
+   Compiling crunchy v0.2.4
+   Compiling once_cell v1.21.3
+   Compiling glob v0.3.3
+   Compiling tiny-keccak v2.0.2
+   Compiling prettyplease v0.2.37
+   Compiling pkg-config v0.3.32
+   Compiling regex-syntax v0.8.8
+   Compiling ucd-trie v0.1.7
+   Compiling allocator-api2 v0.2.21
+   Compiling minimal-lexical v0.2.1
+   Compiling either v1.15.0
+   Compiling hashbrown v0.16.1
+   Compiling getrandom v0.3.4
+   Compiling equivalent v1.0.2
+   Compiling bindgen v0.71.1
+   Compiling rustc-hash v2.1.1
+   Compiling zmij v1.0.16
+   Compiling bitflags v2.10.0
+   Compiling serde_json v1.0.149
+   Compiling winnow v0.7.14
+   Compiling toml_write v0.1.2
+   Compiling option-ext v0.2.0
+   Compiling unicode-segmentation v1.12.0
+   Compiling arraydeque v0.5.1
+   Compiling itoa v1.0.17
+   Compiling thiserror v1.0.69
+   Compiling base64 v0.21.7
+   Compiling bit-vec v0.8.0
+   Compiling fixedbitset v0.4.2
+   Compiling encoding_rs v0.8.35
+   Compiling libloading v0.8.9
+   Compiling hashbrown v0.12.3
+   Compiling lazy_static v0.2.11
+   Compiling byteorder v1.5.0
+   Compiling pathdiff v0.2.3
+   Compiling regex-syntax v0.8.8 (/home/lxy/regex_fuzzing/regex/regex-syntax)
+   Compiling tint v1.0.1
+   Compiling instant v0.1.13
+   Compiling symbolic_expressions v5.0.3
+   Compiling humantime v2.3.0
+   Compiling termcolor v1.4.1
+   Compiling smallvec v1.15.1
+   Compiling hashbrown v0.11.2
+   Compiling anstyle v1.0.13
+   Compiling regex-lite v0.1.8 (/home/lxy/regex_fuzzing/regex/regex-lite)
+   Compiling itertools v0.13.0
+   Compiling ahash v0.8.12
+   Compiling bit-set v0.8.0
+   Compiling clang-sys v1.8.1
+   Compiling num-traits v0.2.19
+   Compiling indexmap v1.9.3
+   Compiling fxhash v0.2.1
+   Compiling pest v2.8.5
+   Compiling nom v7.1.3
+   Compiling convert_case v0.6.0
+   Compiling aho-corasick v1.1.4
+   Compiling syn v2.0.113
+   Compiling indexmap v2.13.0
+   Compiling dirs-sys v0.4.1
+   Compiling atty v0.2.14
+   Compiling thread-id v4.2.2
+   Compiling env_logger v0.9.3
+   Compiling ordered-float v2.10.1
+   Compiling directories v5.0.1
+   Compiling regex-automata v0.4.13
+   Compiling jobserver v0.1.34
+   Compiling getrandom v0.2.17
+   Compiling rand_core v0.9.3
+   Compiling const-random-macro v0.1.16
+   Compiling cc v1.2.51
+   Compiling const-random v0.1.18
+   Compiling dlv-list v0.5.2
+   Compiling pest_meta v2.8.5
+   Compiling petgraph v0.6.5
+   Compiling cexpr v0.6.0
+   Compiling ppv-lite86 v0.2.21
+   Compiling hashbrown v0.14.5
+   Compiling regex-automata v0.4.13 (/home/lxy/regex_fuzzing/regex/regex-automata)
+   Compiling rand_chacha v0.9.0
+   Compiling rand v0.9.2
+   Compiling pcre2-sys v0.2.10
+   Compiling libfuzzer-sys v0.4.10
+   Compiling regex v1.12.2
+   Compiling hashlink v0.8.4
+   Compiling ordered-multimap v0.7.3
+   Compiling yaml-rust2 v0.8.1
+   Compiling rust-ini v0.20.0
+   Compiling pest_generator v2.8.5
+   Compiling serde_derive v1.0.228
+   Compiling derive_arbitrary v1.4.2
+   Compiling thiserror-impl v1.0.69
+   Compiling async-trait v0.1.89
+   Compiling pest_derive v2.8.5
+   Compiling arbitrary v1.4.2
+   Compiling egg v0.7.1
+   Compiling regex v1.12.2 (/home/lxy/regex_fuzzing/regex)
+   Compiling toml_datetime v0.6.11
+   Compiling serde_spanned v0.6.9
+   Compiling json5 v0.4.1
+   Compiling ron v0.8.1
+   Compiling serde-value v0.7.0
+   Compiling toml_edit v0.22.27
+   Compiling rand_regex v0.18.1
+   Compiling onig_sys v69.9.1
+   Compiling toml v0.8.23
+   Compiling config v0.14.1
+   Compiling ptree v0.5.2
+   Compiling fancy-regex v0.16.2
+   Compiling onig v6.5.1
+   Compiling pcre2 v0.2.11
+   Compiling regex-fuzz v0.0.0 (/home/lxy/regex_fuzzing/regex/fuzz)
+warning: function `contains_unsupported_features` is never used
+    --> src/diff.rs:1035:4
+     |
+1035 | fn contains_unsupported_features(ast: &Ast) -> bool {
+     |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+     = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `contains_large_repetition` is never used
+    --> src/diff.rs:1066:4
+     |
+1066 | fn contains_large_repetition(ast: &Ast, limit: u32) -> bool {
+     |    ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `repetition_is_large` is never used
+    --> src/diff.rs:1090:4
+     |
+1090 | fn repetition_is_large(
+     |    ^^^^^^^^^^^^^^^^^^^
+
+warning: static `REGEX_LIB_MANAGER` is never used
+    --> src/diff.rs:1416:8
+     |
+1416 | static REGEX_LIB_MANAGER: Lazy<RegexLibManager> = Lazy::new(|| {
+     |        ^^^^^^^^^^^^^^^^^
+
+warning: variable `classSetItem` should have a snake case name
+   --> src/diff.rs:910:5
+    |
+910 |     classSetItem: &ClassSet,
+    |     ^^^^^^^^^^^^ help: convert the identifier to snake case: `class_set_item`
+    |
+    = note: `#[warn(non_snake_case)]` (part of `#[warn(nonstandard_style)]`) on by default
+
+warning: function `validate_regexLib` should have a snake case name
+    --> src/diff.rs:1285:8
+     |
+1285 | pub fn validate_regexLib(
+     |        ^^^^^^^^^^^^^^^^^ help: convert the identifier to snake case: `validate_regex_lib`
+
+warning: `regex-fuzz` (lib) generated 6 warnings
+warning: unused import: `std::env`
+ --> fuzz_targets/fuzz_diff_eqs.rs:6:5
+  |
+6 | use std::env;
+  |     ^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: direct cast of function item into an integer
+  --> fuzz_targets/fuzz_diff_eqs.rs:23:52
+   |
+23 |         libc::signal(libc::SIGUSR1, handle_sigusr1 as libc::sighandler_t);
+   |                                                    ^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(function_casts_as_integer)]` on by default
+help: first cast to a pointer `as *const ()`
+   |
+23 |         libc::signal(libc::SIGUSR1, handle_sigusr1 as *const () as libc::sighandler_t);
+   |                                                    ++++++++++++
+
+warning: `regex-fuzz` (bin "fuzz_diff_eqs") generated 2 warnings (run `cargo fix --bin "fuzz_diff_eqs" -p regex-fuzz` to apply 2 suggestions)
+    Finished `release` profile [optimized + debuginfo] target(s) in 37.91s
+warning: function `contains_unsupported_features` is never used
+    --> src/diff.rs:1035:4
+     |
+1035 | fn contains_unsupported_features(ast: &Ast) -> bool {
+     |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+     = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `contains_large_repetition` is never used
+    --> src/diff.rs:1066:4
+     |
+1066 | fn contains_large_repetition(ast: &Ast, limit: u32) -> bool {
+     |    ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `repetition_is_large` is never used
+    --> src/diff.rs:1090:4
+     |
+1090 | fn repetition_is_large(
+     |    ^^^^^^^^^^^^^^^^^^^
+
+warning: static `REGEX_LIB_MANAGER` is never used
+    --> src/diff.rs:1416:8
+     |
+1416 | static REGEX_LIB_MANAGER: Lazy<RegexLibManager> = Lazy::new(|| {
+     |        ^^^^^^^^^^^^^^^^^
+
+warning: variable `classSetItem` should have a snake case name
+   --> src/diff.rs:910:5
+    |
+910 |     classSetItem: &ClassSet,
+    |     ^^^^^^^^^^^^ help: convert the identifier to snake case: `class_set_item`
+    |
+    = note: `#[warn(non_snake_case)]` (part of `#[warn(nonstandard_style)]`) on by default
+
+warning: function `validate_regexLib` should have a snake case name
+    --> src/diff.rs:1285:8
+     |
+1285 | pub fn validate_regexLib(
+     |        ^^^^^^^^^^^^^^^^^ help: convert the identifier to snake case: `validate_regex_lib`
+
+warning: `regex-fuzz` (lib) generated 6 warnings
+warning: unused import: `std::env`
+ --> fuzz_targets/fuzz_diff_eqs.rs:6:5
+  |
+6 | use std::env;
+  |     ^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: direct cast of function item into an integer
+  --> fuzz_targets/fuzz_diff_eqs.rs:23:52
+   |
+23 |         libc::signal(libc::SIGUSR1, handle_sigusr1 as libc::sighandler_t);
+   |                                                    ^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(function_casts_as_integer)]` on by default
+help: first cast to a pointer `as *const ()`
+   |
+23 |         libc::signal(libc::SIGUSR1, handle_sigusr1 as *const () as libc::sighandler_t);
+   |                                                    ++++++++++++
+
+warning: `regex-fuzz` (bin "fuzz_diff_eqs") generated 2 warnings (run `cargo fix --bin "fuzz_diff_eqs" -p regex-fuzz` to apply 2 suggestions)
+    Finished `release` profile [optimized + debuginfo] target(s) in 0.09s
+     Running `/home/lxy/regex_fuzzing/regex/fuzz/target/x86_64-unknown-linux-gnu/release/fuzz_diff_eqs -artifact_prefix=/home/lxy/regex_fuzzing/regex/fuzz/artifacts/fuzz_diff_eqs/ -max_len=512 -max_total_time=1200 -jobs=8 /home/lxy/regex_fuzzing/regex/fuzz/corpus/fuzz_diff_eqs`
+INFO: found LLVMFuzzerCustomMutator (0x56160e735190). Disabling -len_control by default.
+Running 8 workers
+/home/lxy/regex_fuzzing/regex/fuzz/target/x86_64-unknown-linux-gnu/release/fuzz_diff_eqs -artifact_prefix=/home/lxy/regex_fuzzing/regex/fuzz/artifacts/fuzz_diff_eqs/ -max_len=512 -max_total_time=1200 /home/lxy/regex_fuzzing/regex/fuzz/corpus/fuzz_diff_eqs >fuzz-3.log 2>&1
+/home/lxy/regex_fuzzing/regex/fuzz/target/x86_64-unknown-linux-gnu/release/fuzz_diff_eqs -artifact_prefix=/home/lxy/regex_fuzzing/regex/fuzz/artifacts/fuzz_diff_eqs/ -max_len=512 -max_total_time=1200 /home/lxy/regex_fuzzing/regex/fuzz/corpus/fuzz_diff_eqs >fuzz-0.log 2>&1
+/home/lxy/regex_fuzzing/regex/fuzz/target/x86_64-unknown-linux-gnu/release/fuzz_diff_eqs -artifact_prefix=/home/lxy/regex_fuzzing/regex/fuzz/artifacts/fuzz_diff_eqs/ -max_len=512 -max_total_time=1200 /home/lxy/regex_fuzzing/regex/fuzz/corpus/fuzz_diff_eqs >fuzz-1.log 2>&1
+/home/lxy/regex_fuzzing/regex/fuzz/target/x86_64-unknown-linux-gnu/release/fuzz_diff_eqs -artifact_prefix=/home/lxy/regex_fuzzing/regex/fuzz/artifacts/fuzz_diff_eqs/ -max_len=512 -max_total_time=1200 /home/lxy/regex_fuzzing/regex/fuzz/corpus/fuzz_diff_eqs >fuzz-2.log 2>&1
+/home/lxy/regex_fuzzing/regex/fuzz/target/x86_64-unknown-linux-gnu/release/fuzz_diff_eqs -artifact_prefix=/home/lxy/regex_fuzzing/regex/fuzz/artifacts/fuzz_diff_eqs/ -max_len=512 -max_total_time=1200 /home/lxy/regex_fuzzing/regex/fuzz/corpus/fuzz_diff_eqs >fuzz-4.log 2>&1
+/home/lxy/regex_fuzzing/regex/fuzz/target/x86_64-unknown-linux-gnu/release/fuzz_diff_eqs -artifact_prefix=/home/lxy/regex_fuzzing/regex/fuzz/artifacts/fuzz_diff_eqs/ -max_len=512 -max_total_time=1200 /home/lxy/regex_fuzzing/regex/fuzz/corpus/fuzz_diff_eqs >fuzz-5.log 2>&1
+/home/lxy/regex_fuzzing/regex/fuzz/target/x86_64-unknown-linux-gnu/release/fuzz_diff_eqs -artifact_prefix=/home/lxy/regex_fuzzing/regex/fuzz/artifacts/fuzz_diff_eqs/ -max_len=512 -max_total_time=1200 /home/lxy/regex_fuzzing/regex/fuzz/corpus/fuzz_diff_eqs >fuzz-6.log 2>&1
+/home/lxy/regex_fuzzing/regex/fuzz/target/x86_64-unknown-linux-gnu/release/fuzz_diff_eqs -artifact_prefix=/home/lxy/regex_fuzzing/regex/fuzz/artifacts/fuzz_diff_eqs/ -max_len=512 -max_total_time=1200 /home/lxy/regex_fuzzing/regex/fuzz/corpus/fuzz_diff_eqs >fuzz-7.log 2>&1
+./fuzzer.sh: line 54: 32265 User defined signal 1   cargo fuzz run "$TARGET" "$CORPUS" -- -max_len="$MAX_LEN" -max_total_time="$MAX_TIME" -jobs=$THREADS
