@@ -8,7 +8,7 @@ BASE_DEST="/home/lxy/regex_fuzzing/coverage_data"
 shopt -s nullglob
 while true
 do
-    sleep 60
+    sleep 600
 
     echo "$(date) send SIGUSR1 to every job of $FUZZ_NAME"
 
@@ -32,7 +32,7 @@ do
             echo "No profraw files found in $SRC"
         fi
     fi
-    if [ $cnt -gt 130 ]; then
+    if [ $cnt -gt 150 ]; then
         break
     fi
 done

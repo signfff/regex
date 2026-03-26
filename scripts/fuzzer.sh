@@ -12,7 +12,7 @@ TARGET="fuzz_diff_eqs"
 THREADS=8
 MAX_LEN=512
 # MAX_TIME=90000 # 25h
-MAX_TIME=1200
+MAX_TIME=3600 # 1h
 
 rm -rf "$FUZZ_DIR/target"
 rm -rf "$BASE_DIR"

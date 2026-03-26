@@ -1173,6 +1173,7 @@ pub fn validate_pattern(
     manager: &RegexLibManager,
     pattern: &str,
     ast: &Ast,
+    hasUnicode:bool
 ) -> Result<(), ComparisonError> {
     let mut compiled: Vec<(
         &'static str,
@@ -1188,7 +1189,13 @@ pub fn validate_pattern(
         if lib_name == "pcre2" {
             continue;
         }
-
+        if hasUnicode{
+            let unsupported_regex=["regex-lite","regex-automata","regex-literal","safe-regex","regex-cursor"];
+            if unsupported_regex.contains(&lib_name){
+                println!("pattern：{} 包含unicode匹配项，引擎：{}跳过",pattern,lib_name);
+                continue;
+            }
+        }
         // 取对应的 AST 翻译器
         let translator = match get_translator_for(lib_name) {
             Some(t) => t,

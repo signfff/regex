@@ -3,6 +3,7 @@ use libfuzzer_sys::{fuzz_mutator, fuzz_target};
 use regex_fuzz::diff::*;
 use regex_fuzz::eqs::generate_equivalent_patterns;
 use regex_syntax::ast::parse::Parser;
+use regex_syntax::ast::{Ast, ClassSet, ClassSetItem, Flag, Flags, GroupKind};
 use std::env;
 use libc;
 use std::sync::Once;
@@ -87,70 +88,196 @@ fn log_failure(args: impl std::fmt::Display, error_type: String) {
         }
     }
 }
-fuzz_mutator!(|data: &mut [u8], size: usize, max_size: usize, _seed: u32| {
+fn chars_byte_len(chars: &[char]) -> usize {
+    chars.iter().map(|c| c.len_utf8()).sum()
+}
+
+fn truncate_to_max_bytes(s: &mut String, max_size: usize) {
+    if max_size == 0 {
+        s.clear();
+        return;
+    }
+    if s.len() <= max_size {
+        return;
+    }
+    let mut cut = 0;
+    for (i, ch) in s.char_indices() {
+        let next = i + ch.len_utf8();
+        if next > max_size {
+            break;
+        }
+        cut = next;
+    }
+    s.truncate(cut);
+}
+
+#[derive(Clone, Copy)]
+struct FlagState {
+    unicode: bool,
+}
+
+fn apply_flags(state: &mut FlagState, flags: &Flags) {
+    if let Some(u) = flags.flag_state(Flag::Unicode) {
+        state.unicode = u;
+    }
+}
+
+#[allow(dead_code)]
+/// 判断 pattern 中是否存在可能匹配 Unicode 字符或 Unicode 属性的部分。
+/// 包括但不限于：\w \d \s \p 及包含非 ASCII 字符的字面量/范围。
+fn has_unicode(pattern: &str) -> bool {
+    let ast = match Parser::new().parse(pattern) {
+        Ok(ast) => ast,
+        Err(_) => return false,
+    };
+    let mut state = FlagState { unicode: true };
+    has_unicode_ast(&ast, &mut state)
+}
+
+fn has_unicode_ast(ast: &Ast, state: &mut FlagState) -> bool {
+    match ast {
+        Ast::Empty(_) | Ast::Assertion(_) => false,
+        Ast::Flags(set_flags) => {
+            apply_flags(state, &set_flags.flags);
+            false
+        }
+        Ast::Literal(lit) => lit.c as u32 > 0x7f,
+        Ast::Dot(_) => state.unicode,
+        Ast::ClassUnicode(_) => true,
+        Ast::ClassPerl(_) => state.unicode,
+        Ast::ClassBracketed(bracketed) => {
+            has_unicode_class_set(&bracketed.kind, *state)
+        }
+        Ast::Repetition(rep) => {
+            let mut inner = *state;
+            has_unicode_ast(&rep.ast, &mut inner)
+        }
+        Ast::Group(g) => {
+            let mut inner = *state;
+            if let GroupKind::NonCapturing(ref flags) = g.kind {
+                apply_flags(&mut inner, flags);
+            }
+            has_unicode_ast(&g.ast, &mut inner)
+        }
+        Ast::Alternation(alt) => {
+            for a in &alt.asts {
+                let mut branch = *state;
+                if has_unicode_ast(a, &mut branch) {
+                    return true;
+                }
+            }
+            false
+        }
+        Ast::Concat(concat) => {
+            for a in &concat.asts {
+                if has_unicode_ast(a, state) {
+                    return true;
+                }
+            }
+            false
+        }
+    }
+}
+
+fn has_unicode_class_set(set: &ClassSet, state: FlagState) -> bool {
+    match set {
+        ClassSet::Item(item) => has_unicode_class_set_item(item, state),
+        ClassSet::BinaryOp(bin) => {
+            has_unicode_class_set(&bin.lhs, state)
+                || has_unicode_class_set(&bin.rhs, state)
+        }
+    }
+}
+
+fn has_unicode_class_set_item(item: &ClassSetItem, state: FlagState) -> bool {
+    match item {
+        ClassSetItem::Empty(_) => false,
+        ClassSetItem::Literal(lit) => lit.c as u32 > 0x7f,
+        ClassSetItem::Range(range) => {
+            range.start.c as u32 > 0x7f || range.end.c as u32 > 0x7f
+        }
+        ClassSetItem::Ascii(_) => false,
+        ClassSetItem::Unicode(_) => true,
+        ClassSetItem::Perl(_) => state.unicode,
+        ClassSetItem::Bracketed(bracket) => {
+            has_unicode_class_set(&bracket.kind, state)
+        }
+        ClassSetItem::Union(union) => union
+            .items
+            .iter()
+            .any(|it| has_unicode_class_set_item(it, state)),
+    }
+}
+
+fuzz_mutator!(|data: &mut [u8], size: usize, max_size: usize, seed: u32| {
     if size == 0 || max_size == 0 {
         return 0;
     }
 
-    let mut pattern = String::from_utf8_lossy(&data[..size]).into_owned();
-    let mutation_type = _seed % 17;
+    let pattern = String::from_utf8_lossy(&data[..size]).into_owned();
+    let mut chars: Vec<char> = pattern.chars().collect();
+    let mutation_type = seed % 17;
 
     match mutation_type {
         0 => {
-            if !pattern.is_empty() {
-                let pos = (_seed as usize) % pattern.len();
+            if !chars.is_empty() {
+                let pos = (seed as usize) % chars.len();
                 let quantifiers =
                     ["?", "{2,5}", "{1,3}", "{0,1}", "{1,}", "{2}", "{0,3}"];
-                let q = quantifiers[(_seed as usize) % quantifiers.len()];
-                pattern.insert_str(pos, q);
+                let q = quantifiers[(seed as usize) % quantifiers.len()];
+                let cur_bytes = chars_byte_len(&chars);
+                if cur_bytes + q.len() <= max_size {
+                    chars.splice(pos..pos, q.chars());
+                }
             }
         }
         1 => {
-            //  regex-lite在Unicode语义下和regex表现不同，过滤掉可以匹配Unicode字符的部分
-            // let classes = ["\\d", "\\w", "\\s", "[a-z]", "[0-9]", ".", "[^a]"];
-            let classes = ["[a-z]", "[0-9]"];
+            // 现在不做unicode过滤
+            let classes = ["\\d", "\\w", "\\s", "[a-z]", "[0-9]", ".", "[^a]"];
+            // let classes = ["[a-z]", "[0-9]"];
 
-            let class = classes[(_seed as usize) % classes.len()];
-            if pattern.len() < max_size - class.len() {
-                let pos = if pattern.is_empty() {
+            let class = classes[(seed as usize) % classes.len()];
+            let cur_bytes = chars_byte_len(&chars);
+            if cur_bytes + class.len() <= max_size {
+                let pos = if chars.is_empty() {
                     0
                 } else {
-                    (_seed as usize) % pattern.len()
+                    (seed as usize) % chars.len()
                 };
-                pattern.insert_str(pos, class);
+                chars.splice(pos..pos, class.chars());
             }
         }
         2 => {
-            if !pattern.is_empty() && pattern.len() < max_size - 3 {
-                let pos = (_seed as usize) % pattern.len();
-                pattern.insert_str(pos, "|");
-                pattern.insert(pos + 1, 'a');
+            let cur_bytes = chars_byte_len(&chars);
+            if !chars.is_empty() && cur_bytes + 2 <= max_size {
+                let pos = (seed as usize) % chars.len();
+                chars.insert(pos, '|');
+                chars.insert(pos + 1, 'a');
             }
         }
         3 => {
-            if !pattern.is_empty() && pattern.len() < max_size - 2 {
-                let pos = (_seed as usize) % pattern.len();
-                pattern.insert(pos, '(');
-                if pos + 2 < pattern.len() {
-                    pattern.insert(pos + 2, ')');
-                } else {
-                    pattern.push(')');
-                }
+            let cur_bytes = chars_byte_len(&chars);
+            if !chars.is_empty() && cur_bytes + 2 <= max_size {
+                let pos = (seed as usize) % chars.len();
+                chars.insert(pos, '(');
+                let insert_pos = (pos + 2).min(chars.len());
+                chars.insert(insert_pos, ')');
             }
         }
         4 => {
             let anchors = ["^", "$", "\\b", "\\B"];
-            let anchor = anchors[(_seed as usize) % anchors.len()];
-            if pattern.len() < max_size - anchor.len() {
-                if _seed % 2 == 0 {
-                    pattern.insert_str(0, anchor);
+            let anchor = anchors[(seed as usize) % anchors.len()];
+            let cur_bytes = chars_byte_len(&chars);
+            if cur_bytes + anchor.len() <= max_size {
+                if seed % 2 == 0 {
+                    chars.splice(0..0, anchor.chars());
                 } else {
-                    pattern.push_str(anchor);
+                    chars.extend(anchor.chars());
                 }
             }
         }
         5 => {
-            // TODO: 过滤flag
+            // FIXME: flag
             // let flags = ["(?i)", "(?m)", "(?s)", "(?x)"];
             // let flag = flags[(_seed as usize) % flags.len()];
             // if pattern.len() < max_size - flag.len() {
@@ -158,32 +285,33 @@ fuzz_mutator!(|data: &mut [u8], size: usize, max_size: usize, _seed: u32| {
             // }
         }
         6 => {
-            if !pattern.is_empty() {
-                let pos = (_seed as usize) % pattern.len();
-                if let Some(ch) = pattern.chars().nth(pos) {
+            if !chars.is_empty() {
+                let pos = (seed as usize) % chars.len();
+                if let Some(&ch) = chars.get(pos) {
+                    let cur_bytes = chars_byte_len(&chars);
                     if ".+*?^${}[]|()\\".contains(ch)
-                        && pattern.len() < max_size
+                        && cur_bytes + 1 <= max_size
                     {
-                        pattern.insert(pos, '\\');
+                        chars.insert(pos, '\\');
                     }
                 }
             }
         }
         7 => {
             let unicode_classes = ["\\p{L}", "\\p{N}", "\\p{P}", "\\p{Greek}"];
-            let class =
-                unicode_classes[(_seed as usize) % unicode_classes.len()];
-            if pattern.len() < max_size - class.len() {
-                let pos = if pattern.is_empty() {
+            let class = unicode_classes[(seed as usize) % unicode_classes.len()];
+            let cur_bytes = chars_byte_len(&chars);
+            if cur_bytes + class.len() <= max_size {
+                let pos = if chars.is_empty() {
                     0
                 } else {
-                    (_seed as usize) % pattern.len()
+                    (seed as usize) % chars.len()
                 };
-                pattern.insert_str(pos, class);
+                chars.splice(pos..pos, class.chars());
             }
         }
         8 => {
-            // FIXME:rust正则引擎不支持反向引用，因为反向引用需要回溯，无法保证线性时间复杂度
+            // FIXME:反向引用
             // if !pattern.is_empty() && pattern.contains('(') {
             //     let backrefs = ["\\1", "\\2", "\\3"];
             //     let backref = backrefs[(_seed as usize) % backrefs.len()];
@@ -192,7 +320,7 @@ fuzz_mutator!(|data: &mut [u8], size: usize, max_size: usize, _seed: u32| {
             // }
         }
         9 => {
-            // FIXME:rust正则引擎不支持look-around,look-ahead,look-behind，因为性能要求限制
+            // FIXME:look-around,look-ahead,look-behind
             // let assertions = ["(?=\\w)", "(?!\\d)", "(?<=\\s)", "(?<!\\W)"];
             // let assertion = assertions[(_seed as usize) % assertions.len()];
             // if pattern.len() < max_size - assertion.len() {
@@ -205,58 +333,62 @@ fuzz_mutator!(|data: &mut [u8], size: usize, max_size: usize, _seed: u32| {
             // }
         }
         10 => {
-            if !pattern.is_empty() && pattern.len() < max_size - 4 {
-                let pos = (_seed as usize) % pattern.len();
-                pattern.insert_str(pos, "(?:");
-                if pos + 3 < pattern.len() {
-                    pattern.insert(pos + 3, ')');
-                } else {
-                    pattern.push(')');
-                }
+            let cur_bytes = chars_byte_len(&chars);
+            if !chars.is_empty() && cur_bytes + 4 <= max_size {
+                let pos = (seed as usize) % chars.len();
+                chars.splice(pos..pos, "(?:".chars());
+                let insert_pos = (pos + 3).min(chars.len());
+                chars.insert(insert_pos, ')');
             }
         }
         11 => {
-            // "[\\w&&[^\\d]]包括Unicode字符,另外两种包含&&容易在regex-automata中状态爆炸导致oom或者timeout
-            // let classes = ["[a-z&&[^aeiou]]", "[\\w&&[^\\d]]", "[a-z&&[^xyz]]"];
-            let classes = ["[b-df-hj-np-tv-z]", "[a-w]"];
-            let class = classes[(_seed as usize) % classes.len()];
-            if pattern.len() < max_size - class.len() {
-                let pos = if pattern.is_empty() {
+            // TODO:包含&&容易在regex-automata中状态爆炸导致oom或者timeout，待优化处理
+            // let classes = ["[a-z&&[^aeiou]]", "[a-z&&[^xyz]]", "[\\w&&[^\\d]]"];
+            let classes = ["[b-df-hj-np-tv-z]", "[a-w]", "[A-Za-z_]"];
+            let class = classes[(seed as usize) % classes.len()];
+            let cur_bytes = chars_byte_len(&chars);
+            if cur_bytes + class.len() <= max_size {
+                let pos = if chars.is_empty() {
                     0
                 } else {
-                    (_seed as usize) % pattern.len()
+                    (seed as usize) % chars.len()
                 };
-                pattern.insert_str(pos, class);
+                chars.splice(pos..pos, class.chars());
             }
         }
         12 => {
-            if !pattern.is_empty() {
-                let pos = (_seed as usize) % pattern.len();
-                pattern.remove(pos);
+            if !chars.is_empty() {
+                let pos = (seed as usize) % chars.len();
+                chars.remove(pos);
             }
         }
         13 => {
-            if !pattern.is_empty() {
-                let start = (_seed as usize) % pattern.len();
-                let max_len = (pattern.len() - start).max(1);
-                let len = (((_seed >> 8) as usize) % max_len) + 1;
-                let end = (start + len).min(pattern.len());
-                pattern.drain(start..end);
+            if !chars.is_empty() {
+                let start = (seed as usize) % chars.len();
+                let max_len = (chars.len() - start).max(1);
+                let len = (((seed >> 8) as usize) % max_len) + 1;
+                let end = (start + len).min(chars.len());
+                chars.drain(start..end);
             }
         }
         14 => {
-            if !pattern.is_empty() && pattern.len() < max_size {
-                let start = (_seed as usize) % pattern.len();
-                let max_len = (pattern.len() - start).max(1);
-                let len = (((_seed >> 8) as usize) % max_len) + 1;
-                let end = (start + len).min(pattern.len());
+            let mut cur_bytes = chars_byte_len(&chars);
+            if !chars.is_empty() && cur_bytes < max_size {
+                let start = (seed as usize) % chars.len();
+                let max_len = (chars.len() - start).max(1);
+                let len = (((seed >> 8) as usize) % max_len) + 1;
+                let end = (start + len).min(chars.len());
 
-                let substring = pattern[start..end].to_string();
-                let repeat_count = ((_seed >> 16) % 3) + 1;
+                let sub_chars: Vec<char> = chars[start..end].to_vec();
+                let sub_bytes = chars_byte_len(&sub_chars);
+                let repeat_count = ((seed >> 16) % 3) + 1;
 
+                let mut insert_at = end;
                 for _ in 0..repeat_count {
-                    if pattern.len() + substring.len() < max_size {
-                        pattern.insert_str(end, &substring);
+                    if cur_bytes + sub_bytes <= max_size {
+                        chars.splice(insert_at..insert_at, sub_chars.iter().cloned());
+                        insert_at += sub_chars.len();
+                        cur_bytes += sub_bytes;
                     } else {
                         break;
                     }
@@ -264,19 +396,21 @@ fuzz_mutator!(|data: &mut [u8], size: usize, max_size: usize, _seed: u32| {
             }
         }
         _ => {
-            if !pattern.is_empty() {
-                let pos = (_seed as usize) % pattern.len();
+            if !chars.is_empty() {
+                let pos = (seed as usize) % chars.len();
                 let replacements = [
                     'a', '1', '.', '*', '|', '(', ')', '[', ']', '\\', '{',
                     '}', '-', '^', '$',
                 ];
                 let replacement =
-                    replacements[(_seed as usize) % replacements.len()];
-                pattern.replace_range(pos..pos + 1, &replacement.to_string());
+                    replacements[(seed as usize) % replacements.len()];
+                chars[pos] = replacement;
             }
         }
     }
 
+    let mut pattern: String = chars.iter().collect();
+    truncate_to_max_bytes(&mut pattern, max_size);
     let bytes = pattern.as_bytes();
     let copy_len = std::cmp::min(bytes.len(), max_size);
     data[..copy_len].copy_from_slice(&bytes[..copy_len]);
@@ -314,12 +448,12 @@ fuzz_target!(|data: &[u8]| {
             return;
         } // Invalid pattern, skip this input
     };
-
+    let hasUnicode=has_unicode(&pattern);
     // 1. Differential Testing
     // Check if the pattern behaves consistently across different regex libraries
     // return Err if any inconsistency is found
     let manager = RegexLibManager::new();
-    if let Err(e) = validate_pattern(&manager, &pattern, &ast) {
+    if let Err(e) = validate_pattern(&manager, &pattern, &ast, hasUnicode) {
         match e {
             ComparisonError::PreCheckFailed { .. }
             | ComparisonError::TestStringsGenerationFailed { .. } => {

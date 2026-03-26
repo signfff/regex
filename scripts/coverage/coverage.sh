@@ -28,10 +28,10 @@
 # 带有循环的覆盖率处理
 LLVM_PROFDATA="$(rustc --print sysroot)/lib/rustlib/x86_64-unknown-linux-gnu/bin/llvm-profdata"
 LLVM_COV="$(rustc --print sysroot)/lib/rustlib/x86_64-unknown-linux-gnu/bin/llvm-cov"
-
-COVERAGE_PROFDATA_DIR="/home/lxy/regex_fuzzing/coverage_data/init_corpus"
+# TODO:每次修改这个路径
+COVERAGE_PROFDATA_DIR="/home/lxy/regex_fuzzing/coverage_data/0317"
 mkdir -p "$COVERAGE_PROFDATA_DIR"
-for hour in {1..1}; do
+for hour in {1..2}; do
   PROF_DIR="$COVERAGE_PROFDATA_DIR/HOUR$hour"
   TARGET_DIR="/home/lxy/regex_fuzzing/regex/fuzz/target/x86_64-unknown-linux-gnu/release"
   $LLVM_PROFDATA merge -sparse "$PROF_DIR"/*.profraw -o "$COVERAGE_PROFDATA_DIR/HOUR$hour.profdata"
